@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "value": "Student"
+    },
+    "adminPassword": {
+      "value": "Pa55w.rd1234"
+    },
+    "domainName": {
+      "value": "contoso.com"
+    },
+    "vmSize": {
+      "value": "Standard_D2s_v3"
+    },
+    "_artifactsLocation": {
+      "value": "[deployment().properties.templateLink.uri]"
+    },
+    "_artifactsLocationSasToken": {
+      "value": null
+    },
+    "location": {
+      "value": "[resourceGroup().location]"
+    },
+    "virtualMachineName": {
+      "value": "az801l06a-dc1"
+    },
+    "virtualNetworkName": {
+      "value": "az801l06a-vnet"
+    },
+    "virtualNetworkAddressRange": {
+      "value": "10.6.0.0/16"
+    },
+    "networkInterfaceName": {
+      "value": "az801l06a-dc1-nic1"
+    },
+    "privateIPAddress": {
+      "value": "10.6.0.4"
+    },
+    "subnetName": {
+      "value": "adSubnet"
+    },
+    "subnetRange": {
+      "value": "10.6.0.0/24"
+    },
+    "availabilitySetName": {
+      "value": "adAvailabiltySet"
+    }
+  }
+}
