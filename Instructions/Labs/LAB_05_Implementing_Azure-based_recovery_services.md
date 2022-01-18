@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: 'Lab: Implementing Azure-based recovery services'
     module: 'Module 5: Planning and implementing migration and recovery services in hybrid scenarios'
