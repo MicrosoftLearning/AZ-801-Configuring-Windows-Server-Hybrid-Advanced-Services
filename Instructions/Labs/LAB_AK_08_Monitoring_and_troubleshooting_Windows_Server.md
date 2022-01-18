@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: 'Lab: Monitoring and troubleshooting Windows Server'
     type: 'Answer Key'
