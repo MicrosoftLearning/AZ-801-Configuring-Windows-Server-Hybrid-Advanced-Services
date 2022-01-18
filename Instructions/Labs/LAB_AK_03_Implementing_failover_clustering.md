@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: 'Lab: Implementing failover clustering'
     type: 'Answer Key'
