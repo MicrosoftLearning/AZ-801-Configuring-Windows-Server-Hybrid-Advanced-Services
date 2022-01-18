@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: 'Lab: Configuring security in Windows Server'
     module: 'Module 1: Windows Server security'
