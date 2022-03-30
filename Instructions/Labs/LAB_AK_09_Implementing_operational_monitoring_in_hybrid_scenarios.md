@@ -90,6 +90,8 @@ lab:
 
    > **Note**: Wait until the installation completes. This should take about 2 minutes.
 
+   > **Note**: Upon completing the installation of Windows Admin Center, you may receive the error ERR_CONNECTION_REFUSED. If this happens, restart SEA-SVR2 before proceeding.
+
 1. On **SEA-SVR2**, start Microsoft Edge, and then browse to **https://SEA-SVR2.contoso.com**. 
 1. If prompted, in the **Windows Security** dialog box, enter the following credentials, and then select **OK**:
 
@@ -121,7 +123,7 @@ lab:
    | Settings | Value |
    | --- | --- |
    | Subscription | the name of the Azure subscription you are using in this lab |
-   | Resource group | **AZ801-L0901-RG** |
+   | Resource group | **AZ801-L0902-RG** |
    | Resource group Region | the name of the Azure region into which you deployed the virtual machine in the previous exercise |
    | Log Analytics Workspace | the name of the workspace you created in the previous exercise |
    | Enable Azure Arc | selected |
@@ -191,7 +193,7 @@ lab:
 
    >**Note**: This setting provides the Azure VM Insights functionality. VM Insights is an Azure Monitor solution that facilitates monitoring performance and health of both Azure VMs and on-premises computers running Windows or Linux.
 
-1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Monitor**, and then, on the **Monitor \| Overview** page, under **Insights**, select **Virtual Machines**.
+1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Monitor**, and then, on the **Monitor \| Overview** page, under **Insights**, select **VM insights**.
 1. On the **Monitor \| Virtual Machines** page, select the **Performance** tab, and then select **Upgrade**.
 1. In the **Upgrade** pane, select **Upgrade**.
 1. On the **Monitor \| Virtual Machines** page, select the **Map** tab, and then select **Try now**.
@@ -228,7 +230,7 @@ lab:
    | Aggregation granularity (Period) | **1 minute** |
    | Frequency of evaluation | **Every 1 Minute** |
 
-1. On the **Create an alert rule** page, on the **Actions** tab, select **Add action groups**, and then select the **+ Create action group** button.
+1. On the **Create an alert rule** page, on the **Actions** tab, select the **+ Create action group** button.
 1. On the **Basics** tab of the **Create an action group** page, specify the following settings (leave others with their default values), and then select **Next: Notifications >**:
 
    | Settings | Value |
