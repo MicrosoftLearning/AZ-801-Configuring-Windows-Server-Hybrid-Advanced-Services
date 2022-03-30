@@ -127,6 +127,8 @@ The main tasks for this exercise are to:
 
    > **Note**: Wait until the installation completes. This should take about 2 minutes.
 
+   > **Note** Upon completing the installation of Windows Admin Center, you may receive the error ERR_CONNECTION_REFUSED. If this happens, restart SEA-SVR2 before proceeding.
+
 1. On **SEA-ADM1**, start Microsoft Edge and connect to the local instance of Windows Admin Center at **https://SEA-ADM1.contoso.com**. 
 1. If prompted, in the **Windows Security** dialog box, enter the following credentials, and then select **OK**:
 
@@ -143,7 +145,7 @@ The main tasks for this exercise are to:
    | Settings | Value |
    | --- | --- |
    | Subscription | the name of the Azure subscription you are using in this lab |
-   | Resource group | **AZ801-L0901-RG** |
+   | Resource group | **AZ801-L0902-RG** |
    | Resource group Region | the name of the Azure region into which you deployed the virtual machine in the previous exercise |
    | Log Analytics Workspace | the name of the workspace you created in the previous exercise |
    | Enable Azure Arc | selected |
