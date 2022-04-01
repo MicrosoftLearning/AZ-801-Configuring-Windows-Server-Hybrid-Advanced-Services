@@ -210,7 +210,7 @@ lab:
 1. On **SEA-SVR2**, open File Explorer and browse to the **\\\\FSCluster\\Docs** folder.
 1. Inside the **Docs** folder, right-click or access the context menu in an empty area of the folder, select **New**, and then select **Text Document**.
 1. To accept the default name of the document as **New Text Document.txt**, press Enter.
-1. On **SEA-SVR2**, switch to the **Failover Cluster Manager** console, right-click or access the context menu for **FSCluster**, select **Move**, select **Select Node**, and then select **OK**.
+1. On **SEA-SVR2**, switch to the **Failover Cluster Manager** console, right-click or access the context menu for **FSCluster**, select **Move**, select **Select Node**, select **SEA-SVR2**, and then select **OK**.
 1. On **SEA-SVR2**, switch back to File Explorer and verify that you can still access the content of the **\\\\FSCluster\\Docs** folder.
 
 #### Task 2: Validate the failover and quorum configuration for the File Server role
