@@ -255,7 +255,10 @@ The main tasks for this exercise are as follows:
 
    >**Note**: Wait for the download to complete. This might take about 5 minutes.
 
-1. Once the download completes, extract the content of the downloaded .ZIP file into the **F:\VMs** folder. 
+1. Once the download completes, extract the content of the downloaded .ZIP file into the **F:\VMs** folder.
+
+   >**Note**: As Microsoft Edge doesn't prompt by default, you may need to manually copy the .VHD file to the F:\VMs folder.
+
 1. Within the Remote Desktop session to **az801l07a-hv-vm**, use the **Hyper-V Manager** console to import the virtual machine, of which you copied the VM files, into the **F:\VMs** folder. Use the **Register the virtual machine in-place (use the existing unique ID)** option, set the **Number of virtual processors** to **4**, and then connect it to **NestedSwitch**.
 
    >**Note**: In a lab environment, you can ignore any error messages referring to the change of the number of virtual processors. In production scenarios, you should ensure that the virtual appliance has the sufficient number of compute resources assigned to it.
