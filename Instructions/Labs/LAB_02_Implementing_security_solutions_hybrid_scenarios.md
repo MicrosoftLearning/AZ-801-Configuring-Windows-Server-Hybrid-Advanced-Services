@@ -214,7 +214,7 @@ In this task, you will perform manual installation of the Log Analytics agent.
 
 In this task, you will perform unattended installation of the Log Analytics agent.
 
-1. On **SEA-ADM1**, start **Windows PowerShell** as administrator.
+1. On **SEA-SVR2**, start **Windows PowerShell** as administrator.
 1. To extract the content of the **MMASetup-AMD64.exe** file, in the **Windows PowerShell** console, run the following commands:
 	
    ```powershell
