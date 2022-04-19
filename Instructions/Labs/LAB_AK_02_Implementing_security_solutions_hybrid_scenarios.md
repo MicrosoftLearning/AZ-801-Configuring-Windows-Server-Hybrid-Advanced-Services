@@ -77,8 +77,6 @@ lab:
 1. Back on the **Settings \| Auto provisioning** page, set **Log Analytics agent for Azure Arc Machine (preview)** to **On**. This will automatically display the **Extension deployment configuration** page. 
 1. On the **Extension deployment configuration** page, in the **Choose a Log Analytics workspace** drop-down list, select the entry representing the workspace you created in the previous exercise, and then select **Apply**.
 1. Back on the **Settings \| Auto provisioning** page, set **Vulnerability assessment for machines** to **On**. In the **Extension deployment configuration** page, ensure that the **Microsoft threat and vulnerability management** option is selected, and then select **Apply**.
-1. Back on the **Settings \| Auto provisioning** page, set **Guest Configuration agent (preview)** to **On**.
-1. On the **Settings \| Auto provisioning** page, set **Microsoft Dependency agent (preview)** to **On**.
 1. Select **Save** at the top of the page.
 1. Browse back to the **Microsoft Defender for Cloud | Overview** page, and then, in the **Management** section of the vertical menu on the left, select **Environment settings**.
 1. On the **Environment settings** page, expand the entry representing your Azure subscription and select the entry representing the Log Analytics workspace you created in the previous exercise.
