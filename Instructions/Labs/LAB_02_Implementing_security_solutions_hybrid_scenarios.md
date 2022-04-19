@@ -126,8 +126,7 @@ In this task, you will enable enhanced security of Defender for Cloud.
    - Enable **Log Analytics agent for Azure VMs** leveraging the Log Analytics workspace you created in the previous exercise.
    - Enable **Log Analytics agent for Azure Arc Machine (preview)** leveraging the Log Analytics workspace you created in the previous exercise.
    - Enable **Vulnerability assessment for machines** with the **Microsoft threat and vulnerability management** option.
-   - Enable **Guest Configuration agent (preview)**.
-   - Enable **Microsoft Dependency agent (preview)**.
+
 
 1. Browse to the **Cloud Environment settings** page in Defender for Cloud.
 1. On the **Environment settings** page, expand the entry representing your Azure subscription and review the entry representing the Log Analytics workspace you created in the previous exercise.
