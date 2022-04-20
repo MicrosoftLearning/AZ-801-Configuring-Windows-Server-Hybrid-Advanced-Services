@@ -90,7 +90,7 @@ The main tasks for this exercise are to:
    | Admin Username | **Student** |
    | Admin Password | **Pa55w.rd1234** |
    | Domain name | **contoso.com** |
-   | Vm Size | **Standard D2s v3** |
+   | Vm Size | **Standard_DS2_v2** |
    | Virtual Machine Name | **az801l06a-dc1** |
    | Virtual Network Name | **az801l06a-vnet** |
    | Virtual Network Address Range | **10.6.0.0/16** |
