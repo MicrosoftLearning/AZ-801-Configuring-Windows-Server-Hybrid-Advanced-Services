@@ -12,7 +12,7 @@
       "value": "contoso.com"
     },
     "vmSize": {
-      "value": "Standard_D2s_v3"
+      "value": "Standard_DS2_v2"
     },
     "_artifactsLocation": {
       "value": "[deployment().properties.templateLink.uri]"
