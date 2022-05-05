@@ -16,17 +16,17 @@ lab:
 1. Connect to **SEA-SVR2** and, if needed, sign in as **CONTOSO\\Administrator** with the password **Pa55w.rd**.
 1. In the **Type here to search** text box next to the **Start** button, enter **Group Policy Management**.
 1. In the list of results, select **Group Policy Management**.
-1. In the **Group Policy Management Console**, expand **Forest: Contoso.com**, expand **Domains**, expand **Contoso.com**, right-click or access the **context** menu for the **IT** Organizational Unit (OU), and then select **Create a GPO in this domain, and Link it here**.
+1. In the **Group Policy Management** console, expand **Forest: contoso.com**, expand **Domains**, expand **contoso.com**, right-click or access the **context** menu for the **IT** Organizational Unit (OU), and then select **Create a GPO in this domain, and Link it here**.
 1. In the **New GPO** dialog box, in the **Name** text box, enter **CredentialGuard_GPO**, and then select **OK**.
 1. In the **Group Policy Management** window, under **IT**, right-click or access the **context** menu for **CredentialGuard_GPO**, and then select **Edit**.
-1. In the Group Policy Management Editor, browse to **Computer Configuration\\Policies\\Administrative Templates\\System\\Device Guard**.
+1. In the **Group Policy Management Editor**, browse to **Computer Configuration\\Policies\\Administrative Templates\\System\\Device Guard**.
 1. Select **Turn On Virtualization Based Security**, and then select the **policy setting** link.
 1. In the **Turn On Virtualization Based Security** window, select the **Enabled** option.
 1. In the **Select Platform Security Level** drop-down list, ensure that the **Secure Boot and DMA Protection** entry is selected.
 1. In the **Credential Guard Configuration** drop-down list, select the **Enabled with UEFI lock** entry.
 1. In the **Secure Launch Configuration** drop-down list, select the **Enabled** entry, and then select **OK**.
 1. Close the **Group Policy Management Editor** window.
-1. Close the **Group Policy Management Console** window.
+1. Close the **Group Policy Management** console window.
 
 #### Task 2: Enable Windows Defender Credential Guard using the Hypervisor-Protected Code Integrity (HVCI) and Windows Defender Credential Guard hardware readiness tool
 
@@ -115,7 +115,7 @@ lab:
 
    > **Note**: This is required to connect to **SEA-SVR2** from **SEA-SVR1** later in this lab.
 
-#### Task 2: Prepare Active Directory for LAPS
+#### Task 2: Prepare AD DS for LAPS
 
 1. To prepare the domain for LAPS, on **SEA-SVR2**, at the Windows PowerShell command prompt, enter the following commands, and after each, press Enter:
 
@@ -127,7 +127,7 @@ lab:
 
 1. On **SEA-SVR2**, in the **Type here to search** text box next to the **Start** button, enter **Group Policy Management**.
 1. In the list of results, select **Group Policy Management**.
-1. In the **Group Policy Management Console**, expand **Forest: Contoso.com**, expand **Domains**, expand **Contoso.com**, right-click or access the **context** menu for the **Seattle_Servers** OU, and then select **Create a GPO in this domain, and Link it here**.
+1. In the **Group Policy Management** console, expand **Forest: contoso.com**, expand **Domains**, expand **contoso.com**, right-click or access the **context** menu for the **Seattle_Servers** OU, and then select **Create a GPO in this domain, and Link it here**.
 1. In the **New GPO** dialog box, in the **Name** text box, enter **LAPS_GPO**, and then select **OK**.
 1. In the **Group Policy Management** window, under **Seattle_Servers**, right-click or access the **context** menu for **LAPS_GPO**, and then select **Edit**.
 1. In the **Group Policy Management Editor** window, under **Computer Configuration**, expand the **Policies** node, expand the **Administrative Templates** node, and then select **LAPS**.
@@ -161,7 +161,7 @@ lab:
 
 1. Switch to the console session to **SEA-SVR2**.
 1. Select **Start**. In the **Start** menu, select **LAPS**, and then select **LAPS UI**.
-1. In the **LAPS UI** dialog box, in the **ComputerName** text box, enter **SEA-SVR1**, and then select **Search**.
+1. In the **LAPS UI** dialog box, in the **Computer name** text box, enter **SEA-SVR1**, and then select **Search**.
 1. Review the **Password** and the **Password expires** values, and then select **Exit**.
 1. Switch to the **Windows PowerShell** console and then, to verify the value of the password, at the Windows PowerShell command prompt, enter the following command and press Enter:
 
