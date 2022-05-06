@@ -133,7 +133,7 @@ lab:
    Format-Volume -DriveLetter G -FileSystem NTFS
    ```
 
-   > **Note:** Verify that each command completed successfully.
+   > **Note:** Verify the disk numbers match the previous command output before running the commands. Verify that each command completed successfully.
 
 #### Task 3: Create a failover cluster
 
