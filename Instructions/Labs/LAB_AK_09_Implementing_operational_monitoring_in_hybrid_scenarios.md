@@ -194,8 +194,7 @@ lab:
    >**Note**: This setting provides the Azure VM Insights functionality. VM Insights is an Azure Monitor solution that facilitates monitoring performance and health of both Azure VMs and on-premises computers running Windows or Linux.
 
 1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Monitor**, and then, on the **Monitor \| Overview** page, under **Insights**, select **VM insights**.
-1. On the **Monitor \| Virtual Machines** page, select the **Performance** tab, and then select **Upgrade**.
-1. In the **Upgrade** pane, select **Upgrade**.
+1. On the **Monitor \| Virtual Machines** page, select the **Performance** tab, and then select **Try now**.
 1. On the **Monitor \| Virtual Machines** page, select the **Map** tab, and then select **Try now**.
 1. On the **Manage Coverage** page, select **Configure Workspace**.
 1. On the **Azure Monitor** page, from the **Choose a Log Analytics Workspace** drop-down menu, select the workspace you created earlier in this lab, and then select **Configure**.
