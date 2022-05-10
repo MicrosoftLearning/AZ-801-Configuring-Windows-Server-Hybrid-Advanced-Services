@@ -35,7 +35,7 @@ lab:
 
    > **Note:** This will automatically display the **az801l05a-rsvault** page.
 
-1. On the **az801l05a`-rsvault** page, on the vertical menu on the left side, in the **Settings** section, select **Properties**. 
+1. On the **az801l05a-rsvault** page, on the vertical menu on the left side, in the **Settings** section, select **Properties**. 
 1. On the **az801l05a-rsvault | Properties** page, select the **Update** link under the **Backup Configuration** label.
 1. On the **Backup Configuration** page, set **Storage replication type** to **Locally-redundant**, select **Save** and close the **Backup Configuration** page.
 
@@ -113,12 +113,12 @@ lab:
 #### Task 2: Prepare protection of a Hyper-V virtual machine
 
 1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, use the **Search resources, services, and docs** text box in the toolbar to search for and select **Recovery Services vaults**, and on the **Recovery Services vaults** page, select the **az801l05a-rsvault** entry.
-1. On the **az801l05a-rsvault** page, on the vertical menu on the left side, in the **Getting started** section, select **Site Recovery**
+1. On the **az801l05a-rsvault** page, on the vertical menu on the left side, in the **Getting started** section, select **Site Recovery**.
 1. On the **az801l05a-rsvault \| Site Recovery** page, in the **Hyper-V machines to Azure** section, select **1. Prepare infrastructure**. 
 1. On the **Deployment planning** tab of the **Prepare infrastructure** page, in the **Deployment planning completed?** drop-down list, select **Yes, I have done it** and select **Next**.
 1. On the **Source settings** tab of the **Prepare infrastructure** page, next to the **Are you Using System Center VMM to manage Hyper-V hosts** label, select the **No** option.
 1. On the **Source settings** tab of the **Prepare infrastructure** page, select the **Add Hyper-V site** link. 
-1. On the **Create Hyper-V Site** page, in the **Name** text box, enter **az801l05-site** and select **OK**:
+1. On the **Create Hyper-V Site** page, in the **Name** text box, enter **az801l05-site** and select **OK**.
 1. On the **Source settings** tab of the **Prepare infrastructure** page, select the **Add Hyper-V server** link. 
 1. On the **Add Server** page, select the **Download** link in step 3 of the procedure for adding on-premises Hyper-V hosts in order to download the installer for Microsoft Azure Site Recovery Provider.
 
@@ -231,7 +231,7 @@ Verify that the **Hyper-V site** and **Hyper-V servers** settings are set correc
 
 1. On **SEA-SVR2**, select **Start**, and on the **Start** menu, select the **Settings** app.
 1. In the **Settings** app, select **Apps**.
-1. In the Apps & features pane, select **Microsoft Azure Recovery Services Agent**, select **Uninstall**, and follow the prompts to uninstall it.
+1. In the **Apps & features** pane, select **Microsoft Azure Recovery Services Agent**, select **Uninstall**, and follow the prompts to uninstall it.
    > **Note:** If you are getting an error message that says the installation has failed, then restart the VM and try again. 
 1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, on the **az801l05a-rsvault** Recovery Services vault page, on the vertical menu on the left side, in the **Getting started** section, select **Backup**.
 1. On the **az801l05a-rsvault \|Backup** page, specify the following settings:
@@ -270,7 +270,7 @@ Verify that the **Hyper-V site** and **Hyper-V servers** settings are set correc
 1. On **SEA-SVR2**, in the **Microsoft Azure Backup** console, in the Actions pane, select **Schedule Backup**.
 1. In the **Schedule Backup Wizard**, on the **Getting started** page, select **Next**.
 1. On the **Select Items to Backup** page, select **Add Items**.
-1. In the **Select Items** dialog box, browse to the **C:\\Windows\\System32\\drivers\\etc\\** folder, select **hosts**, and then select **OK**:
+1. In the **Select Items** dialog box, browse to the **C:\\Windows\\System32\\drivers\\etc\\** folder, select **hosts**, and then select **OK**.
 1. On the **Select Items to Backup** page, select **Next**.
 1. On the **Specify Backup Schedule** page, ensure that the **Day** option is selected, in the first drop-down list box below the **At following times (Maximum allowed is three times a day)** box, select **4:30 AM**, and then select **Next**.
 1. On the **Select Retention Policy** page, accept the defaults, and then select **Next**.
