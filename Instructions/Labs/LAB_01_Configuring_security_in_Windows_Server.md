@@ -52,7 +52,7 @@ The main tasks for this exercise are to:
 
 #### Task 1: Enable Windows Defender Credential Guard using Group Policy
 
-1. On *SEA-SVR2** open the **Group Policy Management** console.
+1. On **SEA-SVR2**, open the **Group Policy Management** console.
 1. In the **Group Policy Management** console, browse through **Forest: contoso.com**, **Domains**, **contoso.com**, and then create a Group Policy Object (GPO) named **CredentialGuard_GPO** linked to the **IT** organizational unit (OU).
 1. Open **CredentialGuard_GPO** in the Group Policy Management Editor and browse to the **Computer Configuration\\Policies\\Administrative Templates\\System\\Device Guard** node.
 1. Enable the **Turn On Virtualization Based Security** option with the following settings:
