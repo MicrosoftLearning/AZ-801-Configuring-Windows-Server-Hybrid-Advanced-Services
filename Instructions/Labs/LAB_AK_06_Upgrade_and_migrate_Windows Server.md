@@ -199,7 +199,7 @@ lab:
 1. To install the AD DS and DNS server roles, at the Windows PowerShell command prompt, enter the following command, and then press Enter:
 	
    ```powershell
-   Install-WindowsFeature -Name AD-Domain-Services,DNS -IncludeManagementFeatures
+   Install-WindowsFeature -Name AD-Domain-Services,DNS -IncludeManagementTools
    ```
 
    > **Note**: Wait for the installation to complete. This might take about 3 minutes.
@@ -217,7 +217,7 @@ lab:
 1. On the **Deployment Configuration** page of **Active Directory Domain Services Configuration Wizard**, under **Select the deployment operation**, verify that **Add a domain controller to an existing domain** is selected.
 1. In the **Domain** text box, enter **contoso.com** domain.
 1. In the **Supply the credentials to perform this operation** section, select **Change**.
-1. In the **Credentials for deployment operation** dialog box, in the **User name** box, enter **CONTOSO\\Student**, in the **Password** box, enter **Pa55w.rd1234**, and then select **OK**. 
+1. In the **Credentials for deployment operation** dialog box, in the **User name** box, enter **Student@contoso.com**, in the **Password** box, enter **Pa55w.rd1234**, and then select **OK**. 
 1. Back on the **Deployment Configuration** page of **Active Directory Domain Services Configuration Wizard**, select **Next**.
 1. On the **Domain Controller Options** page, ensure that the **Domain Name System (DNS) server** and **Global Catalog (GC)** checkboxes are selected. Ensure that the **Read-only domain controller (RODC)** checkbox is cleared.
 1. In the **Type the Directory Services Restore Mode (DSRM) password** section, enter and confirm the password **Pa55w.rd1234**, and then select **Next**.
