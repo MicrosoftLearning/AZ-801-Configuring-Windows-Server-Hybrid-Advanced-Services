@@ -354,7 +354,7 @@ The main tasks for this exercise are to:
 1. On the **Cut over to the new servers** tab, in the **Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com** pane, in the **Destination network adapters** drop-down list, select **Seattle**.
 1. On the **Cut over to the new servers** tab, in the **Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com** pane, in the **Rename the source device after cutover** section, select the option **Choose a new name**, and then in the **New source computer name** dialog box enter **SEA-SVR1-OLD**.
 1. On the **Cut over to the new servers** tab, in the **Adjust cutover settings** pane, in the **Cutover timeout (minutes)** text box, enter **30**, and then, in the **Enter AD credentials** section, leave the **Stored credentials** option enabled.
-1. On the **Cut over to the new servers** tab, in the **Validate source and destination device** pane, initiate validation.
+1. On the **Cut over to the new servers** tab, in the **Validate source and destination devices** pane, initiate validation.
 1. After the validation completes successfully, on the **Cut over to the new servers** tab, start the cutover stage.
 
    >**Note:** The cutover will trigger two consecutive restarts of both **SEA-SVR1** and **SEA-SVR2**.
