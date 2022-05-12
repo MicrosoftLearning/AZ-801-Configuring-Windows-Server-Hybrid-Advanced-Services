@@ -126,7 +126,7 @@ lab:
    | Region | select the same Azure region into which you deployed the first virtual machine earlier in this exercise |
    | Availability options | **Availability set** |
    | Availability set | **adAvailabilitySet** |
-   | Image | **Windows Server 2022 Datacenter - Gen2** |
+   | Image | **Windows Server 2022 Datacenter: Azure Edition - Gen2** |
    | Azure Spot instance | **No** |
    | Size | **Standard D2s v3** |
    | Username | **Student** |
@@ -174,7 +174,7 @@ lab:
 
 #### Task 4: Manually promote a domain controller in an Azure VM
 
-1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, on the deployment page, select **Go to resource**. '
+1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, on the deployment page, select **Go to resource**.
 1. On the **az801l06a-dc2** page, on the vertical menu of the left side, in the **Settings** section, select **Networking**.
 1. On the **az801l06a-dc2 \| Networking** page, select the link to the network interface of the **az801l06a-dc2** virtual machine.
 1. On the network interface page, on the vertical menu of the left side, in the **Settings** section, select **IP Configurations**.
@@ -319,7 +319,7 @@ lab:
 1. In the **Storage Migration Service** pane, scroll down to the bottom of the page and select **+ New job**.
 1. In the **New job** pane, in the **Job name** text box, enter **SVR1toSVR2**, ensure that the **Windows servers and clusters** **Source devices** option is selected, and select **OK**.
 1. In the **Storage Migration Service > SVR1toSVR2** pane, on the **Inventory servers** tab, review the **Check the prerequisites** pane and select **Next**.
-1. On the **Inventory servers** tab, in the **Enter credentials** pane, if necessary, enter the credentials of the **CONTOSO\\Administrator** user account, clear the **Migrate from failover clusters**checkbox, and then select **Next**.
+1. On the **Inventory servers** tab, in the **Enter credentials** pane, if necessary, enter the credentials of the **CONTOSO\\Administrator** user account, clear the **Migrate from failover clusters** checkbox, and then select **Next**.
 1. On the **Inventory servers** tab, in the **Install required features** pane, select **Next**.
 1. On the **Inventory servers** tab, in the **Add and scan devices** pane, select **+ Add a device**.
 1. On the **Add source device**, ensure that the **Device name** option is selected, in the **Name** text box, enter **SEA-SVR1.contoso.com**, and then select **Add**.
@@ -359,7 +359,7 @@ lab:
    | Delay between retries (seconds) | **60** |
 
 1. On the **Transfer data** tab, in the **Install required features** pane, wait for the installation of **SMS-Proxy** on **SEA-SVR2.contoso.com** to complete, and then select **Next**.
-1. On the **Transfer data** tab, in the **Validate source and destination device** pane, select **Validate**, and after the validation successfully completes, select **Next**.
+1. On the **Transfer data** tab, in the **Validate source and destination devices** pane, select **Validate**, and after the validation successfully completes, select **Next**.
 1. On the **Transfer data** tab, in the **Start the transfer** pane, select **Start transfer**, wait until it completes, and then select **Next**.
 
    >**Note:** Wait until the transfer completes successfully. This should take less than 1 minute.
