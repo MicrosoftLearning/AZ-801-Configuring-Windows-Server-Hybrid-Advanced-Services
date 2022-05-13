@@ -376,7 +376,7 @@ lab:
    | Subnet | **255.255.0.0** |
    | Gateway | **172.16.10.1** |
 
-1. On the **Cut over to the new servers** tab, in the **Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com** pane, in the **Destination network adapters** drop-down list, select **Seattle**.
+1. On the **Cut over to the new servers** tab, in the **Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com** pane, in the **Destination network adapters** drop-down list, select **Ethernet**.
 1. On the **Cut over to the new servers** tab, in the **Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com** pane, in the **Rename the source device after cutover** section, select the **Choose a new name** option, in the **New source computer name**<!--text box?-->, enter **SEA-SVR1-OLD**, and then select **Next**.
 1. On the **Cut over to the new servers** tab, in the **Adjust cutover settings** pane, in the **Cutover timeout (minutes)** text box, enter **30**, in the **Enter AD credentials** section, leave the **Stored credentials** option enabled, and then select **Next**.
 1. On the **Cut over to the new servers** tab, in the **Validate source and destination device** pane, select **Validate**, and after the validation successfully completes, select **Next**.
