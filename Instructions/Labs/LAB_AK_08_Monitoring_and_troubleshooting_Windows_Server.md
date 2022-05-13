@@ -92,7 +92,7 @@ lab:
 
    > **Note**: **CPUSTRES64.EXE** is a SysInternals utility that can be used to simulate CPU activity by running up to 64 threads in a loop.
 
-1. In the **CPUSTRESS License Agreement** dialog box, select **Agree**.
+1. In the **CPUSTRES License Agreement** dialog box, select **Agree**.
 1. In the **CPU Stress** dialog box, right-click or access the context menu for the highlighted thread at the top of the list of running threads, select **Activity Level**, and then select **Busy (75%)**.
 
 #### Task 2: Capture performance data by using a data collector set
