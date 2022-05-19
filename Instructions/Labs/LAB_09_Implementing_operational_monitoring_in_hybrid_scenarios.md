@@ -103,56 +103,18 @@ In this task, you will create and configure an Azure Log Analytics workspace and
 
 ## Exercise 2: Configuring monitoring of on-premises servers
 
-The main tasks for this exercise are to:
+The main task for this exercise is to:
 
-1. Register Windows Admin Center with Azure.
-1. Integrate an on-premises Windows Server with Azure Monitor.
+1. Install agent using setup wizard.
 
-#### Task 1: Register Windows Admin Center with Azure
+#### Task 1: Install agent using setup wizard
 
-1. On **SEA-ADM1**, start Windows PowerShell as Administrator.
-
-   >**Note**: Perform the next two steps in case you have not already installed Windows Admin Center on **SEA-ADM1**.
-
-1. In the **Windows PowerShell** console, run the following command to download the latest version of Windows Admin Center:
-	
-   ```powershell
-   Start-BitsTransfer -Source https://aka.ms/WACDownload -Destination "$env:USERPROFILE\Downloads\WindowsAdminCenter.msi"
-   ```
-1. Run the following command to install Windows Admin Center:
-	
-   ```powershell
-   Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
-   ```
-
-   > **Note**: Wait until the installation completes. This should take about 2 minutes.
-
-   > **Note** Upon completing the installation of Windows Admin Center, you may receive the error ERR_CONNECTION_REFUSED. If this happens, restart SEA-SVR2 before proceeding.
-
-1. On **SEA-ADM1**, start Microsoft Edge and connect to the local instance of Windows Admin Center at **https://SEA-ADM1.contoso.com**. 
-1. If prompted, in the **Windows Security** dialog box, enter the following credentials, and then select **OK**:
-
-   - Username: **CONTOSO\\Administrator**
-   - Password: **Pa55w.rd**
-
-1. In Windows Admin Center, browse to the **Settings** page and register Windows Admin Center to the Azure subscription you are using in this lab. 
-
-#### Task 2: Integrate an on-premises Windows Server with Azure Monitor
-
-1. On **SEA-SVR2**, go to the **sea-svr2.contoso.com** page. 
-1. On the **sea-svr2.contoso.com** page, use the **Tools** menu to onboard the local server to **Azure Monitor** with the following settings:
-
-   | Settings | Value |
-   | --- | --- |
-   | Subscription | the name of the Azure subscription you are using in this lab |
-   | Resource group | **AZ801-L0902-RG** |
-   | Resource group Region | the name of the Azure region into which you deployed the virtual machine in the previous exercise |
-   | Log Analytics Workspace | the name of the workspace you created in the previous exercise |
-   | Enable Azure Arc | selected |
-
-   >**Note**: Do not wait for the setup to complete but instead proceed to the next exercise. The setup should take about 3 minutes.
-
-   >**Note**: This process automatically installs the Log Analytics Agent and Dependency Agent.
+1. Download and install the **Download Windows Agent** version.
+1. On the **Agent Setup Options** page, choose to connect the agent to Azure Log Analytics and then select **Next**.
+1. On the **Azure Log Analytics** page, enter the **Workspace ID** and **Workspace Key (Primary Key)**. If the computer should report to a Log Analytics workspace in Azure Government cloud, select **Azure US Government** from the **Azure Cloud** drop-down list.
+1. Select **Next** once you have completed providing the necessary configuration settings.
+1. On the **Ready to Install** page, review your choices and then select **Install**. 
+1. On the **Configuration completed successfully** page, select **Finish**. 
 
 ## Exercise 3: Configuring monitoring of Azure VMs
 
