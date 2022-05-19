@@ -88,7 +88,7 @@ lab:
 
 1. Within the Remote Desktop session to **az801l07a-hv-vm**, in the **Server Manager** window, select **Local Server**, select the **On** link next to the **IE Enhanced Security Configuration** label. In the **IE Enhanced Security Configuration** dialog box, select both **Off** options, and then select **OK**.
 1. From the Remote Desktop session, open File Explorer and browse to the **F:** drive. Create two folders **F:\\VHDs** and **F:\\VMs**. 
-1. Within the Remote Desktop session to **az801l07a-hv-vm**, start Microsoft Edge, complete the initial setup, go to [Windows Server Evaluations](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022), provide the requested information, download the Windows Server 2022 **VHD** file, and copy it to the **F:\VHDs** folder. 
+1. Within the Remote Desktop session to **az801l07a-hv-vm**, start Microsoft Edge, complete the initial setup, go to [Windows Server Evaluations](https://techcommunity.microsoft.com/t5/windows-11/accessing-trials-and-kits-for-windows-eval-center-workaround/m-p/3361125), provide the requested information, download the Windows Server 2022 **VHD** file, and copy it to the **F:\VHDs** folder. 
 1. Within the Remote Desktop session to **az801l07a-hv-vm**, select **Start**, select **Windows Administrative Tools**, and then select **Hyper-V Manager**. 
 1. In the **Hyper-V Manager** console, select the **az801l07a-hv-vm** node. 
 1. Select **New** and then, in the cascading menu, select **Virtual Machine**. This will start the **New Virtual Machine Wizard**. 
@@ -283,7 +283,7 @@ lab:
 
    >**Note**: **10.0.2.1** is the IP address of the network interface of the Hyper-V host attached to the internal switch.
 
-1. On the **Appliance Configuration Manager** page, in the **Provide Hyper-V host/cluster details** section, select **Start discovery**. 
+1. On the **Appliance Configuration Manager** page, in the **Provide Hyper-V host/cluster details** section, enable the toggle button for **Disable the slider if you don’t want to perform these features**, and then select **Start discovery**.
 
    >**Note**: It might take about 15 minutes per host for metadata of discovered servers to appear in the Azure portal.
 
