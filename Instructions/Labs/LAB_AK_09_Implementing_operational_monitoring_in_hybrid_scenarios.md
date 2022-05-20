@@ -276,8 +276,8 @@ lab:
    | render timechart
    ```
 
-1. Select **Queries** in the toolbar, in the **Queries** pane, expand the **Availability** node, select **Track VM availability** tile, select the **Run** button, and review the results.
-1. On the **New Query 1** tab, select the **Tables** header, and review the list of tables in the **Virtual machines** section.
+1. Select **Queries** in the toolbar, in the **Queries** pane, expand the **Virtual Machines** node, select **Track VM availability** tile, select the **Run** button, and review the results.
+1. On the **New Query 1** tab, select the **Tables** header, and review the list of tables in the **Azure Monitor for VMs** section.
 
    >**Note**: The names of several tables correspond to the solutions you installed earlier in this lab. In particular, **InsightMetrics** is used by Azure VM Insights to store performance metrics.
 
