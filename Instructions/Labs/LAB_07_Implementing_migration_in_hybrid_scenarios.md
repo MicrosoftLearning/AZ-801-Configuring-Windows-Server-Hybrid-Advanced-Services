@@ -124,7 +124,7 @@ The main tasks for this exercise are as follows:
 
 1. Within the Remote Desktop session to **az801l07a-hv-vm**, in the **Server Manager** window, disable **IE Enhanced Security Configuration**.
 1. Use File Explorer to create two folders **F:\\VHDs** and **F:\\VMs**.
-1. Use Microsoft Edge to download the Windows Server 2022 **VHD** file from [Windows Server Evaluations](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) and copy it to the **F:\VHDs** folder. 
+1. Use Microsoft Edge to download the Windows Server 2022 **VHD** file from [Windows Server Evaluations](https://techcommunity.microsoft.com/t5/windows-11/accessing-trials-and-kits-for-windows-eval-center-workaround/m-p/3361125) and copy it to the **F:\VHDs** folder. 
 1. Use **Hyper-V Manager** to create a new virtual machine with the following settings:
 
    | Setting | Value | 
