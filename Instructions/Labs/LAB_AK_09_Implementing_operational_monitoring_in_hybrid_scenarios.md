@@ -69,21 +69,23 @@ lab:
 
    >**Note**: Wait for the deployment to complete. The deployment should take about 1 minute.
 
+1. In the Azure portal, navigate to the blade of the newly provisioned workspace.
+1. On the workspace blade, navigate to the **Agents management** blade and record the values of the **Workspace ID** and **Primary key**. You will need them in the next exercise.
+
 ## Exercise 2: Configuring monitoring of on-premises servers
 
-#### Task 1: Install agent using setup wizard
+#### Task 1: Install the Log Analytics agent
 
-1. In your Log Analytics workspace, from the **Windows Servers** page, select the appropriate **Download Windows Agent** version to download depending on the processor architecture of the Windows operating system.
-1. Run Setup to install the agent on your computer.
+1. While connected to the console session on **SEA-SVR2**, in the browser window displaying the Azure portal, on the **Agents management** blade, select the **Download Windows Agent (64 bit) link to download the 64-bit Windows Log Analytics agent. 
+1. Once the download of the agent installer is completed, click the downloaded file to start the setup wizard. 
 1. On the **Welcome** page, select **Next**.
 1. On the **License Terms** page, read the license and then select **I Agree**.
 1. On the **Destination Folder** page, change or keep the default installation folder and then select **Next**.
 1. On the **Agent Setup Options** page, choose to connect the agent to Azure Log Analytics and then select **Next**.
-1. On the **Azure Log Analytics** page, enter the **Workspace ID** and **Workspace Key (Primary Key)**. If the computer should report to a Log Analytics workspace in Azure Government cloud, select **Azure US Government** from the **Azure Cloud** drop-down list.
+1. On the **Azure Log Analytics** page, enter the **Workspace ID** and **Workspace Key (Primary Key)** you recorded in the previous exercise.
 1. Select **Next** once you have completed providing the necessary configuration settings.
 1. On the **Ready to Install** page, review your choices and then select **Install**.
 1. On the **Configuration completed successfully** page, select **Finish**.
-
 ## Exercise 3: Configuring monitoring of Azure VMs
 
 #### Task 1: Review host-based monitoring
