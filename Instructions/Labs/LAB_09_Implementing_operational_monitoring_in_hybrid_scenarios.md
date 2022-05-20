@@ -114,6 +114,12 @@ The main task for this exercise is to:
 
 1. While connected to the console session on **SEA-SVR2**, in the browser window displaying the Azure portal, from the **Agents management** blade, download the 64-bit Windows Log Analytics agent. 
 1. Install the agent with the default settings. When prompted, enter the **Workspace ID** and **Workspace Key (Primary Key)** you recorded in the previous exercise. 
+1. On **SEA-SVR2**, start Windows PowerShell as administrator and, from the **Administrator: Windows PowerShell** console, run the following commands to install Dependency Agent:
+
+   ```powershell
+   Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
+   .\InstallDependencyAgent-Windows.exe /S
+   ```
 
 ## Exercise 3: Configuring monitoring of Azure VMs
 

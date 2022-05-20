@@ -76,7 +76,7 @@ lab:
 
 #### Task 1: Install agent using setup wizard
 
-1. While connected to the console session on **SEA-SVR2**, in the browser window displaying the Azure portal, on the **Agents management** blade, select the **Download Windows Agent (64 bit) link to download the 64-bit Windows Log Analytics agent. 
+1. While connected to the console session on **SEA-SVR2**, in the browser window displaying the Azure portal, on the **Agents management** blade, select the **Download Windows Agent (64 bit)** link to download the 64-bit Windows Log Analytics agent. 
 1. Once the download of the agent installer is completed, click the downloaded file to start the setup wizard. 
 1. On the **Welcome** page, select **Next**.
 1. On the **License Terms** page, read the license and then select **I Agree**.
@@ -86,6 +86,13 @@ lab:
 1. Select **Next** once you have completed providing the necessary configuration settings.
 1. On the **Ready to Install** page, review your choices and then select **Install**.
 1. On the **Configuration completed successfully** page, select **Finish**.
+1. On **SEA-SVR2**, start Windows PowerShell as administrator.
+1. From the **Administrator: Windows PowerShell** console, run the following commands to install Dependency Agent:
+
+   ```powershell
+   Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
+   .\InstallDependencyAgent-Windows.exe /S
+   ```
 
 ## Exercise 3: Configuring monitoring of Azure VMs
 
