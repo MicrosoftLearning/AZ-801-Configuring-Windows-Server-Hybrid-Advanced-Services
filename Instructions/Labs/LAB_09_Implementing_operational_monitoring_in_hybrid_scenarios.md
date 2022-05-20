@@ -101,20 +101,19 @@ In this task, you will create and configure an Azure Log Analytics workspace and
 
    >**Note**: Wait for the deployment to complete. The deployment should take about 1 minute.
 
+1. In the Azure portal, navigate to the blade of the newly provisioned workspace.
+1. On the workspace blade, navigate to the **Agents management** blade and record the values of the **Workspace ID** and **Primary key**. You will need them in the next exercise.
+
 ## Exercise 2: Configuring monitoring of on-premises servers
 
 The main task for this exercise is to:
 
-1. Install agent using setup wizard.
+1. Install the Log Analytics agent using setup wizard.
 
 #### Task 1: Install agent using setup wizard
 
-1. Download and install the **Download Windows Agent** version.
-1. On the **Agent Setup Options** page, choose to connect the agent to Azure Log Analytics and then select **Next**.
-1. On the **Azure Log Analytics** page, enter the **Workspace ID** and **Workspace Key (Primary Key)**. If the computer should report to a Log Analytics workspace in Azure Government cloud, select **Azure US Government** from the **Azure Cloud** drop-down list.
-1. Select **Next** once you have completed providing the necessary configuration settings.
-1. On the **Ready to Install** page, review your choices and then select **Install**. 
-1. On the **Configuration completed successfully** page, select **Finish**. 
+1. While connected to the console session on **SEA-SVR2**, in the browser window displaying the Azure portal, from the **Agents management** blade, download the 64-bit Windows Log Analytics agent. 
+1. Install the agent with the default settings. When prompted, enter the **Workspace ID** and **Workspace Key (Primary Key)** you recorded in the previous exercise. 
 
 ## Exercise 3: Configuring monitoring of Azure VMs
 
