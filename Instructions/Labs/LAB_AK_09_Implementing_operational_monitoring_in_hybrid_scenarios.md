@@ -132,16 +132,18 @@ lab:
 
 1. In the **Metric Namespace** drop-down list, select the **Enable new guest memory metrics** entry.
 1. In the **Enable Guest Metrics (Preview)** pane, review the provided information.
-1. On the **az801l09-vm0 \| Diagnostic settings** page, select the **Sinks** tab, in the **Application Insights** section, select **Enabled** and then select **Save**.
-1. In the **Azure Monitor (Preview)** section, select **Enabled**, and then select **Save**.
+1. On the **az801l09-vm0 \| Diagnostic settings** page, select the **Sinks** tab, in the **Azure Monitor (Preview)** section, select **Enabled**, and then select **Save**. 
+
+   >**Note**: Select the warning notification box below the Azure Monitor (Preview) section to activate the Enabled button.
+
 1. Browse back to the **az801l09-vm0 \| Metrics** page, on the default chart, note that at this point, the **Metric Namespace** drop-down list, in addition to the **Virtual Machine Host** and **Guest (classic)** entries, also includes the **Virtual Machine Guest** entry.
 
    >**Note**: You might need to refresh the page for the **Virtual Machine Guest** entry to appear.
 
-1. On the **az801l09-vm0 \| Metrics** page, on the vertical menu on the left side, in the **Monitoring** section, select **Logs** if required.
-1. On the **az801l09-vm0 \| Logs** page, select **Enable**.
+1. On the **az801l09-vm0 \| Metrics** page, on the vertical menu on the left side, in the **Monitoring** section, select **Logs**.
+1. If needed, on the **az801l09-vm0 \| Logs** page, select **Enable**.
 1. In the **Choose a Log Analytics Workspace** drop-down list, select the Log Analytics workspace you created earlier in this lab, and then select **Enable**.
-1. On the **az801l09-vm0 \| Logs** page, on the vertical menu on the left side, in the **Monitoring** section, select **Insights** if required.
+1. On the **az801l09-vm0 \| Logs** page, on the vertical menu on the left side, in the **Monitoring** section, select **Insights**.
 1. If needed, on the **az801l09-vm0 \| Insights** page, select **Enable**.
 
    >**Note**: This setting provides the Azure VM Insights functionality. VM Insights is an Azure Monitor solution that facilitates monitoring performance and health of both Azure VMs and on-premises computers running Windows or Linux.
