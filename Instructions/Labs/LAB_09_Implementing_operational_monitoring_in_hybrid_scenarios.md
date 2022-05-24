@@ -276,7 +276,7 @@ The main tasks for this exercise are to:
 #### Task 3: Review Azure Log Analytics functionality
 
 1. On **SEA-SVR2**, in the Azure portal, browse back to the **Monitor** page and select **Logs**.
-1. On the **Select a scope** page, use the **Recent** tab to set the scope to **az801l09-vm0**.
+1. On the **Select a scope** page, use the **Recent** tab to select the unique workspace you created earlier in this lab, and then select **Apply**.
 1. In the query window, run the following query and review the resulting chart:
 
    ```kql
