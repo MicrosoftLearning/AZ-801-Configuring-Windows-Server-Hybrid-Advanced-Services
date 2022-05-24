@@ -81,7 +81,7 @@ lab:
 1. On the **Welcome** page, select **Next**.
 1. On the **License Terms** page, read the license and then select **I Agree**.
 1. On the **Destination Folder** page, change or keep the default installation folder and then select **Next**.
-1. On the **Agent Setup Options** page, choose to connect the agent to Azure Log Analytics and then select **Next**.
+1. On the **Agent Setup Options** page, select **Connect the agent to Azure Log Analytics** checkbox and then select **Next**.
 1. On the **Azure Log Analytics** page, enter the **Workspace ID** and **Workspace Key (Primary Key)** you recorded in the previous exercise.
 1. Select **Next** once you have completed providing the necessary configuration settings.
 1. On the **Ready to Install** page, review your choices and then select **Install**.
@@ -263,7 +263,7 @@ lab:
 
    >**Note**: You might need to close the **Welcome to Log Analytics** pane if this is the first time you access Log Analytics.
 
-1. On the **Select a scope** page, select the **Recent** tab, select **az801l09-vm0**, and then select **Apply**.
+1. On the **Select a scope** page, select the **Recent** tab, select the unique workspace you created earlier in this lab, and then select **Apply**.
 1. In the query window, paste the following query, select **Run**, and review the resulting chart:
 
    ```kql
