@@ -29,7 +29,7 @@ lab:
 
    ```powershell
    New-Item -ItemType Directory -Path C:\ReplicaStorage -Force
-   Set-VMReplicationServer -ReplicationEnabled $true -AllowedAuthenticationType Kerberos -ReplicationAllowedFromAnyServer $true -DefaultStorageLocation C:\ReplicaStorage
+   Set-VMReplicationServer -ReplicationEnabled $true -AllowedAuthenticationType Kerberos -KerberosAuthenticationPort 8080 -ReplicationAllowedFromAnyServer $true -DefaultStorageLocation C:\ReplicaStorage
    ```
 
 1. To verify that **SEA-SVR2** is configured as a Replica server for **Hyper-V Replica**, enter the following command and press Enter:
@@ -42,7 +42,7 @@ lab:
 
    - **RepEnabled: True**
    - **AuthType: Kerb**
-   - **KerAuthPort: 80**
+   - **KerAuthPort: 8080**
    - **CertAuthPort: 443**
    - **AllowAnyServer: True**
 
