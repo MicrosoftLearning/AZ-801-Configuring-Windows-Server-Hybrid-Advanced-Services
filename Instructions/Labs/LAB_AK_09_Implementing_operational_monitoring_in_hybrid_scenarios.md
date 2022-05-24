@@ -55,7 +55,7 @@ lab:
 
 #### Task 3: Create and configure an Azure Log Analytics workspace
 
-1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Log Analytics workspaces**, and then, from the **Log Analytics workspaces** page, select **+ Create**.
+1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, in the toolbar, search for and select **Log Analytics workspaces**, and then, from the **Log Analytics workspaces** page, select **+ Create**.
 1. On the **Basics** tab of the **Create Log Analytics workspace** page, enter the following settings, select **Review + Create**, and then select **Create**:
 
    | Settings | Value |
@@ -71,6 +71,17 @@ lab:
 
 1. In the Azure portal, navigate to the blade of the newly provisioned workspace.
 1. On the workspace blade, navigate to the **Agents management** blade and record the values of the **Workspace ID** and **Primary key**. You will need them in the next exercise.
+
+#### Task 4: Install Service Map solution
+
+1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, in the toolbar, search for **Service Map** and, in the list of results, in the **Marketplace** section, select **Service Map**.
+1. On the **Create Service Map Solution** blade, on the **Select Workspace** tab, specify the following settings, select **Review + Create**, and then select **Create**:
+
+   | Settings | Value |
+   | --- | --- |
+   | Subscription | the name of the Azure subscription you are using in this lab |
+   | Resource group | **AZ801-L0902-RG** |
+   | Log Analytics Workspace | the name of the Log Analytics workspace you created in the previous task |
 
 ## Exercise 2: Configuring monitoring of on-premises servers
 
@@ -158,7 +169,7 @@ lab:
 
    >**Note**: This setting provides the Azure VM Insights functionality. VM Insights is an Azure Monitor solution that facilitates monitoring performance and health of both Azure VMs and on-premises computers running Windows or Linux.
 
-1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Monitor**, and then, on the **Monitor \| Overview** page, under **Insights**, select **VM insights**.
+1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, in the toolbar, search for and select **Monitor**, and then, on the **Monitor \| Overview** page, under **Insights**, select **VM insights**.
 1. On the **Monitor \| Virtual Machines** page, select the **Performance** tab, and if needed, select **Try now**.
 1. On the **Monitor \| Virtual Machines** page, select the **Map** tab, and then select **Try now**.
 1. On the **Manage Coverage** page, select **Configure Workspace**.
@@ -287,7 +298,7 @@ lab:
 
    >**Note**: You might need to wait a few minutes before the update data becomes available.
 
-1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Log Analytics workspaces**, and then, from the **Log Analytics workspaces** page, select the entry representing the workspace you created earlier in this lab.
+1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, in the toolbar, search for and select **Log Analytics workspaces**, and then, from the **Log Analytics workspaces** page, select the entry representing the workspace you created earlier in this lab.
 1. On the workspace page, on the vertical menu on the left side, in the **General** section, select **Solutions**.
 1. In the list of solutions, select **ServiceMap**, and then, on the **Summary** page, select the **Service Map** tile.
 1. On the **ServiceMap** page, on the **Machines** tab, select **SEA-SVR2** to display is service map.

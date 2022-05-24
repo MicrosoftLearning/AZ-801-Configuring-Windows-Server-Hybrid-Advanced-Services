@@ -104,6 +104,18 @@ In this task, you will create and configure an Azure Log Analytics workspace and
 1. In the Azure portal, navigate to the blade of the newly provisioned workspace.
 1. On the workspace blade, navigate to the **Agents management** blade and record the values of the **Workspace ID** and **Primary key**. You will need them in the next exercise.
 
+#### Task 4: Install Service Map solution
+
+1. On **SEA-SVR2**, in the Azure portal, search for the **Service Map** Marketplace item and navigate to the corresponding blade.
+1. From the **Create Service Map Solution** blade, create the **Service Map** solution with the following settings:
+
+   | Settings | Value |
+   | --- | --- |
+   | Subscription | the name of the Azure subscription you are using in this lab |
+   | Resource group | **AZ801-L0902-RG** |
+   | Log Analytics Workspace | the name of the Log Analytics workspace you created in the previous task |
+
+
 ## Exercise 2: Configuring monitoring of on-premises servers
 
 The main task for this exercise is to:
