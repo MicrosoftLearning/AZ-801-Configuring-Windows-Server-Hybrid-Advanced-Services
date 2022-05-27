@@ -115,14 +115,13 @@ In this task, you will create and configure an Azure Log Analytics workspace and
    | Resource group | **AZ801-L0902-RG** |
    | Log Analytics Workspace | the name of the Log Analytics workspace you created in the previous task |
 
-
 ## Exercise 2: Configuring monitoring of on-premises servers
 
 The main task for this exercise is to:
 
-1. Install the Log Analytics agent using setup wizard.
+1. Install the Log Analytics agent and the Dependency agent
 
-#### Task 1: Install agent using setup wizard
+#### Task 1: Install the Log Analytics agent and the Dependency agent
 
 1. While connected to the console session on **SEA-SVR2**, in the browser window displaying the Azure portal, from the **Agents management** blade, download the 64-bit Windows Log Analytics agent. 
 1. Install the agent with the default settings. When prompted, enter the **Workspace ID** and **Workspace Key (Primary Key)** you recorded in the previous exercise. 

@@ -138,7 +138,7 @@ The main tasks for this exercise are as follows:
 #### Task 2: Prepare protection of a Hyper-V virtual machine
 
 1. On **SEA-SVR2**, in the Azure portal, browse to the **az801l05a-rsvault** Recovery Services vault blade. 
-1. On the **az801l05a-rsvault** blade, on the vertical menu, start the configuration of **Site Recovery**
+1. On the **az801l05a-rsvault** blade, on the vertical menu, start the configuration of **Site Recovery**.
 1. On the **az801l05a-rsvault \| Site Recovery** blade, in the **Hyper-V machines to Azure** section, select **1. Prepare infrastructure** and specify the following settings:
 
    |Setting|Value|

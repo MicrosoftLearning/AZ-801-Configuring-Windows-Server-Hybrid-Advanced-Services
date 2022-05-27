@@ -85,7 +85,7 @@ lab:
 
 ## Exercise 2: Configuring monitoring of on-premises servers
 
-#### Task 1: Install agent using setup wizard
+#### Task 1: Install the Log Analytics agent and the Dependency agent
 
 1. While connected to the console session on **SEA-SVR2**, in the browser window displaying the Azure portal, on the **Agents management** blade, select the **Download Windows Agent (64 bit)** link to download the 64-bit Windows Log Analytics agent. 
 1. Once the download of the agent installer is completed, click the downloaded file to start the setup wizard. 

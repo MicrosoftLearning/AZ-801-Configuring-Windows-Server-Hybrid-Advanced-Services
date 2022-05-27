@@ -126,7 +126,7 @@ lab:
    | Region | select the same Azure region into which you deployed the first virtual machine earlier in this exercise |
    | Availability options | **Availability set** |
    | Availability set | **adAvailabilitySet** |
-   | Image | **Windows Server 2022 Datacenter - Gen2** |
+   | Image | **Windows Server 2022 Datacenter: Azure Edition - Gen2** |
    | Azure Spot instance | **No** |
    | Size | **Standard D2s v3** |
    | Username | **Student** |
@@ -174,7 +174,7 @@ lab:
 
 #### Task 4: Manually promote a domain controller in an Azure VM
 
-1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, on the deployment page, select **Go to resource**. '
+1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, on the deployment page, select **Go to resource**.
 1. On the **az801l06a-dc2** page, on the vertical menu of the left side, in the **Settings** section, select **Networking**.
 1. On the **az801l06a-dc2 \| Networking** page, select the link to the network interface of the **az801l06a-dc2** virtual machine.
 1. On the network interface page, on the vertical menu of the left side, in the **Settings** section, select **IP Configurations**.
@@ -199,7 +199,7 @@ lab:
 1. To install the AD DS and DNS server roles, at the Windows PowerShell command prompt, enter the following command, and then press Enter:
 	
    ```powershell
-   Install-WindowsFeature -Name AD-Domain-Services,DNS -IncludeManagementFeatures
+   Install-WindowsFeature -Name AD-Domain-Services,DNS -IncludeManagementTools
    ```
 
    > **Note**: Wait for the installation to complete. This might take about 3 minutes.
@@ -217,7 +217,7 @@ lab:
 1. On the **Deployment Configuration** page of **Active Directory Domain Services Configuration Wizard**, under **Select the deployment operation**, verify that **Add a domain controller to an existing domain** is selected.
 1. In the **Domain** text box, enter **contoso.com** domain.
 1. In the **Supply the credentials to perform this operation** section, select **Change**.
-1. In the **Credentials for deployment operation** dialog box, in the **User name** box, enter **CONTOSO\\Student**, in the **Password** box, enter **Pa55w.rd1234**, and then select **OK**. 
+1. In the **Credentials for deployment operation** dialog box, in the **User name** box, enter **Student@contoso.com**, in the **Password** box, enter **Pa55w.rd1234**, and then select **OK**. 
 1. Back on the **Deployment Configuration** page of **Active Directory Domain Services Configuration Wizard**, select **Next**.
 1. On the **Domain Controller Options** page, ensure that the **Domain Name System (DNS) server** and **Global Catalog (GC)** checkboxes are selected. Ensure that the **Read-only domain controller (RODC)** checkbox is cleared.
 1. In the **Type the Directory Services Restore Mode (DSRM) password** section, enter and confirm the password **Pa55w.rd1234**, and then select **Next**.
@@ -319,7 +319,7 @@ lab:
 1. In the **Storage Migration Service** pane, scroll down to the bottom of the page and select **+ New job**.
 1. In the **New job** pane, in the **Job name** text box, enter **SVR1toSVR2**, ensure that the **Windows servers and clusters** **Source devices** option is selected, and select **OK**.
 1. In the **Storage Migration Service > SVR1toSVR2** pane, on the **Inventory servers** tab, review the **Check the prerequisites** pane and select **Next**.
-1. On the **Inventory servers** tab, in the **Enter credentials** pane, if necessary, enter the credentials of the **CONTOSO\\Administrator** user account, clear the **Migrate from failover clusters**checkbox, and then select **Next**.
+1. On the **Inventory servers** tab, in the **Enter credentials** pane, if necessary, enter the credentials of the **CONTOSO\\Administrator** user account, clear the **Migrate from failover clusters** checkbox, and then select **Next**.
 1. On the **Inventory servers** tab, in the **Install required features** pane, select **Next**.
 1. On the **Inventory servers** tab, in the **Add and scan devices** pane, select **+ Add a device**.
 1. On the **Add source device**, ensure that the **Device name** option is selected, in the **Name** text box, enter **SEA-SVR1.contoso.com**, and then select **Add**.
@@ -359,7 +359,7 @@ lab:
    | Delay between retries (seconds) | **60** |
 
 1. On the **Transfer data** tab, in the **Install required features** pane, wait for the installation of **SMS-Proxy** on **SEA-SVR2.contoso.com** to complete, and then select **Next**.
-1. On the **Transfer data** tab, in the **Validate source and destination device** pane, select **Validate**, and after the validation successfully completes, select **Next**.
+1. On the **Transfer data** tab, in the **Validate source and destination devices** pane, select **Validate**, and after the validation successfully completes, select **Next**.
 1. On the **Transfer data** tab, in the **Start the transfer** pane, select **Start transfer**, wait until it completes, and then select **Next**.
 
    >**Note:** Wait until the transfer completes successfully. This should take less than 1 minute.
@@ -376,7 +376,7 @@ lab:
    | Subnet | **255.255.0.0** |
    | Gateway | **172.16.10.1** |
 
-1. On the **Cut over to the new servers** tab, in the **Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com** pane, in the **Destination network adapters** drop-down list, select **Seattle**.
+1. On the **Cut over to the new servers** tab, in the **Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com** pane, in the **Destination network adapters** drop-down list, select **Ethernet**.
 1. On the **Cut over to the new servers** tab, in the **Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com** pane, in the **Rename the source device after cutover** section, select the **Choose a new name** option, in the **New source computer name**<!--text box?-->, enter **SEA-SVR1-OLD**, and then select **Next**.
 1. On the **Cut over to the new servers** tab, in the **Adjust cutover settings** pane, in the **Cutover timeout (minutes)** text box, enter **30**, in the **Enter AD credentials** section, leave the **Stored credentials** option enabled, and then select **Next**.
 1. On the **Cut over to the new servers** tab, in the **Validate source and destination device** pane, select **Validate**, and after the validation successfully completes, select **Next**.
