@@ -88,7 +88,7 @@ lab:
 
 1. Within the Remote Desktop session to **az801l07a-hv-vm**, in the **Server Manager** window, select **Local Server**, select the **On** link next to the **IE Enhanced Security Configuration** label. In the **IE Enhanced Security Configuration** dialog box, select both **Off** options, and then select **OK**.
 1. From the Remote Desktop session, open File Explorer and browse to the **F:** drive. Create two folders **F:\\VHDs** and **F:\\VMs**. 
-1. Within the Remote Desktop session to **az801l07a-hv-vm**, start Microsoft Edge, complete the initial setup, go to [Windows Server Evaluations](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022), provide the requested information, download the Windows Server 2022 **VHD** file, and copy it to the **F:\VHDs** folder. 
+1. Within the Remote Desktop session to **az801l07a-hv-vm**, start Microsoft Edge, complete the initial setup, go to [Windows Server Evaluations](https://techcommunity.microsoft.com/t5/windows-11/accessing-trials-and-kits-for-windows-eval-center-workaround/m-p/3361125), provide the requested information, download the Windows Server 2022 **VHD** file, and copy it to the **F:\VHDs** folder. 
 1. Within the Remote Desktop session to **az801l07a-hv-vm**, select **Start**, select **Windows Administrative Tools**, and then select **Hyper-V Manager**. 
 1. In the **Hyper-V Manager** console, select the **az801l07a-hv-vm** node. 
 1. Select **New** and then, in the cascading menu, select **Virtual Machine**. This will start the **New Virtual Machine Wizard**. 
@@ -101,7 +101,7 @@ lab:
    | Store the virtual machine in a different location | selected | 
    | Location | **F:\VMs** |
 
-1. On the **Specify Generation** page of the **New Virtual Machine Wizard**, ensure that the **Generation 1** option is selected, and then select **Next >**:
+1. On the **Specify Generation** page of the **New Virtual Machine Wizard**, ensure that the **Generation 1** option is selected, and then select **Next >**.
 1. On the **Assign Memory** page of the **New Virtual Machine Wizard**, set **Startup memory** to **2048**, and then select **Next >**.
 1. On the **Configure Networking** page of the **New Virtual Machine Wizard**, in the **Connection** drop-down list, select **NestedSwitch**, and then select **Next >**.
 1. On the **Connect Virtual Hard Disk** page of the **New Virtual Machine Wizard**, select the option **Use an existing virtual hard disk**, set location to the **VHD** file you downloaded to the **F:\VHDs** folder, and then select **Next >**.
@@ -218,8 +218,8 @@ lab:
    | Performance | **Standard** |
    | Redundancy | **Locally redundant storage (LRS)** |
 
-1. On the **Basics** tab of the **Create storage account** page, select the **Data protection** tab.
-1. On the **Data protection** tab of the **Create storage account** page, clear the **Enable soft delete for blobs** and **Enable soft delete for containers** checkboxes, and then select **Review + create**.
+1. On the **Basics** tab of the **Create a storage account** page, select the **Data protection** tab.
+1. On the **Data protection** tab of the **Create a storage account** page, clear the **Enable soft delete for blobs** and **Enable soft delete for containers** checkboxes, and then select **Review + create**.
 1. On the **Review + create** tab, select **Create**.
 
 ## Exercise 3: Assess Hyper-V for migration by using Azure Migrate
@@ -244,8 +244,8 @@ lab:
 
 1. Within the Remote Desktop session to **az801l07a-hv-vm**, switch to the **Hyper-V Manager** console, select the **AZ801L07A-VM1** node, and then select **Import Virtual Machine**. This will start the **Import Virtual Machine** wizard.
 1. On the **Before You Begin** page of the **Import Virtual Machine** wizard, select **Next >**.
-1. On the **Locate Folder** page of the **Import Virtual Machine** wizard, specify the location of the extracted **Virtual Machines** folder and select **Next >**:
-1. On the **Select Virtual Machine** page of the **Import Virtual Machine** wizard, select **Next >**:
+1. On the **Locate Folder** page of the **Import Virtual Machine** wizard, specify the location of the extracted **Virtual Machines** folder and select **Next >**.
+1. On the **Select Virtual Machine** page of the **Import Virtual Machine** wizard, select **Next >**.
 1. On the **Choose Import Type** page of the **Import Virtual Machine** wizard, select **Register the virtual machine in-place (use the existing unique ID)**, and then select **Next >**.
 1. On the **Configure Processor** page of the **Import Virtual Machine** wizard, set **Number of virtual processors** to **4**, and then select **Next >**.
 
@@ -257,7 +257,7 @@ lab:
    >**Note**: Wait for the import to complete.
 
 1. In the **Hyper-V Manager** console, select the newly imported virtual machine, select **Rename**, and then set its name to **az801l07a-vma1**.
-1. Increase the memory size of the virtual machine to 4096 GB.
+1. Increase the memory size of the virtual machine to 4096 MB.
 1. In the **Hyper-V Manager** console, select the newly imported virtual machine, and then select **Start**. 
 1. In the **Hyper-V Manager** console, verify that the virtual machine is running, and then select **Connect**. 
 1. In the **Virtual Machine Connection** window to the virtual appliance, on the **License terms** page, select **Accept**. 
@@ -283,14 +283,14 @@ lab:
 
    >**Note**: **10.0.2.1** is the IP address of the network interface of the Hyper-V host attached to the internal switch.
 
-1. On the **Appliance Configuration Manager** page, in the **Provide Hyper-V host/cluster details** section, select **Start discovery**. 
+1. On the **Appliance Configuration Manager** page, in the **Provide Hyper-V host/cluster details** section, enable the toggle button for **Disable the slider if you don’t want to perform these features**, and then select **Start discovery**.
 
    >**Note**: It might take about 15 minutes per host for metadata of discovered servers to appear in the Azure portal.
 
 #### Task 2: Configure, run, and view an assessment
 
 1. From the **Virtual Machine Connection** window to the virtual appliance, switch to the Remote Desktop session to **az801l07a-hv-vm**. In the browser window displaying the Azure portal, browse back to the **Azure Migrate | Servers, databases and web apps** page and select **Refresh**. In the **Azure Migrate: Discovery and assessment** section, select **Assess** and then, in the drop-down menu, select **Azure VM**.
-1. On the **Basics** tab of the **Create assessment** page, next to the **Assessment properties** label, select **Edit**
+1. On the **Basics** tab of the **Create assessment** page, next to the **Assessment properties** label, select **Edit**.   
 1. On the **Assessment properties** page, specify the following settings (leave others with their default values) and select **Save**:
 
    | Setting | Value | 
@@ -426,7 +426,7 @@ lab:
 
    > **Note**: Verify that the output contains only the resource group you created in this lab. This group will be deleted in this task.
 
-1. From the **Cloud Shell** pane, run the following to delete the resource group you created in this lab
+1. From the **Cloud Shell** pane, run the following to delete the resource group you created in this lab:
 
    ```powershell
    Get-AzResourceGroup -Name 'AZ801-L070*' | Remove-AzResourceGroup -Force -AsJob
