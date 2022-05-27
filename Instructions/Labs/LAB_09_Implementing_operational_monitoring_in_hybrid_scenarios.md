@@ -104,16 +104,33 @@ In this task, you will create and configure an Azure Log Analytics workspace and
 1. In the Azure portal, navigate to the blade of the newly provisioned workspace.
 1. On the workspace blade, navigate to the **Agents management** blade and record the values of the **Workspace ID** and **Primary key**. You will need them in the next exercise.
 
+#### Task 4: Install Service Map solution
+
+1. On **SEA-SVR2**, in the Azure portal, search for the **Service Map** Marketplace item and navigate to the corresponding blade.
+1. From the **Create Service Map Solution** blade, create the **Service Map** solution with the following settings:
+
+   | Settings | Value |
+   | --- | --- |
+   | Subscription | the name of the Azure subscription you are using in this lab |
+   | Resource group | **AZ801-L0902-RG** |
+   | Log Analytics Workspace | the name of the Log Analytics workspace you created in the previous task |
+
 ## Exercise 2: Configuring monitoring of on-premises servers
 
 The main task for this exercise is to:
 
-1. Install the Log Analytics agent.
+1. Install the Log Analytics agent and the Dependency agent
 
-#### Task 1: Install the Log Analytics agent
+#### Task 1: Install the Log Analytics agent and the Dependency agent
 
 1. While connected to the console session on **SEA-SVR2**, in the browser window displaying the Azure portal, from the **Agents management** blade, download the 64-bit Windows Log Analytics agent. 
 1. Install the agent with the default settings. When prompted, enter the **Workspace ID** and **Workspace Key (Primary Key)** you recorded in the previous exercise. 
+1. On **SEA-SVR2**, start Windows PowerShell as administrator and, from the **Administrator: Windows PowerShell** console, run the following commands to install Dependency Agent:
+
+   ```powershell
+   Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
+   .\InstallDependencyAgent-Windows.exe /S
+   ```
 
 ## Exercise 3: Configuring monitoring of Azure VMs
 
@@ -270,7 +287,7 @@ The main tasks for this exercise are to:
 #### Task 3: Review Azure Log Analytics functionality
 
 1. On **SEA-SVR2**, in the Azure portal, browse back to the **Monitor** page and select **Logs**.
-1. On the **Select a scope** page, use the **Recent** tab to set the scope to **az801l09-vm0**.
+1. On the **Select a scope** page, use the **Recent** tab to select the unique workspace you created earlier in this lab, and then select **Apply**.
 1. In the query window, run the following query and review the resulting chart:
 
    ```kql
@@ -283,8 +300,8 @@ The main tasks for this exercise are to:
    | render timechart
    ```
 
-1. Select **Queries** in the toolbar, in the **Queries** pane, expand the **Availability** node, review and run the **Track VM availability** query and review the results.
-1. On the **New Query 1** tab, select the **Tables** header, and review the list of tables in the **Virtual machines** section.
+1. Select **Queries** in the toolbar, in the **Queries** pane, expand the **Virtual machines** node, review and run the **Track VM availability** query and review the results.
+1. On the **New Query 1** tab, select the **Tables** header, and review the list of tables in the **Azure Monitor for VMs** section.
 
    >**Note**: The names of several tables correspond to the solutions you installed earlier in this lab. In particular, **InsightMetrics** is used by Azure VM Insights to store performance metrics.
 
