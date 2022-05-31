@@ -118,7 +118,7 @@ lab:
    Get-VM
    ```
 
-   > **Note**: Ensure that the output of the command lists **SEA-CORE1**.
+   > **Note**: Ensure that the output of the command lists **SEA-CORE1** and the replication has completed. This might take 5-10 minutes to replicate.
 
    > **Note**: Leave both Windows PowerShell sessions open.
 
