@@ -149,7 +149,7 @@ The main tasks for this exercise are to:
    | Region | select the same Azure region into which you deployed the first virtual machine earlier in this exercise |
    | Availability options | **Availability set** |
    | Availability set | **adAvailabilitySet** |
-   | Image | **Windows Server 2022 Datacenter - Gen2** |
+   | Image | **Windows Server 2022 Datacenter: Azure Edition - Gen2** |
    | Azure Spot instance | **No** |
    | Size | **Standard D2s v3** |
    | Username | **Student** |
@@ -191,7 +191,7 @@ The main tasks for this exercise are to:
 1. To install the AD DS and DNS server roles, at the Windows PowerShell prompt, run the following command:
 	
    ```powershell
-   Install-WindowsFeature -Name AD-Domain-Services,DNS -IncludeManagementFeatures
+   Install-WindowsFeature -Name AD-Domain-Services,DNS -IncludeManagementTools
    ```
 
    > **Note**: Wait for the installation to complete. This might take about 3 minutes.
@@ -207,7 +207,7 @@ The main tasks for this exercise are to:
 1. Within the Remote Desktop session to **az801l06a-dc2**, switch to the **Server Manager** window.
 1. From **Server Manager**, initiate **Active Directory Domain Services Configuration Wizard** to perform the domain controller promotion.
 1. In **Active Directory Domain Services Configuration Wizard**, select the option to **Add a domain controller to an existing domain** and specify **contoso.com** as the target domain.
-1. Use the **CONTOSO\\Student** username and **Pa55w.rd1234** password as credentials to perform the promotion.
+1. Use the **Student@contoso.com** username and **Pa55w.rd1234** password as credentials to perform the promotion.
 1. Specify the options that designate the new domain controller as writeable, as well as include the **Domain Name System (DNS) server** and **Global Catalog (GC)** components.
 1. Set the **Directory Services Restore Mode (DSRM) password** to **Pa55w.rd1234**.
 1. Change the drive hosting the folders hosting the AD DS database, log files, and SYSVOL from drive **C** to drive **F**.
@@ -354,7 +354,7 @@ The main tasks for this exercise are to:
 1. On the **Cut over to the new servers** tab, in the **Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com** pane, in the **Destination network adapters** drop-down list, select **Seattle**.
 1. On the **Cut over to the new servers** tab, in the **Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com** pane, in the **Rename the source device after cutover** section, select the option **Choose a new name**, and then in the **New source computer name** dialog box enter **SEA-SVR1-OLD**.
 1. On the **Cut over to the new servers** tab, in the **Adjust cutover settings** pane, in the **Cutover timeout (minutes)** text box, enter **30**, and then, in the **Enter AD credentials** section, leave the **Stored credentials** option enabled.
-1. On the **Cut over to the new servers** tab, in the **Validate source and destination device** pane, initiate validation.
+1. On the **Cut over to the new servers** tab, in the **Validate source and destination devices** pane, initiate validation.
 1. After the validation completes successfully, on the **Cut over to the new servers** tab, start the cutover stage.
 
    >**Note:** The cutover will trigger two consecutive restarts of both **SEA-SVR1** and **SEA-SVR2**.

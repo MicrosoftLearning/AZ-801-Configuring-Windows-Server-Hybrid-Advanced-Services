@@ -52,8 +52,8 @@ The main tasks for this exercise are to:
 
 #### Task 1: Enable Windows Defender Credential Guard using Group Policy
 
-1. On *SEA-SVR2** open the **Group Policy Management Console**.
-1. In the **Group Policy Management Console**, browse through **Forest: Contoso.com**, **Domains**, **Contoso.com**, and then create a Group Policy Object (GPO) named **CredentialGuard_GPO** linked to the **IT** organizational unit (OU).
+1. On **SEA-SVR2**, open the **Group Policy Management** console.
+1. In the **Group Policy Management** console, browse through **Forest: contoso.com**, **Domains**, **contoso.com**, and then create a Group Policy Object (GPO) named **CredentialGuard_GPO** linked to the **IT** organizational unit (OU).
 1. Open **CredentialGuard_GPO** in the Group Policy Management Editor and browse to the **Computer Configuration\\Policies\\Administrative Templates\\System\\Device Guard** node.
 1. Enable the **Turn On Virtualization Based Security** option with the following settings:
 
@@ -62,7 +62,7 @@ The main tasks for this exercise are to:
    - Secure Launch Configuration: **Enabled**
 
 1. Close the **Group Policy Management Editor** window.
-1. Close the **Group Policy Management Console** window.
+1. Close the **Group Policy Management** console window.
 
 #### Task 2: Enable Windows Defender Credential Guard using the HVCI and Windows Defender Credential Guard hardware readiness tool
 
@@ -183,8 +183,8 @@ The main tasks for this exercise are to:
    Set-AdmPwdComputerSelfPermission -Identity "Seattle_Servers"
    ```
 
-1. On *SEA-SVR2** open **Group Policy Management Console**.
-1. In the **Group Policy Management Console**, browse through **Forest: Contoso.com**, **Domains**, **Contoso.com**, and then create a Group Policy Object (GPO) named **LAPS_GPO** linked to the **Seattle_Servers** OU.
+1. On *SEA-SVR2** open **Group Policy Management** console.
+1. In the **Group Policy Management** console, browse through **Forest: contoso.com**, **Domains**, **contoso.com**, and then create a Group Policy Object (GPO) named **LAPS_GPO** linked to the **Seattle_Servers** OU.
 1. Open **LAPS_GPO** in the Group Policy Management Editor and browse to the **Computer Configuration\\Policies\\Administrative Templates\\LAPS** node.
 1. Enable the **Enable local admin password management** option.
 1. Configure the **Password Settings** option with the following settings:
@@ -199,7 +199,7 @@ The main tasks for this exercise are to:
    - Password Age (Days): **30**
 
 1. Close the Group Policy Management Editor.
-1. Close the **Group Policy Management Console** window.
+1. Close the **Group Policy Management** console window.
 
 #### Task 3: Deploy LAPS client-side extension
 

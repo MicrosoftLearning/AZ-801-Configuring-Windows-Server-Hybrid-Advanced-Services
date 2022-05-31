@@ -55,7 +55,7 @@ lab:
 
 #### Task 3: Create and configure an Azure Log Analytics workspace
 
-1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Log Analytics workspaces**, and then, from the **Log Analytics workspaces** page, select **+ Create**.
+1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, in the toolbar, search for and select **Log Analytics workspaces**, and then, from the **Log Analytics workspaces** page, select **+ Create**.
 1. On the **Basics** tab of the **Create Log Analytics workspace** page, enter the following settings, select **Review + Create**, and then select **Create**:
 
    | Settings | Value |
@@ -69,68 +69,41 @@ lab:
 
    >**Note**: Wait for the deployment to complete. The deployment should take about 1 minute.
 
-## Exercise 2: Configuring monitoring of on-premises servers
+1. In the Azure portal, navigate to the blade of the newly provisioned workspace.
+1. On the workspace blade, navigate to the **Agents management** blade and record the values of the **Workspace ID** and **Primary key**. You will need them in the next exercise.
 
-#### Task 1: Register Windows Admin Center with Azure
+#### Task 4: Install Service Map solution
 
-1. On **SEA-SVR2**, select **Start**, and then select **Windows PowerShell (Admin)**.
-
-   >**Note**: Perform the next two steps in case you have not already installed Windows Admin Center on **SEA-SVR2**.
-
-1. In the **Windows PowerShell** console, enter the following command, and then press Enter to download the latest version of Windows Admin Center:
-	
-   ```powershell
-   Start-BitsTransfer -Source https://aka.ms/WACDownload -Destination "$env:USERPROFILE\Downloads\WindowsAdminCenter.msi"
-   ```
-1. Enter the following command, and then press Enter to install Windows Admin Center:
-	
-   ```powershell
-   Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
-   ```
-
-   > **Note**: Wait until the installation completes. This should take about 2 minutes.
-
-   > **Note**: Upon completing the installation of Windows Admin Center, you may receive the error ERR_CONNECTION_REFUSED. If this happens, restart SEA-SVR2 before proceeding.
-
-1. On **SEA-SVR2**, start Microsoft Edge, and then browse to **https://SEA-SVR2.contoso.com**. 
-1. If prompted, in the **Windows Security** dialog box, enter the following credentials, and then select **OK**:
-
-   - Username: **CONTOSO\\Administrator**
-   - Password: **Pa55w.rd**
-
-1. In the **All connections** pane, select the **Settings** (gear wheel) icon in the upper right corner of the page.
-1. In Windows Admin Center, on the **Settings** page, in the **Azure Account** section, select **Register with Azure**, and then select **Register**.
-1. In the **Get started with Azure in Windows Admin Center** pane, select **Copy** to copy the code displayed in the listing of the steps of the registration procedure. 
-1. In the listing of the steps of the registration procedure, select the **Enter the code** link.
-
-   >**Note**: This will open another tab in the Microsoft Edge window displaying the **Enter code** page.
-
-1. In the **Enter code** text box, paste the code you copied into Clipboard, and then select **Next**.
-1. On the **Sign in** page, provide the same username that you used to sign into your Azure subscription in the previous exercise, select **Next**, provide the corresponding password, and then select **Sign in**.
-1. When prompted **Are you trying to sign in to Windows Admin Center?**, select **Continue**.
-1. In Windows Admin Center, verify that the sign in was successful and close the newly opened tab of the Microsoft Edge window.
-1. In the **Get started with Azure in Windows Admin Center** pane, ensure that **Azure Active Directory application** is set to **Create new**, and then select **Connect**.
-1. In the listing of the steps of the registration procedure, select **Sign in**. This will open a pop-up window labeled **Permissions requested**.
-1. In the **Permissions requested** pop-up window, select **Consent on behalf of your organization**, and then select **Accept**.
-
-#### Task 2: Integrate an on-premises Windows Server with Azure Monitor
-
-1. On **SEA-SVR2**, in the Microsoft Edge window displaying Windows Admin Center, browse to the **All connections** pane.
-1. In the **All connections** pane, select the **sea-svr2.contoso.com** entry. 
-1. On the **sea-svr2.contoso.com** page, on the **Tools** menu, select **Azure Monitor**, and then select **Sign in to Azure and set up**.
-1. On the **Set up Azure Monitor** page, specify the following settings and select **Set up**.
+1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, in the toolbar, search for **Service Map** and, in the list of results, in the **Marketplace** section, select **Service Map**.
+1. On the **Create Service Map Solution** blade, on the **Select Workspace** tab, specify the following settings, select **Review + Create**, and then select **Create**:
 
    | Settings | Value |
    | --- | --- |
    | Subscription | the name of the Azure subscription you are using in this lab |
    | Resource group | **AZ801-L0902-RG** |
-   | Resource group Region | the name of the Azure region into which you deployed the virtual machine in the previous exercise |
-   | Log Analytics Workspace | the name of the workspace you created in the previous exercise |
-   | Enable Azure Arc | selected |
+   | Log Analytics Workspace | the name of the Log Analytics workspace you created in the previous task |
 
-   >**Note**: Do not wait for the setup to complete but instead proceed to the next exercise. The setup should take about 3 minutes.
+## Exercise 2: Configuring monitoring of on-premises servers
 
-   >**Note**: This process automatically installs the Log Analytics Agent and Dependency Agent.
+#### Task 1: Install the Log Analytics agent and the Dependency agent
+
+1. While connected to the console session on **SEA-SVR2**, in the browser window displaying the Azure portal, on the **Agents management** blade, select the **Download Windows Agent (64 bit)** link to download the 64-bit Windows Log Analytics agent. 
+1. Once the download of the agent installer is completed, click the downloaded file to start the setup wizard. 
+1. On the **Welcome** page, select **Next**.
+1. On the **License Terms** page, read the license and then select **I Agree**.
+1. On the **Destination Folder** page, change or keep the default installation folder and then select **Next**.
+1. On the **Agent Setup Options** page, select **Connect the agent to Azure Log Analytics** checkbox and then select **Next**.
+1. On the **Azure Log Analytics** page, enter the **Workspace ID** and **Workspace Key (Primary Key)** you recorded in the previous exercise.
+1. Select **Next** once you have completed providing the necessary configuration settings.
+1. On the **Ready to Install** page, review your choices and then select **Install**.
+1. On the **Configuration completed successfully** page, select **Finish**.
+1. On **SEA-SVR2**, start Windows PowerShell as administrator.
+1. From the **Administrator: Windows PowerShell** console, run the following commands to install Dependency Agent:
+
+   ```powershell
+   Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
+   .\InstallDependencyAgent-Windows.exe /S
+   ```
 
 ## Exercise 3: Configuring monitoring of Azure VMs
 
@@ -180,21 +153,24 @@ lab:
 
 1. In the **Metric Namespace** drop-down list, select the **Enable new guest memory metrics** entry.
 1. In the **Enable Guest Metrics (Preview)** pane, review the provided information.
-1. On the **az801l09-vm0 \| Diagnostic settings** page, select the **Sinks** tab, in the **Azure Monitor (Preview)** section, select **Enabled**, and then select **Save**.
+1. On the **az801l09-vm0 \| Diagnostic settings** page, select the **Sinks** tab, in the **Azure Monitor (Preview)** section, select **Enabled**, and then select **Save**. 
+
+   >**Note**: Select the warning notification box below the Azure Monitor (Preview) section to activate the Enabled button.
+
 1. Browse back to the **az801l09-vm0 \| Metrics** page, on the default chart, note that at this point, the **Metric Namespace** drop-down list, in addition to the **Virtual Machine Host** and **Guest (classic)** entries, also includes the **Virtual Machine Guest** entry.
 
    >**Note**: You might need to refresh the page for the **Virtual Machine Guest** entry to appear.
 
 1. On the **az801l09-vm0 \| Metrics** page, on the vertical menu on the left side, in the **Monitoring** section, select **Logs**.
-1. On the **az801l09-vm0 \| Logs** page, select **Enable**.
+1. If needed, on the **az801l09-vm0 \| Logs** page, select **Enable**.
 1. In the **Choose a Log Analytics Workspace** drop-down list, select the Log Analytics workspace you created earlier in this lab, and then select **Enable**.
 1. On the **az801l09-vm0 \| Logs** page, on the vertical menu on the left side, in the **Monitoring** section, select **Insights**.
 1. If needed, on the **az801l09-vm0 \| Insights** page, select **Enable**.
 
    >**Note**: This setting provides the Azure VM Insights functionality. VM Insights is an Azure Monitor solution that facilitates monitoring performance and health of both Azure VMs and on-premises computers running Windows or Linux.
 
-1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Monitor**, and then, on the **Monitor \| Overview** page, under **Insights**, select **VM insights**.
-1. On the **Monitor \| Virtual Machines** page, select the **Performance** tab, and then select **Try now**.
+1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, in the toolbar, search for and select **Monitor**, and then, on the **Monitor \| Overview** page, under **Insights**, select **VM insights**.
+1. On the **Monitor \| Virtual Machines** page, select the **Performance** tab, and if needed, select **Try now**.
 1. On the **Monitor \| Virtual Machines** page, select the **Map** tab, and then select **Try now**.
 1. On the **Manage Coverage** page, select **Configure Workspace**.
 1. On the **Azure Monitor** page, from the **Choose a Log Analytics Workspace** drop-down menu, select the workspace you created earlier in this lab, and then select **Configure**.
@@ -298,7 +274,7 @@ lab:
 
    >**Note**: You might need to close the **Welcome to Log Analytics** pane if this is the first time you access Log Analytics.
 
-1. On the **Select a scope** page, select the **Recent** tab, select **az801l09-vm0**, and then select **Apply**.
+1. On the **Select a scope** page, select the **Recent** tab, select the unique workspace you created earlier in this lab, and then select **Apply**.
 1. In the query window, paste the following query, select **Run**, and review the resulting chart:
 
    ```kql
@@ -311,8 +287,8 @@ lab:
    | render timechart
    ```
 
-1. Select **Queries** in the toolbar, in the **Queries** pane, expand the **Availability** node, select **Track VM availability** tile, select the **Run** button, and review the results.
-1. On the **New Query 1** tab, select the **Tables** header, and review the list of tables in the **Virtual machines** section.
+1. Select **Queries** in the toolbar, in the **Queries** pane, expand the **Virtual Machines** node, select **Track VM availability** tile, select the **Run** button, and review the results.
+1. On the **New Query 1** tab, select the **Tables** header, and review the list of tables in the **Azure Monitor for VMs** section.
 
    >**Note**: The names of several tables correspond to the solutions you installed earlier in this lab. In particular, **InsightMetrics** is used by Azure VM Insights to store performance metrics.
 
@@ -322,7 +298,7 @@ lab:
 
    >**Note**: You might need to wait a few minutes before the update data becomes available.
 
-1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Log Analytics workspaces**, and then, from the **Log Analytics workspaces** page, select the entry representing the workspace you created earlier in this lab.
+1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, in the toolbar, search for and select **Log Analytics workspaces**, and then, from the **Log Analytics workspaces** page, select the entry representing the workspace you created earlier in this lab.
 1. On the workspace page, on the vertical menu on the left side, in the **General** section, select **Solutions**.
 1. In the list of solutions, select **ServiceMap**, and then, on the **Summary** page, select the **Service Map** tile.
 1. On the **ServiceMap** page, on the **Machines** tab, select **SEA-SVR2** to display is service map.
