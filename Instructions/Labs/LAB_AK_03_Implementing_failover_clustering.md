@@ -76,7 +76,7 @@ lab:
 1. To create the Microsoft iSCSI Target on **SEA-DC1**, switch to the **Windows PowerShell** window hosting PowerShell Remoting session to **SEA-DC1**, enter the following command, and then press Enter:
 
    ```powershell
-   New-IscsiServerTarget iSCSI-L03 –InitiatorIds “IQN:iqn.1991-05.com.microsoft:sea-svr1.contoso.com","IQN:iqn.1991-05.com.microsoft:sea-svr2.contoso.com"
+   New-IscsiServerTarget -TargetName “iSCSI-L03” –InitiatorIds “IQN:iqn.1991-05.com.microsoft:sea-svr1.contoso.com","IQN:iqn.1991-05.com.microsoft:sea-svr2.contoso.com"
    ```
 
 ## Exercise 2: Configuring a failover cluster
@@ -86,9 +86,9 @@ lab:
 1. To mount the iSCSI disks on **SEA-DC1**, from **SEA-SVR2**, in the **Windows PowerShell** window hosting PowerShell Remoting session to **SEA-DC1**, enter the following commands, and after entering each command, press Enter:
 
    ```powershell
-   Add-IscsiVirtualDiskTargetMapping iSCSI-L03 C:\Storage\Disk1.VHDX
-   Add-IscsiVirtualDiskTargetMapping iSCSI-L03 C:\Storage\Disk2.VHDX
-   Add-IscsiVirtualDiskTargetMapping iSCSI-L03 C:\Storage\Disk3.VHDX
+   Add-IscsiVirtualDiskTargetMapping -TargetName “iSCSI-L03” -DevicePath “C:\Storage\Disk1.VHDX”
+   Add-IscsiVirtualDiskTargetMapping -TargetName “iSCSI-L03” -DevicePath “C:\Storage\Disk2.VHDX”
+   Add-IscsiVirtualDiskTargetMapping -TargetName “iSCSI-L03” -DevicePath “C:\Storage\Disk3.VHDX”
    ```
 
 1. To connect to the iSCSI Target hosted on **SEA-DC1** from **SEA-SVR2**, switch to the **Windows PowerShell** prompt providing access to the local session, enter the following commands, and after entering each command, press Enter:
@@ -125,9 +125,9 @@ lab:
 
    ```powershell
    Get-Disk | Where OperationalStatus -eq 'Offline' | Initialize-Disk -PartitionStyle MBR
-   New-Partition -DiskNumber 1 -Size 5gb -AssignDriveLetter
    New-Partition -DiskNumber 2 -Size 5gb -AssignDriveLetter
    New-Partition -DiskNumber 3 -Size 5gb -AssignDriveLetter
+   New-Partition -DiskNumber 4 -Size 5gb -AssignDriveLetter
    Format-Volume -DriveLetter E -FileSystem NTFS
    Format-Volume -DriveLetter F -FileSystem NTFS
    Format-Volume -DriveLetter G -FileSystem NTFS
@@ -210,7 +210,7 @@ lab:
 1. On **SEA-SVR2**, open File Explorer and browse to the **\\\\FSCluster\\Docs** folder.
 1. Inside the **Docs** folder, right-click or access the context menu in an empty area of the folder, select **New**, and then select **Text Document**.
 1. To accept the default name of the document as **New Text Document.txt**, press Enter.
-1. On **SEA-SVR2**, switch to the **Failover Cluster Manager** console, right-click or access the context menu for **FSCluster**, select **Move**, select **Select Node**, select **SEA-SVR2**, and then select **OK**.
+1. On **SEA-SVR2**, switch to the **Failover Cluster Manager** console, right-click or access the context menu for **FSCluster**, select **Move**, select **Select Node**, select **SEA-SVR1**, and then select **OK**.
 1. On **SEA-SVR2**, switch back to File Explorer and verify that you can still access the content of the **\\\\FSCluster\\Docs** folder.
 
 #### Task 2: Validate the failover and quorum configuration for the File Server role
