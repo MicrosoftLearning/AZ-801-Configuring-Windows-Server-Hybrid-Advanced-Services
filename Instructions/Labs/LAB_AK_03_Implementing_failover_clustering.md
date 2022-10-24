@@ -119,7 +119,7 @@ lab:
    Get-Disk
    ```
 
-   > **Note:** Ensure that the three iSCSI disks are listed with the **Offline** operational status. These should be disks with numbers 1, 2, and 3.
+   > **Note:** Ensure that the three iSCSI disks are listed with the **Offline** operational status. These should be disks with numbers 2, 3, and 4.
 
 1. To initialize the disks, at the Windows PowerShell prompt providing access to the local session, enter the following commands, and after entering each command, press Enter:
 
