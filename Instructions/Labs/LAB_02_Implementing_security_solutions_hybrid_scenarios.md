@@ -120,11 +120,10 @@ In this task, you will enable enhanced security of Defender for Cloud.
    > **Note:** Note that you can selectively disable individual Microsoft Defender plans listed on the same page.
 
 1. Enable the **Microsoft Defender for Servers** plan. 
-1. Browse to the **Settings \| Auto provisioning** page. 
+1. Browse to the **Settings & monitoring** page (by clicking the setting link next to the plan). 
 1. In the list of extensions, perform the following tasks:
 
-   - Enable **Log Analytics agent for Azure VMs** leveraging the Log Analytics workspace you created in the previous exercise.
-   - Enable **Log Analytics agent for Azure Arc Machine (preview)** leveraging the Log Analytics workspace you created in the previous exercise.
+   - Enable **Log Analytics agent/Azure Monitoring Agent** select the log analytics agent (default) option and leverage the Log Analytics workspace you created in the previous exercise.
    - Enable **Vulnerability assessment for machines** with the **Microsoft threat and vulnerability management** option.
 
 
