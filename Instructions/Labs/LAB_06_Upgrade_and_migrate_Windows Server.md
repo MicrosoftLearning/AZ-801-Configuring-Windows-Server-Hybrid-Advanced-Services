@@ -10,6 +10,8 @@ lab:
 
 Contoso is exploring the hybrid model for its infrastructure services that would facilitate migration of its on-premises Windows servers to Azure virtual machines (VMs). To assist with this initiative, and you were tasked with evaluating the process of deploying Active Directory Domain Services (AD DS) domain controllers in Azure VMs. Your intention is to identify differences between the manual process currently used for on-premises deployments and the deployment methods available in Azure. In addition, you want to test and document the Storage Migration Services functionality to validate its usage for migrations of on-premises file servers. 
 
+**Note:** An **[interactive lab simulation](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Upgrading%20and%20migrating%20in%20Windows%20Server)** is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
+
 ## Objectives
 
 In this lab, you will:
