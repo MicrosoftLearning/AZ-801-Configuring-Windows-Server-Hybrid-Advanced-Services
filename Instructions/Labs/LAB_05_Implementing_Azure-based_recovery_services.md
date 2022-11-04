@@ -9,6 +9,8 @@ lab:
 ## Scenario 
 To address concerns regarding the outdated operational model, the limited use of automation, and reliance on tape backups for restores and disaster recovery, you decide to use Microsoft Azure-based recovery services. As the first step, you'll implement Azure Site Recovery and Azure Backup.
 
+**Note:** An **[interactive lab simulation](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Azure-based%20recovery%20services)** is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
+
 ## Objectives
 After completing this lab, you'll be able to: 
 

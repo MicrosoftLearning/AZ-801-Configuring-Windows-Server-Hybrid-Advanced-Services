@@ -10,6 +10,8 @@ lab:
 
 You need to evaluate Microsoft Azure functionality that would provide insight into the performance and configuration of Azure resources, focusing in particular on Azure virtual machines (VMs). To accomplish this, you intend to examine the capabilities of Azure Monitor, including Log Analytics.
 
+**Note:** An **[interactive lab simulation](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20operational%20monitoring%20in%20hybrid%20scenarios)** is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
+
 ## Objectives
 
 After completing this lab, you'll be able to:

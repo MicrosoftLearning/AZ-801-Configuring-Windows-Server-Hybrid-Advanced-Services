@@ -7,6 +7,8 @@ lab:
 
 # Lab answer key: Implementing operational monitoring in hybrid scenarios
 
+**Note:** An **[interactive lab simulation](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20operational%20monitoring%20in%20hybrid%20scenarios)** is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
+
 ## Exercise 1: Preparing a monitoring environment
 
 #### Task 1: Deploy an Azure virtual machine
