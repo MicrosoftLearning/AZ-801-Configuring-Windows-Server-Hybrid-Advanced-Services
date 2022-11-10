@@ -204,7 +204,8 @@ The main tasks for this exercise are as follows:
 
 #### Task 5: Perform a failover of the Hyper-V virtual machine
 
-1. On **SEA-SVR2**, in the browser window displaying the Azure portal, on the **SEA-CORE1** replicated items blade, initiate **Test failover** with the following settings (leave others with their default values) and select **OK**:
+1. On **SEA-SVR2**, in the browser window displaying the Azure portal, on the **SEA-CORE1** replicated items blade go to the Compute and Network setting and review the virtual machine size. Validate that the size is set to A1_v2, if not edit the size to be A1_v2.
+1. Go back to the overview and initiate **Test failover** with the following settings (leave others with their default values) and select **OK**:
 
    |Setting|Value|
    |---|---|
