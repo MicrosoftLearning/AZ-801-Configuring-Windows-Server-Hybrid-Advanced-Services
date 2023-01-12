@@ -150,13 +150,13 @@ lab:
    
    > **Note**: To open Notepad from PowerShell, type **Notepad** and press enter.
 
-2. To install LAPS silently with the default settings, at the Windows PowerShell command prompt, enter the following command and press Enter:
+1. To install LAPS silently with the default settings, at the Windows PowerShell command prompt, enter the following command and press Enter:
 
    ```powershell
    Start-Process msiexec.exe -Wait -ArgumentList '/i \\SEA-SVR2.contoso.com\c$\Labfiles\Lab01\LAPS.x64.msi /quiet'
    ```
 
-3. To trigger the processing of Group Policy that will apply **LAPS** settings locally, at the Windows PowerShell command prompt, enter the following command and press Enter:
+1. To trigger the processing of Group Policy that will apply **LAPS** settings locally, at the Windows PowerShell command prompt, enter the following command and press Enter:
 
    ```powershell
    gpupdate /force

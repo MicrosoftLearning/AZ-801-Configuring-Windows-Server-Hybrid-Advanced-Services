@@ -241,8 +241,8 @@ lab:
    | Redundancy | **Locally redundant storage (LRS)** |
 
 1.  On the **Basics** tab of the **Create a storage account** page, select the **Data protection** tab.
-2.  On the **Data protection** tab of the **Create a storage account** page, clear the **Enable soft delete for blobs** and **Enable soft delete for containers** checkboxes, and then select **Review**.
-3.  On the **Review** tab, select **Create**.
+1.  On the **Data protection** tab of the **Create a storage account** page, clear the **Enable soft delete for blobs** and **Enable soft delete for containers** checkboxes, and then select **Review**.
+1.  On the **Review** tab, select **Create**.
 
 ## Exercise 3: Assess Hyper-V for migration by using Azure Migrate
   

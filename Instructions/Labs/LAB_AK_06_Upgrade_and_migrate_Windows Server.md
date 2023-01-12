@@ -175,8 +175,8 @@ lab:
    | --- | --- |
    | Boot diagnostics | **Enable with managed storage account (recommended)** |
 
-2. Select **Next: Advanced >**, on the **Advanced** tab of the **Create a virtual machine** blade, review the available settings without modifying any of them, and then select **Review + Create**.
-3. On the **Review + Create** blade, select **Create**.
+1. Select **Next: Advanced >**, on the **Advanced** tab of the **Create a virtual machine** blade, review the available settings without modifying any of them, and then select **Review + Create**.
+1. On the **Review + Create** blade, select **Create**.
 
    > **Note**: Wait for the deployment to complete. The deployment might take about 3 minutes.
 
