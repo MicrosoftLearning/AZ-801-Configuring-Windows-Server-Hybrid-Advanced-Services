@@ -44,7 +44,7 @@ lab:
    > **Note:** Storage replication type cannot be changed after you implement protection.
 
 1. On the **az801l05a-rsvault | Properties** page, select the **Update** link under the **Security Settings** label.
-1. On the **Security and soft delete settings** page, set **Enable soft delete for cloud workloads** to **Disable**, set **Enable soft delete and security settings for hybrid workloads** to **Disable**, select **Update**, and then close the **Security and soft delete settings** page.
+1. On the **Security and soft delete settings** page, disable **Enable soft delete for cloud workloads**, disable **Enable soft delete and security settings for hybrid workloads**, select **Update**, and then close the **Security and soft delete settings** page.
 
 ## Exercise 2: Implementing Hyper-V VM protection by using Azure Site Recovery vault
 
@@ -60,7 +60,7 @@ lab:
    |Name|**az801l05-dr-vnet**|
    |Region|the name of the Azure region into which you deployed the Recovery Services vault earlier in this lab|
 
-1. On the **IP addresses** tab of the **Create virtual network** page, select the ellipsis symbol (**...**) next to **+ add a subnet** button, from dropdown list select **Delete address space**, select **Add an IP address space**.
+1. On the **IP addresses** tab of the **Create virtual network** page, select the ellipsis symbol (**...**) next to the **+ add a subnet** button, from the dropdown list select **Delete address space**, select **Add an IP address space**.
 
 1. On the **Add an IP address space** page, specify the following settings (leave others with their default values) and select **Add**:
 
@@ -90,7 +90,7 @@ lab:
    |Name|**az801l05-test-vnet**|
    |Region|the name of the Azure region into which you deployed the Recovery Services vault earlier in this lab|
 
-1. On the **IP addresses** tab of the **Create virtual network** page, select the ellipsis symbol (**...**) next to **+ add a subnet** button, from dropdown list select **Delete address space**, select **Add an IP address space**.
+1. On the **IP addresses** tab of the **Create virtual network** page, select the ellipsis symbol (**...**) next to the **+ add a subnet** button, from the dropdown list select **Delete address space**, select **Add an IP address space**.
 
 1. On the **Add an IP address space** page, specify the following settings (leave others with their default values) and select **Add**:
 

@@ -80,7 +80,7 @@ lab:
 1. On the **Settings & monitoring** page, in the list of extensions, set **Vulnerability assessment for machines** to **On**. To the right side, select the **Edit configuration** link.
 1. On the **Extension deployment configuration** page, ensure that the **Microsoft threat and vulnerability management** option is selected, and then select **Apply**.
 1. On the **Settings & monitoring** page, select **Continue**.   
-1. On the **Defender plan** page, select **Save** and then **close**.
+1. On the **Defender plan** page, select **Save** and then close the page.
 1. Browse back to the **Microsoft Defender for Cloud | Overview** page, and then, in the **Management** section of the vertical menu on the left, select **Environment settings**.
 1. On the **Environment settings** page, expand the entry representing your Azure subscription and select the entry representing the Log Analytics workspace you created in the previous exercise.
 1. On the **Settings \| Defender plans** page, select the tile **Enable all Microsoft Defender for Cloud plans**, and then select **Save**.

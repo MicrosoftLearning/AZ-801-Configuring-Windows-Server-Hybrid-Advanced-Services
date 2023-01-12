@@ -171,7 +171,7 @@ lab:
    >**Note**: This setting provides the Azure VM Insights functionality. VM Insights is an Azure Monitor solution that facilitates monitoring performance and health of both Azure VMs and on-premises computers running Windows or Linux.
 
 1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, in the toolbar, search for and select **Monitor**, and then, on the **Monitor \| Overview** page, on the vertical menu on the left side, in the **Insights** section, select **Virtual Machines**.
-1. On the **Monitor \| Virtual Machines** page, select the **Performance** tab, Scroll down to review the performance metrics for the virtual machine.
+1. On the **Monitor \| Virtual Machines** page, select the **Performance** tab and Scroll down to review the performance metrics for the virtual machine.
 
    >**Note**: This option enables monitoring and alerting capabilities using health model, which consists of a hierarchy of health monitors built using the metrics emitted by Azure Monitor for VMs.
 
@@ -200,7 +200,7 @@ lab:
    | Aggregation type | **Average** |
    | Threshold value | **2** |
    | Check every | **1 minute** |
-   | Lookback period | **Every 1 Minute** |
+   | Lookback period | **1 Minute** |
 
 1. On the **Create an alert rule** page, on the **Actions** tab, select the **+ Create action group** button.
 1. On the **Basics** tab of the **Create an action group** page, specify the following settings (leave others with their default values), and then select **Next: Notifications >**:

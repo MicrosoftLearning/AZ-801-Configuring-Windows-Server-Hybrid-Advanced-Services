@@ -178,7 +178,7 @@ lab:
    | Name | **az801l07a-migration-vnet** |
    | Region | the name of the Azure region into which you deployed the virtual machine earlier in this lab |
 
-1. On the **IP addresses** tab of the **Create virtual network** page, select the ellipsis symbol (**...**) next to **+ add a subnet** button, from dropdown list select **Delete address space**, select **Add an IP address space**.
+1. On the **IP addresses** tab of the **Create virtual network** page, select the ellipsis symbol (**...**) next to the **+ add a subnet** button, from the dropdown list select **Delete address space**, select **Add an IP address space**.
 
 1. On the **Add an IP address space** page, specify the following settings (leave others with their default values) and select **Add**:
 
@@ -208,7 +208,7 @@ lab:
    | Name | **az801l07a-test-vnet** |
    | Region | the name of the Azure region into which you deployed the virtual machine earlier in this lab |
 
-1. On the **IP addresses** tab of the **Create virtual network** page, select the ellipsis symbol (**...**) next to **+ add a subnet** button, from dropdown list select **Delete address space**, select **Add an IP address space**.
+1. On the **IP addresses** tab of the **Create virtual network** page, select the ellipsis symbol (**...**) next to the **+ add a subnet** button, from the dropdown list select **Delete address space**, select **Add an IP address space**.
 
 1. On the **Add an IP address space** page, specify the following settings (leave others with their default values) and select **Add**:
 
