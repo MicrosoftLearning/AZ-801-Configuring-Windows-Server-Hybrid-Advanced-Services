@@ -17,7 +17,7 @@ lab:
 1. On **SEA-SVR2**, start Microsoft Edge, and access a customized version of the QuickStart template at **[Create a new Windows VM and create a new AD Forest, Domain and DC](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain)**. 
 1. On the **Create a new Windows VM and create a new AD Forest, Domain and DC** page, select **Deploy to Azure**. This will automatically redirect the browser to the **Create an Azure VM with a new AD Forest** page in the Azure portal.
 1. On the **Create an Azure VM with a new AD Forest** page, select **Edit template**.
-1. On the **Edit template** page, browse to the **storageProfile** section (starting with the line **195**) and verify that the **sku** (on line **199**) is set to **2022-Datacenter** and that **dataDisks** **caching** (on line **213**) is set to **None**.
+1. On the **Edit template** page, browse to the **storageProfile** section (starting with the line **195**) and verify that the **sku** (on line **199**) is set to **2022-Datacenter**, that the **version** (on line **200**) is set to **latest** and that **dataDisks** **caching** (on line **213**) is set to **None**.
 
    > **Note**: Caching on the disks hosting AD DS database and log files should be set to **None**.
 
@@ -58,6 +58,7 @@ lab:
    | Admin Password | **Pa55w.rd1234** |
    | Domain name | **contoso.com** |
    | Vm Size | **Standard_DS2_v2** |
+   | _artifacts Location | **`https://raw.githubusercontent.com/az140mp/azure-quickstart-templates/master/application-workloads/active-directory/active-directory-new-domain/`** |
    | Virtual Machine Name | **az801l06a-dc1** |
    | Virtual Network Name | **az801l06a-vnet** |
    | Virtual Network Address Range | **10.6.0.0/16** |
@@ -117,7 +118,7 @@ lab:
 > **Note**: You could fully automate the deployment of the second Azure VM and its setup as an additional domain controller in the same domain as the first one you provisioned in the first task of this exercise. However, the use of graphical interface in this case should provide additional guidance regarding differences between provisioning domain controllers in on-premises and Azure-based scenarios.
 
 1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Virtual machines**. 
-1. On the **Virtual machines** page, select **+ Create**, and then, in the drop-down menu, select **+ Virtual machine**.
+1. On the **Virtual machines** page, select **+ Create**, and then, in the drop-down menu, select **Azure virtual machine**.
 1. On the **Basics** tab of the **Create a virtual machine** blade, specify the following settings (leave others with their default values):
 
    | Setting | Value |
@@ -129,7 +130,7 @@ lab:
    | Availability options | **Availability set** |
    | Availability set | **adAvailabilitySet** |
    | Image | **Windows Server 2022 Datacenter: Azure Edition - Gen2** |
-   | Azure Spot instance | **No** |
+   | Run with Azure Spot discount | **No** |
    | Size | **Standard D2s v3** |
    | Username | **Student** |
    | Password | **Pa55w.rd1234** |
@@ -159,18 +160,23 @@ lab:
    | Subnet | **adSubnet (10.6.0.0/24)** |
    | Public IP | **None** |
    | NIC network security group | **None** |
-   | Accelerated networking | enabled |
+   | Enable accelerated networking | disabled |
    | Place this virtual machine behind an existing load balancing solution? | disabled |
 
 1. Select **Next: Management >**, and then, on the **Management** tab of the **Create a virtual machine** blade, specify the following settings (leave others with their default values):
 
    | Setting | Value |
    | --- | --- |
-   | Boot diagnostics | **Enable with managed storage account (recommended)** |
    | Patch orchestration options | **Manual updates** |
 
-1. Select **Next: Advanced >**, on the **Advanced** tab of the **Create a virtual machine** blade, review the available settings without modifying any of them, and then select **Review + Create**.
-1. On the **Review + Create** blade, select **Create**.
+1. Select **Next: Monitoring >**, and then, on the **Monitoring** tab of the **Create a virtual machine** blade, specify the following settings (leave others with their default values):
+
+   | Setting | Value |
+   | --- | --- |
+   | Boot diagnostics | **Enable with managed storage account (recommended)** |
+
+2. Select **Next: Advanced >**, on the **Advanced** tab of the **Create a virtual machine** blade, review the available settings without modifying any of them, and then select **Review + Create**.
+3. On the **Review + Create** blade, select **Create**.
 
    > **Note**: Wait for the deployment to complete. The deployment might take about 3 minutes.
 
@@ -298,6 +304,11 @@ lab:
 #### Task 3: Perform migration by using Storage Migration Service
 
 1. On **SEA-SVR2**, start Microsoft Edge, and then go to **https://SEA-SVR2.contoso.com**. 
+   
+   >**Note**: If the link does not work, on **SEA-SVR2**, open File Explorer, select Downloads folder, in the Downloads folder select **WindowsAdminCenter.msi** file and install manually. After the install completes, refresh Microsoft Edge.
+
+   >**Note**: If you get **NET::ERR_CERT_DATE_INVALID** error, select **Advanced** on the Edge browser page, at the bottom of page select **Continue to sea-svr2-contoso.com (unsafe)**.
+
 1. When prompted, in the **Windows Security** dialog box, enter the following credentials, and then select **OK**:
 
    - Username: **CONTOSO\\Administrator**
@@ -312,7 +323,7 @@ lab:
 
 1. On the top menu, next to **Settings**, select the drop-down arrow, and then select **Server Manager**.
 1. In the **All connections** pane, select the **sea-svr2.contoso.com** link.
-1. On the **sea-svr2.contoso.com** page, on the **Tools** menu, select the **Storage Migration Service** entry.
+1.  On the **sea-svr2.contoso.com** page, on the **Tools** menu, select the **Storage Migration Service** entry.
 1. In the **Storage Migration Service** pane, select **Install**.
 
    >**Note:** This will automatically install the Storage Migration Service and its required components.

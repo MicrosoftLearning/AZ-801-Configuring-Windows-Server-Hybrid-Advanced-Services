@@ -184,7 +184,7 @@ lab:
 
 ## Exercise 2: Implementing backup and restore with Windows Server Backup
 
-### Task1: Configure Windows Server Backup settings
+#### Task1: Configure Windows Server Backup settings
 
 1. On **SEA-SVR2**, open File Explorer by selecting the **File Explorer** icon on the taskbar.
 1. In File Explorer, select **Local Disk (C:)** in the **navigation** pane.

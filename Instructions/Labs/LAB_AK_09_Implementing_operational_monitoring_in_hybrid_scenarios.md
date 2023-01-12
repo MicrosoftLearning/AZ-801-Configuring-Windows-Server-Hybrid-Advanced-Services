@@ -133,11 +133,7 @@ lab:
 1. Switch to the **Performance counters** tab of the **az801l09-vm0 \| Diagnostic settings** page and review the available counters.
 
    >**Note**: By default, CPU, memory, disk, and network counters are enabled. You can switch to the **Custom** view for more detailed listing.
-
-1. Switch to the **Logs** tab of the **az801l09-vm0 \| Diagnostic settings** page and select the **Enable guest-level monitoring** button. 
-
-   >**Note**: Wait until the guest-level monitoring diagnostics are enabled. This should take about 3 minutes.
-
+   
 1. On the **az801l09-vm0 \| Diagnostic settings** page, on the **Overview** tab, review the available event log collection options.
 
    >**Note**: By default, log collection includes critical, error, and warning entries from the Application Log and System log, as well as Audit failure entries from the Security log. You can customize them from the **Logs** tab.
@@ -165,17 +161,17 @@ lab:
 
 1. On the **az801l09-vm0 \| Metrics** page, on the vertical menu on the left side, in the **Monitoring** section, select **Logs**.
 1. If needed, on the **az801l09-vm0 \| Logs** page, select **Enable**.
-1. In the **Choose a Log Analytics Workspace** drop-down list, select the Log Analytics workspace you created earlier in this lab, and then select **Enable**.
+1. In the **Monitoring configuration** page, select **Configure**.
+
+   >**Note**: You might need to wait for a few minutes and select **Refresh**. 
+
 1. On the **az801l09-vm0 \| Logs** page, on the vertical menu on the left side, in the **Monitoring** section, select **Insights**.
 1. If needed, on the **az801l09-vm0 \| Insights** page, select **Enable**.
 
    >**Note**: This setting provides the Azure VM Insights functionality. VM Insights is an Azure Monitor solution that facilitates monitoring performance and health of both Azure VMs and on-premises computers running Windows or Linux.
 
-1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, in the toolbar, search for and select **Monitor**, and then, on the **Monitor \| Overview** page, under **Insights**, select **VM insights**.
-1. On the **Monitor \| Virtual Machines** page, select the **Performance** tab, and if needed, select **Try now**.
-1. On the **Monitor \| Virtual Machines** page, select the **Map** tab, and then select **Try now**.
-1. On the **Manage Coverage** page, select **Configure Workspace**.
-1. On the **Azure Monitor** page, from the **Choose a Log Analytics Workspace** drop-down menu, select the workspace you created earlier in this lab, and then select **Configure**.
+1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, in the toolbar, search for and select **Monitor**, and then, on the **Monitor \| Overview** page, on the vertical menu on the left side, in the **Insights** section, select **Virtual Machines**.
+1. On the **Monitor \| Virtual Machines** page, select the **Performance** tab, Scroll down to review the performance metrics for the virtual machine.
 
    >**Note**: This option enables monitoring and alerting capabilities using health model, which consists of a hierarchy of health monitors built using the metrics emitted by Azure Monitor for VMs.
 
@@ -195,8 +191,7 @@ lab:
 
    >**Note**: Creating an alert rule from Metrics is not supported for metrics from the Guest (classic) metric namespace. This can be accomplished by using Azure Resource Manager templates, as described in the document **[Send Guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm)**.
 
-1. On the **Create an alert rule** page, in the **Condition** section, select the existing condition entry.
-1. On the **Configure signal logic** page, in the list of signals, in the **Alert logic** section, specify the following settings (leave others with their default values), and then select **Done**:
+1. On the **Create an alert rule** page, in the **Condition** section, in the **Alert logic** section, specify the following settings (leave others with their default values), and then select **Next: Actions >**:
 
    | Settings | Value |
    | --- | --- |
@@ -204,8 +199,8 @@ lab:
    | Operator | **Greater than** |
    | Aggregation type | **Average** |
    | Threshold value | **2** |
-   | Aggregation granularity (Period) | **1 minute** |
-   | Frequency of evaluation | **Every 1 Minute** |
+   | Check every | **1 minute** |
+   | Lookback period | **Every 1 Minute** |
 
 1. On the **Create an alert rule** page, on the **Actions** tab, select the **+ Create action group** button.
 1. On the **Basics** tab of the **Create an action group** page, specify the following settings (leave others with their default values), and then select **Next: Notifications >**:
@@ -221,7 +216,7 @@ lab:
 1. On the **Email/SMS message/Push/Voice** page, select the **Email** checkbox, type your email address in the **Email** textbox, leave others with their default values, and then select **OK**. Back on the **Notifications** tab of the **Create an action group** page, select **Next: Actions  >**.
 1. On the **Actions** tab of the **Create an action group** page, review items available in the **Action type** drop-down list without making any changes and select **Review + create**.
 1. On the **Review + create** tab of the **Create an action group** page, select **Create**.
-1. Back on the **Create an alert rule** page, in the **Alert rule details** section, specify the following settings (leave others with their default values):
+1. Back on the **Create an alert rule** page, select **Next: Details  >**, in the **Project details** section, specify the following settings (leave others with their default values):
 
    | Settings | Value |
    | --- | --- |
@@ -229,9 +224,9 @@ lab:
    | Description | **CPU Percentage above the test threshold** |
    | Resource group | **AZ801-L0902-RG** |
    | Severity | **Sev 3** |
-   | Enable rule upon creation | **Yes** |
+   | Enable upon creation | **Yes** |
 
-1. Select **Create alert rule**.
+1. On the **Details** tab of the **Create an alert rule** page, select **Review + create**, select **Create**.
 
    >**Note**: It can take up to 10 minutes for a metric alert rule to become active.
 

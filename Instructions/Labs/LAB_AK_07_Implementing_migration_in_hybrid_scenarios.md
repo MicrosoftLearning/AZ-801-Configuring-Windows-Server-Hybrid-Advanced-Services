@@ -169,7 +169,7 @@ lab:
 #### Task 3: Implement the target Azure environment
 
 1. Within the Remote Desktop session to **az801l07a-hv-vm**, in the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Virtual networks**. On the **Virtual networks** page, select **+ Create** on the command bar. 
-1. On the **Basics** tab of the **Create virtual network** page, specify the following settings (leave others with their default values) and select **Next: IP Addresses**:
+1. On the **Basics** tab of the **Create virtual network** page, specify the following settings (leave others with their default values) and select **IP Addresses**:
 
    | Setting | Value |
    | --- | --- |
@@ -178,18 +178,28 @@ lab:
    | Name | **az801l07a-migration-vnet** |
    | Region | the name of the Azure region into which you deployed the virtual machine earlier in this lab |
 
-1. On the **IP addresses** tab of the **Create virtual network** page, select the **Recycle Bin** icon. In the **IPv4 address space** text box, type **10.7.0.0/16** and select **+ Add subnet**.
-1. On the **Add subnet** page, specify the following settings (leave others with their default values) and select **Add**:
+1. On the **IP addresses** tab of the **Create virtual network** page, select the ellipsis symbol (**...**) next to **+ add a subnet** button, from dropdown list select **Delete address space**, select **Add an IP address space**.
 
-   | Setting | Value |
-   | --- | --- |
-   | Subnet name | **subnet0** |
-   | Subnet address range | **10.7.0.0/24** |
+1. On the **Add an IP address space** page, specify the following settings (leave others with their default values) and select **Add**:
+
+   |Setting|Value|
+   |---|---|
+   |Starting Address|**10.7.0.0**|
+   |Address space size|**/16 (65536 Addresses)**|
+
+1. On the **IP addresses** tab of the **Create virtual network** page, select **+ Add a subnet**.
+1. On the **Add a subnet** page, specify the following settings (leave others with their default values) and select **Add**:
+
+   |Setting|Value|
+   |---|---|
+   |Name|**subnet0**|
+   |Starting Address|**10.7.0.0**|
+   |Subnet size|**/24 (256 Addresses)**|
 
 1. Back on the **IP addresses** tab of the **Create virtual network** page, select **Review + create**.
 1. On the **Review + create** tab of the **Create virtual network** page, select **Create**.
 1. In the Azure portal, browse back to the **Virtual networks** page, and then, select **+ Create** on the command bar.
-1. On the **Basics** tab of the **Create virtual network** page, specify the following settings (leave others with their default values) and select **Next: IP Addresses**:
+1. On the **Basics** tab of the **Create virtual network** page, specify the following settings (leave others with their default values) and select **IP Addresses**:
 
    | Setting | Value |
    | --- | --- |
@@ -198,18 +208,28 @@ lab:
    | Name | **az801l07a-test-vnet** |
    | Region | the name of the Azure region into which you deployed the virtual machine earlier in this lab |
 
-1. On the **IP addresses** tab of the **Create virtual network** page, select the **Recycle Bin** icon. In the **IPv4 address space** text box, type **10.7.0.0/16** and select **+ Add subnet**.
-1. On the **Add subnet** page, specify the following settings (leave others with their default values) and select **Add**:
+1. On the **IP addresses** tab of the **Create virtual network** page, select the ellipsis symbol (**...**) next to **+ add a subnet** button, from dropdown list select **Delete address space**, select **Add an IP address space**.
 
-   | Setting | Value |
-   | --- | --- |
-   | Subnet name | **subnet0** |
-   | Subnet address range | **10.7.0.0/24** |
+1. On the **Add an IP address space** page, specify the following settings (leave others with their default values) and select **Add**:
+
+   |Setting|Value|
+   |---|---|
+   |Starting Address|**10.7.0.0**|
+   |Address space size|**/16 (65536 Addresses)**|
+
+1. On the **IP addresses** tab of the **Create virtual network** page, select **+ Add a subnet**.
+1. On the **Add a subnet** page, specify the following settings (leave others with their default values) and select **Add**:
+
+   |Setting|Value|
+   |---|---|
+   |Name|**subnet0**|
+   |Starting Address|**10.7.0.0**|
+   |Subnet size|**/24 (256 Addresses)**|
 
 1. Back on the **IP addresses** tab of the **Create virtual network** page, select **Review + create**.
 1. On the **Review + create** tab of the **Create virtual network** page, select **Create**.
-1. In the Azure portal, search for and select **Storage accounts**. Then, on the **Storage accounts** page, select **+ Create** on the command bar.
-1. On the **Basics** tab of the **Create a storage account** page, specify the following settings (leave others with their default values):
+1.  In the Azure portal, search for and select **Storage accounts**. Then, on the **Storage accounts** page, select **+ Create** on the command bar.
+1.  On the **Basics** tab of the **Create a storage account** page, specify the following settings (leave others with their default values):
 
    | Setting | Value | 
    | --- | --- |
@@ -220,9 +240,9 @@ lab:
    | Performance | **Standard** |
    | Redundancy | **Locally redundant storage (LRS)** |
 
-1. On the **Basics** tab of the **Create a storage account** page, select the **Data protection** tab.
-1. On the **Data protection** tab of the **Create a storage account** page, clear the **Enable soft delete for blobs** and **Enable soft delete for containers** checkboxes, and then select **Review + create**.
-1. On the **Review + create** tab, select **Create**.
+1.  On the **Basics** tab of the **Create a storage account** page, select the **Data protection** tab.
+2.  On the **Data protection** tab of the **Create a storage account** page, clear the **Enable soft delete for blobs** and **Enable soft delete for containers** checkboxes, and then select **Review**.
+3.  On the **Review** tab, select **Create**.
 
 ## Exercise 3: Assess Hyper-V for migration by using Azure Migrate
   

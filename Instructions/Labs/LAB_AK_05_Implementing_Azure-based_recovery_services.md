@@ -44,14 +44,14 @@ lab:
    > **Note:** Storage replication type cannot be changed after you implement protection.
 
 1. On the **az801l05a-rsvault | Properties** page, select the **Update** link under the **Security Settings** label.
-1. On the **Security Settings** page, set **Soft Delete** to **Disable**, set **Security Features** to **Disable**, select **Save**, and then close the **Security Settings** page.
+1. On the **Security and soft delete settings** page, set **Enable soft delete for cloud workloads** to **Disable**, set **Enable soft delete and security settings for hybrid workloads** to **Disable**, select **Update**, and then close the **Security and soft delete settings** page.
 
 ## Exercise 2: Implementing Hyper-V VM protection by using Azure Site Recovery vault
 
 #### Task 1: Implement an Azure recovery site
 
 1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, use the **Search resources, services, and docs** text box in the toolbar to search for and select **Virtual networks**, and on the **Virtual networks** page, select **+ Create**.
-1. On the **Basics** tab of the **Create virtual network** page, specify the following settings (leave others with their default values) and select **Next: IP Addresses**:
+1. On the **Basics** tab of the **Create virtual network** page, specify the following settings (leave others with their default values) and select **IP Addresses**:
 
    |Setting|Value|
    |---|---|
@@ -60,18 +60,28 @@ lab:
    |Name|**az801l05-dr-vnet**|
    |Region|the name of the Azure region into which you deployed the Recovery Services vault earlier in this lab|
 
-1. On the **IP addresses** tab of the **Create virtual network** page, select the recycle bin icon, in the **IPv4 address space** text box, enter **10.5.0.0/22** and select **+ Add subnet**.
-1. On the **Add subnet** page, specify the following settings (leave others with their default values) and select **Add**:
+1. On the **IP addresses** tab of the **Create virtual network** page, select the ellipsis symbol (**...**) next to **+ add a subnet** button, from dropdown list select **Delete address space**, select **Add an IP address space**.
+
+1. On the **Add an IP address space** page, specify the following settings (leave others with their default values) and select **Add**:
 
    |Setting|Value|
    |---|---|
-   |Subnet name|**subnet0**|
-   |Subnet address range|**10.5.0.0/24**|
+   |Starting Address|**10.5.0.0**|
+   |Address space size|**/22 (1024 Addresses)**|
+
+1. On the **IP addresses** tab of the **Create virtual network** page, select **+ Add a subnet**.
+1. On the **Add a subnet** page, specify the following settings (leave others with their default values) and select **Add**:
+
+   |Setting|Value|
+   |---|---|
+   |Name|**subnet0**|
+   |Starting Address|**10.5.0.0**|
+   |Subnet size|**/24 (256 Addresses)**|
 
 1. Back on the **IP addresses** tab of the **Create virtual network** page, select **Review + create**.
 1. On the **Review + create** tab of the **Create virtual network** page, select **Create**.
 1. On **SEA-SVR2**, in the Azure portal, browse back to the **Virtual networks** page and select **+ Create**.
-1. On the **Basics** tab of the **Create virtual network** page, specify the following settings (leave others with their default values) and select **Next: IP Addresses**:
+1. On the **Basics** tab of the **Create virtual network** page, specify the following settings (leave others with their default values) and select **IP Addresses**:
 
    |Setting|Value|
    |---|---|
@@ -80,16 +90,25 @@ lab:
    |Name|**az801l05-test-vnet**|
    |Region|the name of the Azure region into which you deployed the Recovery Services vault earlier in this lab|
 
-1. On the **IP addresses** tab of the **Create virtual network** page, select the recycle bin icon, in the **IPv4 address space** text box, enter **10.5.0.0/22** and select **+ Add subnet**.
+1. On the **IP addresses** tab of the **Create virtual network** page, select the ellipsis symbol (**...**) next to **+ add a subnet** button, from dropdown list select **Delete address space**, select **Add an IP address space**.
 
-   > **Note:** Ignore the warning regarding the overlapping IP address space. This is intentional, so the IP address space of the test environment matches the IP address space of the disaster recovery environment.
-
-1. On the **Add subnet** page, specify the following settings (leave others with their default values) and select **Add**:
+1. On the **Add an IP address space** page, specify the following settings (leave others with their default values) and select **Add**:
 
    |Setting|Value|
    |---|---|
-   |Subnet name|**subnet0**|
-   |Subnet address range|**10.5.0.0/24**|
+   |Starting Address|**10.5.0.0**|
+   |Address space size|**/22 (1024 Addresses)**|
+
+   > **Note:** Ignore the warning regarding the overlapping IP address space. This is intentional, so the IP address space of the test environment matches the IP address space of the disaster recovery environment.
+
+1. On the **IP addresses** tab of the **Create virtual network** page, select **+ Add a subnet**.
+1. On the **Add a subnet** page, specify the following settings (leave others with their default values) and select **Add**:
+
+   |Setting|Value|
+   |---|---|
+   |Name|**subnet0**|
+   |Starting Address|**10.5.0.0**|
+   |Subnet size|**/24 (256 Addresses)**|
 
 1. Back on the **IP addresses** tab of the **Create virtual network** page, select **Review + create**.
 1. On the **Review + create** tab of the **Create virtual network** page, select **Create**.
@@ -106,11 +125,11 @@ lab:
    |Redundancy|Locally redundant storage (LRS)|
 
 1. On the **Basics** tab of the **Create storage account** page, select the **Data protection** tab.
-1. On the **Data protection** tab of the **Create storage account** page, clear the **Enable soft delete for blobs** and **Enable soft delete for containers** checkboxes and select **Review + create**.
+1. On the **Data protection** tab of the **Create storage account** page, clear the **Enable soft delete for blobs** and **Enable soft delete for containers** checkboxes and select **Review**.
 
    > **Note:** These settings must be disabled when using the storage account for Azure Site Recovery.
 
-1. On the **Review + create** tab of the **Create storage account** page, select **Create**.
+1. On the **Review** tab of the **Create storage account** page, select **Create**.
 
 #### Task 2: Prepare protection of a Hyper-V virtual machine
 
@@ -121,8 +140,13 @@ lab:
 1. On the **Source settings** tab of the **Prepare infrastructure** page, next to the **Are you Using System Center VMM to manage Hyper-V hosts** label, select the **No** option.
 1. On the **Source settings** tab of the **Prepare infrastructure** page, select the **Add Hyper-V site** link. 
 1. On the **Create Hyper-V Site** page, in the **Name** text box, enter **az801l05-site** and select **OK**.
-1. On the **Source settings** tab of the **Prepare infrastructure** page, select the **Add Hyper-V server** link. 
-1. On the **Add Server** page, select the **Download** link in step 3 of the procedure for adding on-premises Hyper-V hosts in order to download the installer for Microsoft Azure Site Recovery Provider.
+1. To download and install **MARS Agent**, select the **[Download MARS Agent Installer](https://download.microsoft.com/download/0/6/7/067d515b-2c89-40fb-8dfc-4a94e9cfcbd9/MARSAgentInstaller.exe)** link. 
+1. In the download notification, select **Open file**. This will start the **Azure Site Recovery Services Agent Setup** wizard.
+1. On the **Installation Settings** page, select **Next**.
+1. On the **Proxy Configuration** page, select **Next**.
+1. On the **Installation** page, select **Install**, then select **close**.
+1. Switch back to the Microsoft Edge window displaying the Azure portal, on the **Source settings** tab of the **Prepare infrastructure** page, select the **Add Hyper-V server** link. 
+1. on the **Add Server** page, select the **Download** link in step 3 of the procedure for adding on-premises Hyper-V hosts in order to download the installer for Microsoft Azure Site Recovery Provider.
 
    > **Note:** If you receive the Microsoft Edge notification that **AzureSiteRecoveryProvider.exe can't be downloaded securely**, move the cursor over the right side of the message to reveal the ellipsis symbol (**...**), select it, in the drop-down menu, select **Copy download link**, open another tab in the same Microsoft Edge window, paste the link you copied, and then press Enter.
 
@@ -250,8 +274,7 @@ Verify that the **Hyper-V site** and **Hyper-V servers** settings are set correc
    > **Note:** This will start the **Microsoft Azure Recovery Services Agent Setup Wizard**, which, in this case, will launch automatically the **Register Server Wizard**.
 
 1. On the **Installation Settings** page of the **Microsoft Azure Recovery Services Agent Setup Wizard**, accept the default settings and select **Next**.
-1. On the **Proxy Configuration** page of the **Microsoft Azure Recovery Services Agent Setup Wizard**, accept the default settings, and then select **Next**.
-1. On the **Microsoft Update Opt-in** page of the **Microsoft Azure Recovery Services Agent Setup Wizard**, select **I do not want to use Windows Update**, and then select **Next**.
+1. On the **Proxy Configuration** page of the **Microsoft Azure Recovery Services Agent Setup Wizard**, accept the default settings, and then select **Next**.    
 1. On the **Installation** page of the **Microsoft Azure Recovery Services Agent Setup Wizard**, select **Install**.
 1. After the installation completes, on the **Installation** page of the **Microsoft Azure Recovery Services Agent Setup Wizard**, select **Proceed to Registration**. This will launch the **Register Server Wizard**.
 1. Switch to the Microsoft Edge window displaying the Azure portal, on the **Prepare infrastructure** page, select the **Already downloaded or using the latest Recovery Server Agent** checkbox , and select **Download**.

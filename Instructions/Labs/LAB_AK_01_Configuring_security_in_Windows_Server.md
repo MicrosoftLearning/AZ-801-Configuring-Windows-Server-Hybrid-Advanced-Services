@@ -40,7 +40,7 @@ lab:
    .\DG_Readiness_Tool.ps1 -Enable -AutoReboot
    ```
 
-1. Wait until the tool completes its run and, when prompted, in the **You're about to be signed out** dialog box, select **OK**.
+1. Wait until the tool completes its run and, when prompted, in the **You're about to be signed out** dialog box, select **Close**.
 
    > **Note**: The operating system will restart. 
 
@@ -147,13 +147,16 @@ lab:
    > **Note:** You will be prompted to change your password, as a result of running in the previous exercise the script that enables password expiration. Choose an arbitrary password and use it throughout the remainder of the lab.
 
 1. Once you sign in, to access the Windows PowerShell command prompt, at the **SConfig** menu prompt, enter **15** and press Enter.
-1. To install LAPS silently with the default settings, at the Windows PowerShell command prompt, enter the following command and press Enter:
+   
+   > **Note**: To open Notepad from PowerShell, type **Notepad** and press enter.
+
+2. To install LAPS silently with the default settings, at the Windows PowerShell command prompt, enter the following command and press Enter:
 
    ```powershell
    Start-Process msiexec.exe -Wait -ArgumentList '/i \\SEA-SVR2.contoso.com\c$\Labfiles\Lab01\LAPS.x64.msi /quiet'
    ```
 
-1. To trigger the processing of Group Policy that will apply **LAPS** settings locally, at the Windows PowerShell command prompt, enter the following command and press Enter:
+3. To trigger the processing of Group Policy that will apply **LAPS** settings locally, at the Windows PowerShell command prompt, enter the following command and press Enter:
 
    ```powershell
    gpupdate /force
