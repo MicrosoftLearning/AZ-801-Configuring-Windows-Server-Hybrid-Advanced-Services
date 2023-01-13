@@ -40,7 +40,7 @@ lab:
    .\DG_Readiness_Tool.ps1 -Enable -AutoReboot
    ```
 
-1. Wait until the tool completes its run and, when prompted, in the **You're about to be signed out** dialog box, select **OK**.
+1. Wait until the tool completes its run and, when prompted, in the **You're about to be signed out** dialog box, select **Close**.
 
    > **Note**: The operating system will restart. 
 
@@ -147,6 +147,9 @@ lab:
    > **Note:** You will be prompted to change your password, as a result of running in the previous exercise the script that enables password expiration. Choose an arbitrary password and use it throughout the remainder of the lab.
 
 1. Once you sign in, to access the Windows PowerShell command prompt, at the **SConfig** menu prompt, enter **15** and press Enter.
+   
+   > **Note**: To open Notepad from PowerShell, type **Notepad** and press enter.
+
 1. To install LAPS silently with the default settings, at the Windows PowerShell command prompt, enter the following command and press Enter:
 
    ```powershell

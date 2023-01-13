@@ -72,14 +72,15 @@ lab:
 
    > **Note:** Note that you can selectively disable individual Microsoft Defender plans listed on the same page.
 
-1. Set all of the plans to **Off** except for the first one, which represents **Microsoft Defender for Servers** and select **Save**.
-1. On the **Settings \| Defender plans** page, in the vertical menu on the left side, in the **Settings** section, select **Auto provisioning**.
-1. On the **Settings \| Auto provisioning** page, in the list of extensions, to the right side of the **Log Analytics agent for Azure VMs** entry, select **Edit configuration** link.
-1. In the **Extension deployment configuration** page, in the **Workspace configuration** section, select the option **Connect Azure VMs to a different workspace**. In the drop-down menu, select the entry representing the workspace you created in the previous exercise, and then select **Apply**.
-1. Back on the **Settings \| Auto provisioning** page, set **Log Analytics agent for Azure Arc Machine (preview)** to **On**. This will automatically display the **Extension deployment configuration** page. 
-1. On the **Extension deployment configuration** page, in the **Choose a Log Analytics workspace** drop-down list, select the entry representing the workspace you created in the previous exercise, and then select **Apply**.
-1. Back on the **Settings \| Auto provisioning** page, set **Vulnerability assessment for machines** to **On**. In the **Extension deployment configuration** page, ensure that the **Microsoft threat and vulnerability management** option is selected, and then select **Apply**.
-1. Select **Save** at the top of the page.
+1. Set all of the plans to **Off** except for the **Servers** and select **Save**.
+1. On the **Settings \| Defender plans** page, on the top side, select **Settings & monitoring**.
+1. On the **Settings & monitoring** page, in the list of extensions, to the right side of the **Log Analytics agent/Azure Monitor agent** entry, select the **Edit configuration** link.
+1. On the **Auto-provisioning configuration**, in the **Workspace selection** section, select the option **Custom workspace**, in the drop-down menu, select the entry representing the workspace you created in the previous exercise, and then select **Apply**.
+1. On the **Settings & monitoring** page, in the list of extensions, set **Guest Configuration agent (preview)** to **On**.
+1. On the **Settings & monitoring** page, in the list of extensions, set **Vulnerability assessment for machines** to **On**. To the right side, select the **Edit configuration** link.
+1. On the **Extension deployment configuration** page, ensure that the **Microsoft threat and vulnerability management** option is selected, and then select **Apply**.
+1. On the **Settings & monitoring** page, select **Continue**.   
+1. On the **Defender plan** page, select **Save** and then close the page.
 1. Browse back to the **Microsoft Defender for Cloud | Overview** page, and then, in the **Management** section of the vertical menu on the left, select **Environment settings**.
 1. On the **Environment settings** page, expand the entry representing your Azure subscription and select the entry representing the Log Analytics workspace you created in the previous exercise.
 1. On the **Settings \| Defender plans** page, select the tile **Enable all Microsoft Defender for Cloud plans**, and then select **Save**.
