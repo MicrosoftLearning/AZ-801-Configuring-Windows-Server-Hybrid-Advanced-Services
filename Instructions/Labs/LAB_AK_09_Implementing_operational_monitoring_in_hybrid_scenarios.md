@@ -245,15 +245,16 @@ lab:
       }
    }
    ```
+   >**Note**: When you press **"T"** to enter the PowerShell commands, the code automatically inserts three additional curly braces. This will cause the script to fail so make sure you remove the three additional braces before you select **Run**.
 
    >**Note**: This should increase the CPU utilization above the threshold of the newly created alert rule.
 
-1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, open another tab, browse to the **Monitor** page, and then select **Alerts**.
-1. Note the number of **Sev 3** alerts, and then select the **Sev 3** row.
+2. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, open another tab, browse to the **Monitor** page, and then select **Alerts**.
+3. Note the number of **Sev 3** alerts, and then select the **Sev 3** row.
 
    >**Note**: You might need to wait for a few minutes and select **Refresh**.
 
-1. On the **All Alerts** page, review generated alerts.
+4. On the **All Alerts** page, review generated alerts.
 
 #### Task 2: Review Azure Monitor VM Insights functionality
 
