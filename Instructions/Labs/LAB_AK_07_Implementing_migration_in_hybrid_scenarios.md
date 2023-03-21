@@ -371,8 +371,7 @@ lab:
 1. Switch to the **Provider installation** page of the **Azure Site Recovery Provider Setup (Hyper-V server)** wizard and select **Register**. This will start the **Microsoft Azure Site Recovery Registration Wizard**.
 1. On the **Vault Settings** page of the **Microsoft Azure Site Recovery Registration Wizard**, select **Browse**, browse to the **Downloads** folder, select the vault credentials file, and then select **Open**.
 
-   >**Note**: To update the Microsoft Edge browser, select three dots (ellipsis) icon in the upper-right corner of the window. Select **Help and feedback** from the dropdown menu, select **About Microsoft Edge**, Edge will automatically check for updates and download any available updates, once the update is downloaded, click on the **Restart**.
-
+   
 1. Back on the **Vault Settings** page of the **Microsoft Azure Site Recovery Registration Wizard**, select **Next**.
 1. On the **Proxy Settings** page of the **Microsoft Azure Site Recovery Registration Wizard**, accept the default settings and select **Next**.
 1. On the **Registration** page of the **Microsoft Azure Site Recovery Registration Wizard**, select **Finish**.
