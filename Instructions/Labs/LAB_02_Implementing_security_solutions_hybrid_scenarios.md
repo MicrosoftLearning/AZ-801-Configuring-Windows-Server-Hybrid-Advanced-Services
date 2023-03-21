@@ -52,7 +52,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 1: Create an Azure Log Analytics workspace 
 
-1. On **SEA-SVR2**, start Microsoft Edge, go to the **[Azure portal](https://portal.azure.com)**, and sign in by using the credentials of a user account with the Owner role in the subscription you'll be using in this lab.
+1. On **SEA-SVR2**, start Microsoft Edge, go to the Azure portal at `https://portal.azure.com/`, and sign in by using the credentials of a user account with the Owner role in the subscription you'll be using in this lab.
 1. From the Azure portal, create a Log Analytics workspace with the following settings:
 
    | Settings | Value |

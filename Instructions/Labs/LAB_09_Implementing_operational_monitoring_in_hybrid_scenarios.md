@@ -50,7 +50,7 @@ The main tasks for this exercise are to:
 
 In this task, you will deploy a virtual machine that will be used to test monitoring scenarios.
 
-1. On **SEA-SVR2**, start Microsoft Edge, go to the **[Azure portal](https://portal.azure.com)**, and sign in by using credentials of a user account with the Owner role in the subscription you'll be using in this lab.
+1. On **SEA-SVR2**, start Microsoft Edge, go to the Azure portal at `https://portal.azure.com/`, and sign in by using credentials of a user account with the Owner role in the subscription you'll be using in this lab.
 1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, open a PowerShell session in Azure Cloud Shell.
 1. In the Cloud Shell pane, upload the **C:\\Labfiles\\Lab02\\L02-sub_template.json**, **C:\\Labfiles\\Lab09\\L09-rg_template.json**, and **C:\\Labfiles\\Lab09\\L09-rg_template.parameters.json** files into the Cloud Shell home directory.
 1. To create the resource group that will be hosting the lab environment, in the **PowerShell** session in the Cloud Shell pane, run the following commands (replace the `<Azure_region>` placeholder with the name of an Azure region where you intend to deploy resources in this lab):
