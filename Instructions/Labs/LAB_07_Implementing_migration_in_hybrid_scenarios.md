@@ -13,7 +13,7 @@ Despite its ambitions to modernize its workloads as part of the migration to Azu
 Azure Migrate provides the following features:
 
 - Unified migration platform: A single portal to start, run, and track your migration to Azure.
-- Range of tools: A range of tools for assessment and migration. Tools include Azure Migrate: Server Assessment and Azure Migrate: Server Migration. Azure Migrate integrates with other Azure services and with other tools and independent software vendor (ISV) offerings.
+- Range of tools: A range of tools for assessment and migration. Tools include Azure Migrate: Server Assessment and Migration and modernization. Azure Migrate integrates with other Azure services and with other tools and independent software vendor (ISV) offerings.
 - Assessment and migration: In the Azure Migrate hub, you can assess and migrate:
     - Servers: Assess on-premises servers and migrate them to Azure virtual machines.
     - Databases: Assess on-premises databases and migrate them to Azure SQL Database or to SQL Managed Instance.
@@ -188,7 +188,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Create an Azure Migrate project
 
-1. Within the Remote Desktop session to **az801l07a-hv-vm**, in the browser window, go to the [Azure portal](https://portal.azure.com), and sign in by using the credentials of a user account with the Owner role in the subscription you are using in this lab.
+1. Within the Remote Desktop session to **az801l07a-hv-vm**, in the browser window, go to the Azure portal at `https://portal.azure.com/`, and sign in by using the credentials of a user account with the Owner role in the subscription you are using in this lab.
 1. In the Azure portal, browse to the **Azure Migrate** page and create a project with the following settings (leave others with their default values):
 
    | Setting | Value | 
@@ -333,7 +333,7 @@ The main tasks for this exercise are as follows:
 #### Task 1: Prepare for migration of Hyper-V VMs
 
 1. Within the Remote Desktop session to **az801l07a-hv-vm**, in the browser window displaying the Azure portal, browse back to the **Azure Migrate | Servers, databases and web apps** page. 
-1. On the **Azure Migrate | Servers, databases and web apps** page, in the **Azure Migrate: Server Migration** section, select the **Discover** link. 
+1. On the **Azure Migrate | Servers, databases and web apps** page, in the **Migration and modernization** section, select the **Discover** link. 
 1. On the **Discover** page, create resources by specifying the following settings (leave others with their default values):
 
    | Setting | Value | 
@@ -351,14 +351,14 @@ The main tasks for this exercise are as follows:
 1. Use the downloaded file to install the **Azure Site Recovery Provider** with the default settings.
 1. During the installation, switch to the Azure portal and then, on the **Discover machines** page, in step 1 of the procedure for preparing on-premises Hyper-V hosts, select the **Download** button in order to download the vault registration key and use it to register the **Azure Site Recovery Provider**.
 1. Refresh the browser window displaying the **Discover** page. 
-1. On the **Azure Migrate | Servers, databases and web apps** page, in the **Azure Migrate: Server Migration** section, select the **Discover** link. 
+1. On the **Azure Migrate | Servers, databases and web apps** page, in the **Migration and modernization** section, select the **Discover** link. 
 1. On the **Discover** page, finalize registration.
 
    >**Note**: It might take up to 15 minutes for the discovery of virtual machines to complete.
 
 #### Task 2: Configure replication of Hyper-V VMs
 
-1. Once you receive the confirmation that the registration was finalized, browse back to the **Azure Migrate | Servers, databases and web apps** page, in the **Azure Migrate: Server Migration** section, select the **Replicate** link. 
+1. Once you receive the confirmation that the registration was finalized, browse back to the **Azure Migrate | Servers, databases and web apps** page, in the **Migration and modernization** section, select the **Replicate** link. 
 
    >**Note**: You might have to refresh the browser page displaying the **Azure Migrate | Servers, databases and web apps** page.
 
@@ -383,14 +383,14 @@ The main tasks for this exercise are as follows:
    | Subnet | **subnet0** |
 
 1. On the **Compute** tab of the **Replicate** page, ensure that the **Standard_D2s_v3** is selected in the **Azure VM Size** drop-down list. In the **OS Type** drop-down list, select **Windows**.
-1. To monitor the status of replication, back on the **Azure Migrate | Servers, databases and web apps** page, select **Refresh** and then, in the **Azure Migrate: Server Migration** section, select the **Replicating servers** entry. On the **Azure Migrate: Server Migration | Replicating machines** page, examine the **Status** column in the list of the replicating machines. 
+1. To monitor the status of replication, back on the **Azure Migrate | Servers, databases and web apps** page, select **Refresh** and then, in the **Migration and modernization** section, select the **Replicating servers** entry. On the **Migration and modernization | Replicating machines** page, examine the **Status** column in the list of the replicating machines. 
 1. Wait until the status changes to **Protected**. This might take an additional 15 minutes.
 
-   >**Note**: You will need to refresh the **Azure Migrate: Server Migration | Replicating machines** to update the **Status** information.
+   >**Note**: You will need to refresh the **Migration and modernization | Replicating machines** to update the **Status** information.
 
 #### Task 3: Perform migration of Hyper-V VMs
 
-1. In the Azure portal, on the **Azure Migrate: Server Migration | Replicating machines** page, select the entry representing the **az801l07a-vm1** virtual machine.
+1. In the Azure portal, on the **Migration and modernization | Replicating machines** page, select the entry representing the **az801l07a-vm1** virtual machine.
 1. From the **az801l07a-vm1** page, initiate **Test migration** using the **az801l07a-test-vnet** virtual network as the target.
 
    >**Note**: Wait for the test migration to complete. This might take about 5 minutes.
@@ -399,14 +399,14 @@ The main tasks for this exercise are as follows:
 
    > **Note:** Initially, the virtual machine will have the name consisting of the **asr-** prefix and randomly generated suffix, but will be renamed eventually to **az801l07a-vm1-test**.
 
-1. In the Azure portal, browse back to the **Azure Migrate: Server Migration | Replicating machines** page, select **Refresh**, and then verify that the **az801l07a-vm1** virtual machine is listed with the **Cleanup test failover pending** status.
-1. On the **Azure Migrate: Server Migration | Replicating machines** page, go to the **az801l07a-vm1** replicating machines page, and then trigger the **Clean up test migration** action, specifying **Testing is complete. Delete test virtual machine**.
+1. In the Azure portal, browse back to the **Migration and modernization | Replicating machines** page, select **Refresh**, and then verify that the **az801l07a-vm1** virtual machine is listed with the **Cleanup test failover pending** status.
+1. On the **Migration and modernization | Replicating machines** page, go to the **az801l07a-vm1** replicating machines page, and then trigger the **Clean up test migration** action, specifying **Testing is complete. Delete test virtual machine**.
 1. Once the test failover cleanup job completes, refresh the browser page displaying the **az801l07a-vm1** replicating machines page and note that the **Migrate** icon in the toolbar automatically becomes available.
 1. On the **az801l07a-vm1** replicating machines page, trigger the **Migrate** action. 
 1. On the **Migrate** page, ensure that the **Shutdown machines before migration to minimize data loss?** option is selected.
-1. To monitor the status of migration, browse back to the **Azure Migrate | Servers, databases and web apps** page. In the **Azure Migrate: Server Migration** section, select the **Replicating servers** entry and then, on the **Azure Migrate: Server Migration | Replicating machines** page, examine the **Status** column in the list of the replicating machines. Verify that the status displays the **Planned failover finished** status.
+1. To monitor the status of migration, browse back to the **Azure Migrate | Servers, databases and web apps** page. In the **Migration and modernization** section, select the **Replicating servers** entry and then, on the **Migration and modernization | Replicating machines** page, examine the **Status** column in the list of the replicating machines. Verify that the status displays the **Planned failover finished** status.
 
-   >**Note**: Migration is supposed to be a non-reversible action. If you want to see the completed information, browse back to the **Azure Migrate | Servers, databases and web apps** page, refresh the page, and then verify that the **Migrated Servers** entry in the **Azure Migrate: Server Migration** section has the value of **1**.
+   >**Note**: Migration is supposed to be a non-reversible action. If you want to see the completed information, browse back to the **Azure Migrate | Servers, databases and web apps** page, refresh the page, and then verify that the **Migrated Servers** entry in the **Migration and modernization** section has the value of **1**.
 
 #### Task 4: Remove Azure resources deployed in the lab
 

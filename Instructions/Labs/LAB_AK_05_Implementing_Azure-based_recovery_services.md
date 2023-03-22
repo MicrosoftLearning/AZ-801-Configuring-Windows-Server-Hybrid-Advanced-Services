@@ -9,12 +9,15 @@ lab:
 
 **Note:** An **[interactive lab simulation](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Azure-based%20recovery%20services)** is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
 
+**Note**: You may need to install the latest version of the Microsoft Edge browser. To update the Microsoft Edge browser, select the three dots (ellipsis) icon in the upper-right corner of the window. Select **Help and feedback** from the dropdown menu, then select **About Microsoft Edge**. Edge will automatically check for updates and download any available updates, once the update is downloaded, click on the **Restart**
+
+
 ## Exercise 1: Creating and configuring an Azure Site Recovery vault
 
 #### Task 1: Create an Azure Site Recovery vault
 
 1. Connect to **SEA-SVR2**, and if needed, sign in as **CONTOSO\\Administrator** with the password **Pa55w.rd**.
-1. On **SEA-SVR2**, start Microsoft Edge, go to the **[Azure portal](https://portal.azure.com)**, and sign in by using the credentials of a user account with the Owner role in the subscription you'll be using in this lab.
+1. On **SEA-SVR2**, start Microsoft Edge, go to the Azure portal at `https://portal.azure.com/`, and sign in by using the credentials of a user account with the Owner role in the subscription you'll be using in this lab.
 1. In the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Recovery Services vaults**, and on the **Recovery Services vaults** page, select **+ Create**.
 1. On the **Basics** tab of the **Create Recovery Services vault** page, specify the following settings (leave others with their default values) and select **Review + create**:
 
@@ -140,11 +143,17 @@ lab:
 1. On the **Source settings** tab of the **Prepare infrastructure** page, next to the **Are you Using System Center VMM to manage Hyper-V hosts** label, select the **No** option.
 1. On the **Source settings** tab of the **Prepare infrastructure** page, select the **Add Hyper-V site** link. 
 1. On the **Create Hyper-V Site** page, in the **Name** text box, enter **az801l05-site** and select **OK**.
-1. To download and install **MARS Agent**, select the **[Download MARS Agent Installer](https://download.microsoft.com/download/0/6/7/067d515b-2c89-40fb-8dfc-4a94e9cfcbd9/MARSAgentInstaller.exe)** link. 
-1. In the download notification, select **Open file**. This will start the **Azure Site Recovery Services Agent Setup** wizard.
-1. On the **Installation Settings** page, select **Next**.
-1. On the **Proxy Configuration** page, select **Next**.
-1. On the **Installation** page, select **Install**, then select **close**.
+1. In Windows Start, search and open the Group Policy Management Editor and edit the following policy. Select Default Domain Policy, and then right-click and Edit.
+1. Select Computer Configuration/Policies/Administrative Templates/Windows Components/Windows Update. Select the policy Configure Automatic Updates.
+1. In the Computer Updates page, select **Enabled**, and then click **OK**.
+1. Open Windows PowerShell, run the following commands to update Group Policy and update Windows Update services: 
+
+   ```powershell
+   Invoke-GPUpdate -Force
+   Get-Service wuauserv | Set-Service -StartupType Manual
+   Get-Service wuauserv | Start-Service
+   ```
+
 1. Switch back to the Microsoft Edge window displaying the Azure portal, on the **Source settings** tab of the **Prepare infrastructure** page, select the **Add Hyper-V server** link. 
 1. on the **Add Server** page, select the **Download** link in step 3 of the procedure for adding on-premises Hyper-V hosts in order to download the installer for Microsoft Azure Site Recovery Provider.
 
@@ -217,8 +226,8 @@ Verify that the **Hyper-V site** and **Hyper-V servers** settings are set correc
 
 #### Task 5: Perform a failover of the Hyper-V virtual machine
 
-1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, browse back to the **SEA-CORE1** replicated items page and select **Test failover**. 
-1. On the **Test failover** page, specify the following settings (leave others with their default values) and select **OK**:
+1. On **SEA-SVR2**, in the browser window displaying the Azure portal, on the **SEA-CORE1** replicated items blade go to the Compute and Network setting and review the virtual machine size. Validate that the size is set to A1_v2, if not edit the size to be A1_v2.
+1. Go back to the overview and initiate **Test failover** with the following settings (leave others with their default values) and select **OK**:
 
    |Setting|Value|
    |---|---|

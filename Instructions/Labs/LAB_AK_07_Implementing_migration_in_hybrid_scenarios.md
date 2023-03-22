@@ -9,6 +9,8 @@ lab:
 
 **Note:** An **[interactive lab simulation](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Migrating%20Hyper-V%20VMs%20to%20Azure%20by%20using%20Azure%20Migrate)** is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
 
+**Note**: You may need to install the latest version of the Microsoft Edge browser. To update the Microsoft Edge browser, select the three dots (ellipsis) icon in the upper-right corner of the window. Select **Help and feedback** from the dropdown menu, then select **About Microsoft Edge**. Edge will automatically check for updates and download any available updates, once the update is downloaded, click on the **Restart**
+
 ## Exercise 1: Prepare the lab environment
 
 #### Task 1: Deploy an Azure VM by using an Azure Resource Manager QuickStart template
@@ -80,13 +82,15 @@ lab:
 #### Task 3: Deploy a nested VM in the Azure VM
 
 1. In the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Virtual machines** and then, on the **Virtual machines** page, select **az801l07a-hv-vm**.
-1. On the **az801l07a-hv-vm** page, select **Connect** and then, in the drop-down menu, select **Bastion**. On the **Bastion** tab of the **az801l07a-hv-vm \| Connect** page, select **Use Bastion**.
-1. When prompted, provide the following credentials and select **Connect**:
+1. On the **az801l07a-hv-vm** page, select **Connect** and then, in the drop-down menu, select **Bastion**.
+1. When prompted, provide the following credentials, and then select **Connect**:
 
    | Setting | Value | 
    | --- | --- |
    | User Name |**Student** |
    | Password |**Pa55w.rd1234** |
+
+   > **Note**: **Edge** by default will block popups. To allow popups for **Bastion** go to **Settings** in **Edge**, select **Cookies and site permissions** on the left, **Pop-ups and redirects** under **All permissions** and finally toggle **Block (recommended)** off.
 
 1. Within the Remote Desktop session to **az801l07a-hv-vm**, in the **Server Manager** window, select **Local Server**, select the **On** link next to the **IE Enhanced Security Configuration** label. In the **IE Enhanced Security Configuration** dialog box, select both **Off** options, and then select **OK**.
 1. From the Remote Desktop session, open File Explorer and browse to the **F:** drive. Create two folders **F:\\VHDs** and **F:\\VMs**. 
@@ -154,7 +158,7 @@ lab:
 
 #### Task 2: Create an Azure Migrate project
 
-1. Within the Remote Desktop session to **az801l07a-hv-vm**, in the browser window, go to the [Azure portal](https://portal.azure.com), and sign in by using the credentials of a user account with the Owner role in the subscription you are using in this lab.
+1. Within the Remote Desktop session to **az801l07a-hv-vm**, in the browser window, go to the Azure portal at `https://portal.azure.com/`, and sign in by using the credentials of a user account with the Owner role in the subscription you are using in this lab.
 1. In the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Azure Migrate**, and then, on the **Azure Migrate \| Get Started** page, in the **Servers, databases, and web apps** section, select **Discover, assess, and migrate**.
 1. On the **Azure Migrate \| Servers, databases, and web apps** page, select **Create Project**.
 1. On the **Create Project** page, specify the following settings (leave others with their default values) and select **Create**:
@@ -312,8 +316,8 @@ lab:
 #### Task 2: Configure, run, and view an assessment
 
 1. From the **Virtual Machine Connection** window to the virtual appliance, switch to the Remote Desktop session to **az801l07a-hv-vm**. In the browser window displaying the Azure portal, browse back to the **Azure Migrate | Servers, databases and web apps** page and select **Refresh**. In the **Azure Migrate: Discovery and assessment** section, select **Assess** and then, in the drop-down menu, select **Azure VM**.
-1. On the **Basics** tab of the **Create assessment** page, next to the **Assessment properties** label, select **Edit**.   
-1. On the **Assessment properties** page, specify the following settings (leave others with their default values) and select **Save**:
+1. On the **Basics** tab of the **Create assessment** page, next to the **Assessment settings** label, select **Edit**.   
+1. On the **Assessment settings** page, specify the following settings (leave others with their default values) and select **Save**:
 
    | Setting | Value | 
    | --- | --- |
@@ -345,7 +349,7 @@ lab:
 #### Task 1: Prepare for migration of Hyper-V VMs
 
 1. Within the Remote Desktop session to **az801l07a-hv-vm**, in the browser window displaying the Azure portal, browse back to the **Azure Migrate | Servers, databases and web apps** page. 
-1. On the **Azure Migrate | Servers, databases and web apps** page, in the **Azure Migrate: Server Migration** section, select the **Discover** link. 
+1. On the **Azure Migrate | Servers, databases and web apps** page, in the **Migration and modernization** section, select the **Discover** link. 
 1. On the **Discover** page, specify the following settings (leave others with their default values) and select **Create resources**:
 
    | Setting | Value | 
@@ -366,22 +370,24 @@ lab:
 1. Switch to the Azure portal and then, on the **Discover machines** page, in step 1 of the procedure for preparing on-premises Hyper-V hosts, select the **Download** button in order to download the vault registration key.
 1. Switch to the **Provider installation** page of the **Azure Site Recovery Provider Setup (Hyper-V server)** wizard and select **Register**. This will start the **Microsoft Azure Site Recovery Registration Wizard**.
 1. On the **Vault Settings** page of the **Microsoft Azure Site Recovery Registration Wizard**, select **Browse**, browse to the **Downloads** folder, select the vault credentials file, and then select **Open**.
+
+   
 1. Back on the **Vault Settings** page of the **Microsoft Azure Site Recovery Registration Wizard**, select **Next**.
 1. On the **Proxy Settings** page of the **Microsoft Azure Site Recovery Registration Wizard**, accept the default settings and select **Next**.
 1. On the **Registration** page of the **Microsoft Azure Site Recovery Registration Wizard**, select **Finish**.
 1. Refresh the browser window displaying the **Discover** page. This will redirect you to the **Azure Migrate | Servers, databases and web apps** page.
-1. On the **Azure Migrate | Servers, databases and web apps** page, in the **Azure Migrate: Server Migration** section, select the **Discover** link. 
+1. On the **Azure Migrate | Servers, databases and web apps** page, in the **Migration and modernization** section, select the **Discover** link. 
 1. On the **Discover** page, select **Finalize registration**.
 
    >**Note**: It might take up to 15 minutes for the discovery of virtual machines to complete.
 
 #### Task 2: Configure replication of Hyper-V VMs
 
-1. Once you receive the confirmation that the registration was finalized, browse back to the **Azure Migrate | Servers, databases and web apps** page and then, in the **Azure Migrate: Server Migration** section, select the **Replicate** link. 
+1. Once you receive the confirmation that the registration was finalized, browse back to the **Azure Migrate | Servers, databases and web apps** page and then, in the **Migration and modernization** section, select the **Replicate** link. 
 
    >**Note**: You might have to refresh the browser page displaying the **Azure Migrate | Servers, databases and web apps** page.
 
-1. On the **Source settings** tab of the **Replicate** page, in the **Are your machines virtualized?** drop-down list, select **Yes, with Hyper-V** and then select **Next**.
+1. On the **Specify intent** page, select **Continue**. On the Basics tab of the **Replicate** page, in the **Are your machines virtualized?** drop-down list, select **Yes, with Hyper-V** and then select **Next**.
 1. On the **Virtual machines** tab of the **Replicate** page, specify the following settings (leave others with their default values) and select **Next**:
 
    | Setting | Value | 
@@ -405,14 +411,14 @@ lab:
 1. On the **Disks** tab of the **Replicate** page, accept the default settings and select **Next**.
 1. On the **Tags** tab of the **Replicate** page, accept the default settings and select **Next**.
 1. On the **Review + Start replication** tab of the **Replicate** page, select **Replicate**.  
-1. To monitor the status of replication, back on the **Azure Migrate | Servers, databases and web apps** page, select **Refresh** and then, in the **Azure Migrate: Server Migration** section, select the **Replicating servers** entry. On the **Azure Migrate: Server Migration | Replicating machines** page, examine the **Status** column in the list of the replicating machines.
+1. To monitor the status of replication, back on the **Azure Migrate | Servers, databases and web apps** page, select **Refresh** and then, in the **Migration and modernization** section, select the **Replicating servers** entry. On the **Migration and modernization | Replicating machines** page, examine the **Status** column in the list of the replicating machines.
 1. Wait until the status changes to **Protected**. This might take additional 15 minutes.
 
-   >**Note**: You will need to to refresh the **Azure Migrate: Server Migration | Replicating machines** to update the **Status** information.
+   >**Note**: You will need to to refresh the **Migration and modernization | Replicating machines** to update the **Status** information.
 
 #### Task 3: Perform migration of Hyper-V VMs
 
-1. In the Azure portal, on the **Azure Migrate: Server Migration | Replicating machines** page, select the entry representing the **az801l07a-vm1** virtual machine.
+1. In the Azure portal, on the **Migration and modernization | Replicating machines** page, select the entry representing the **az801l07a-vm1** virtual machine.
 1. On the **az801l07a-vm1** page, select **Test migration**.
 1. On the **Test migration** page, in the **Virtual network** drop-down list, select **az801l07a-test-vnet** and then select **Test migration**.
 
@@ -422,16 +428,16 @@ lab:
 
    > **Note:** Initially, the virtual machine will have the name consisting of the **asr-** prefix and randomly generated suffix, but will be renamed eventually to **az801l07a-vm1-test**.
 
-1. In the Azure portal, browse back to the **Azure Migrate: Server Migration | Replicating machines** page, select **Refresh**, and then verify that the **az801l07a-vm1** virtual machine is listed with the **Cleanup test failover pending** status.
-1. On the **Azure Migrate: Server Migration | Replicating machines** page, select the entry representing the **az801l07a-vm1** virtual machine.
+1. In the Azure portal, browse back to the **Migration and modernization | Replicating machines** page, select **Refresh**, and then verify that the **az801l07a-vm1** virtual machine is listed with the **Cleanup test failover pending** status.
+1. On the **Migration and modernization | Replicating machines** page, select the entry representing the **az801l07a-vm1** virtual machine.
 1. On the **az801l07a-vm1** replicating machines page, select **Clean up test migration**.
 1. On the **Test migrate cleanup** page, select the checkbox **Testing is complete. Delete test virtual machine** and then select **Cleanup Test**.
 1. Once the test failover cleanup job completes, refresh the browser page displaying the **az801l07a-vm1** replicating machines page and note that the **Migrate** icon in the toolbar automatically becomes available.
 1. On the **az801l07a-vm1** replicating machines page, select the **Migrate** link. 
-1. On the **Migrate** page, ensure that **Yes** is selected in the **Shutdown machines before migration to minimize data loss?** drop-down list, select the checkbox next to the VM name **az801l07a-vm1**, and then select **Migrate**.
-1. To monitor the status of migration, browse back to the **Azure Migrate | Servers, databases and web apps** page. In the **Azure Migrate: Server Migration** section, select the **Replicating servers** entry and then, on the **Azure Migrate: Server Migration | Replicating machines** page, examine the **Status** column in the list of the replicating machines. Verify that the status displays the **Planned failover finished** status.
+1. On the **Migrate** page, ensure that **Yes** is selected in the **Shutdown virtual machines and perform a planned migration with no data loss?** drop-down list, and then select **Migrate**.
+1. To monitor the status of migration, browse back to the **Azure Migrate | Servers, databases and web apps** page. In the **Migration and modernization** section, select the **Replicating servers** entry and then, on the **Migration and modernization | Replicating machines** page, examine the **Status** column in the list of the replicating machines. Verify that the status displays the **Planned failover finished** status.
 
-   >**Note**: Migration is supposed to be a non-reversible action. If you want to see the completed information, browse back to the **Azure Migrate | Servers, databases and web apps** page, refresh the page, and then verify that the **Migrated Servers** entry in the **Azure Migrate: Server Migration** section has the value of **1**.
+   >**Note**: Migration is supposed to be a non-reversible action. If you want to see the completed information, browse back to the **Azure Migrate | Servers, databases and web apps** page, refresh the page, and then verify that the **Migrated Servers** entry in the **Migration and modernization** section has the value of **1**.
 
 #### Task 4: Remove Azure resources deployed in the lab
 

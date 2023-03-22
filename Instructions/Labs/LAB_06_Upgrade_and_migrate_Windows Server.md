@@ -50,7 +50,7 @@ The main tasks for this exercise are to:
 
 #### Task 1: Deploy a domain controller by using an Azure Resource Manager (ARM) template
 
-1. On **SEA-SVR2**, start Microsoft Edge, go to the **[Azure portal](https://portal.azure.com)**, and sign in by using the credentials of a user account with the Owner role in the subscription you'll be using in this lab.
+1. On **SEA-SVR2**, start Microsoft Edge, go to the Azure portal at `https://portal.azure.com/`, and sign in by using the credentials of a user account with the Owner role in the subscription you'll be using in this lab.
 1. On **SEA-SVR2**, start Microsoft Edge, and go to a customized version of the QuickStart template at **[Create a new Windows VM and create a new AD Forest, Domain and DC](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain)**. 
 1. From the **Create a new Windows VM and create a new AD Forest, Domain and DC** page, initiate a deployment to Azure. 
 1. On the **Create an Azure VM with a new AD Forest** page, select **Edit template**.
@@ -146,7 +146,7 @@ The main tasks for this exercise are to:
    | Setting | Value |
    | --- | --- |
    | Subscription | the name of the Azure subscription you are using in this lab |
-   | Resource group | the name of a new resource group **AZ801-L0601-RG** |
+   | Resource group | select the existing resource group **AZ801-L0601-RG** |
    | Virtual machine name | **az801l06a-dc2** |
    | Region | select the same Azure region into which you deployed the first virtual machine earlier in this exercise |
    | Availability options | **Availability set** |

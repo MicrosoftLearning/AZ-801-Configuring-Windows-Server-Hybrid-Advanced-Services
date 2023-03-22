@@ -124,7 +124,7 @@ lab:
    | Setting | Value |
    | --- | --- |
    | Subscription | the name of the Azure subscription you are using in this lab |
-   | Resource group | the name of a new resource group **AZ801-L0601-RG** |
+   | Resource group | select the existing resource group **AZ801-L0601-RG** |
    | Virtual machine name | **az801l06a-dc2** |
    | Region | select the same Azure region into which you deployed the first virtual machine earlier in this exercise |
    | Availability options | **Availability set** |
@@ -195,13 +195,14 @@ lab:
 
 1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, browse back to the **az801l06a-dc2** page.
 1. On the **az801l06a-dc2** page, select **Connect**, from the drop-down menu, select **Bastion**. 
-1. On the **Bastion** tab of the **az801l06a-dc2 \| Connect** page, select **Use Bastion**.
-1. When prompted, provide the following credentials, and then select **Connect**:
+1. On the Bastion page, provide the following credentials, and then select **Connect**:
 
    | Setting | Value | 
    | --- | --- |
    | User Name |**Student** |
    | Password |**Pa55w.rd1234** |
+
+> **Note**: **Edge** by default will block popups. To allow popups for **Bastion** go to **Settings** in **Edge**, select **Cookies and site permissions** on the left, **Pop-ups and redirects** under **All permissions** and finally toggle **Block (recommended)** off.
 
 1. Within the Remote Desktop session to **az801l06a-dc2**, select **Start**, and then select **Windows PowerShell**.
 1. To install the AD DS and DNS server roles, at the Windows PowerShell command prompt, enter the following command, and then press Enter:
@@ -239,9 +240,8 @@ lab:
 
    > **Note**: The operating system will restart automatically to complete the promotion process.
 
-1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, on the **az801l06a-dc2** page, select **Connect**, from the drop-down menu, select **Bastion**. 
-1. On the **Bastion** tab of the **az801l06a-dc2 \| Connect** page, select **Use Bastion**.
-1. When prompted, provide the following credentials and select **Connect**:
+1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, on the **az801l06a-dc2** page, select **Connect**, from the drop-down menu, select **Bastion**.  
+1. On the Bastion page, provide the following credentials, and then select **Connect**:
 
    | Setting | Value | 
    | --- | --- |
@@ -315,7 +315,7 @@ lab:
    - Password: **Pa55w.rd**
 
 1. Review the **New in this release** pop-up window and select **Close** in its upper-right corner.
-1. in the **All connections** pane of Windows Admin Center, in the upper-right corner, select the **Settings** icon (the cog wheel).
+1. In the **All connections** pane of Windows Admin Center, in the upper-right corner, select the **Settings** icon (the cog wheel).
 1. In the left pane, select **Extensions**. Review the available extensions.
 1. In the details pane, select **Installed extensions** and verify that the list includes the **Storage Migration Service** extension.
 
