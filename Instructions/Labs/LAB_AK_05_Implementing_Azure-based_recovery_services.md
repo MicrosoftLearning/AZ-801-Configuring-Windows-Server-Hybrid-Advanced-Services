@@ -143,10 +143,10 @@ lab:
 1. On the **Source settings** tab of the **Prepare infrastructure** page, next to the **Are you Using System Center VMM to manage Hyper-V hosts** label, select the **No** option.
 1. On the **Source settings** tab of the **Prepare infrastructure** page, select the **Add Hyper-V site** link. 
 1. On the **Create Hyper-V Site** page, in the **Name** text box, enter **az801l05-site** and select **OK**.
-1. On the Windows Start search and open the Group Policy Management Editor and edit the following policy. Select Default Domain Policy, and then right-click and Edit.
+1. In Windows Start, search and open the Group Policy Management Editor and edit the following policy. Select Default Domain Policy, and then right-click and Edit.
 1. Select Computer Configuration/Policies/Administrative Templates/Windows Components/Windows Update. Select the policy Configure Automatic Updates.
 1. In the Computer Updates page, select **Enabled**, and then click **OK**.
-1. Open the Windows powershell, run the following command lins to updates Group Policy and updates Windows Update services: 
+1. Open Windows PowerShell, run the following commands to update Group Policy and update Windows Update services: 
 
    ```powershell
    Invoke-GPUpdate -Force
