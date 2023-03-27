@@ -9,9 +9,6 @@ lab:
 
 **Note:** An **[interactive lab simulation](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Azure-based%20recovery%20services)** is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
 
-**Note**: You may need to install the latest version of the Microsoft Edge browser. To update the Microsoft Edge browser, select the three dots (ellipsis) icon in the upper-right corner of the window. Select **Help and feedback** from the dropdown menu, then select **About Microsoft Edge**. Edge will automatically check for updates and download any available updates, once the update is downloaded, click on the **Restart**
-
-
 ## Exercise 1: Creating and configuring an Azure Site Recovery vault
 
 #### Task 1: Create an Azure Site Recovery vault
@@ -143,19 +140,8 @@ lab:
 1. On the **Source settings** tab of the **Prepare infrastructure** page, next to the **Are you Using System Center VMM to manage Hyper-V hosts** label, select the **No** option.
 1. On the **Source settings** tab of the **Prepare infrastructure** page, select the **Add Hyper-V site** link. 
 1. On the **Create Hyper-V Site** page, in the **Name** text box, enter **az801l05-site** and select **OK**.
-1. In Windows Start, search and open the Group Policy Management Editor and edit the following policy. Select Default Domain Policy, and then right-click and Edit.
-1. Select Computer Configuration/Policies/Administrative Templates/Windows Components/Windows Update. Select the policy Configure Automatic Updates.
-1. In the Computer Updates page, select **Enabled**, and then click **OK**.
-1. Open Windows PowerShell, run the following commands to update Group Policy and update Windows Update services: 
-
-   ```powershell
-   Invoke-GPUpdate -Force
-   Get-Service wuauserv | Set-Service -StartupType Manual
-   Get-Service wuauserv | Start-Service
-   ```
-
-1. Switch back to the Microsoft Edge window displaying the Azure portal, on the **Source settings** tab of the **Prepare infrastructure** page, select the **Add Hyper-V server** link. 
-1. on the **Add Server** page, select the **Download** link in step 3 of the procedure for adding on-premises Hyper-V hosts in order to download the installer for Microsoft Azure Site Recovery Provider.
+1. On the **Source settings** tab of the **Prepare infrastructure** page, select the **Add Hyper-V server** link. 
+1. On the **Add Server** page, select the **Download** link in step 3 of the procedure for adding on-premises Hyper-V hosts in order to download the installer for Microsoft Azure Site Recovery Provider.
 
    > **Note:** If you receive the Microsoft Edge notification that **AzureSiteRecoveryProvider.exe can't be downloaded securely**, move the cursor over the right side of the message to reveal the ellipsis symbol (**...**), select it, in the drop-down menu, select **Copy download link**, open another tab in the same Microsoft Edge window, paste the link you copied, and then press Enter.
 
