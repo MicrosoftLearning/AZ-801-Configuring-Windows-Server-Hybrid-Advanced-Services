@@ -36,61 +36,57 @@ lab:
 
    > **Note**: Wait for the deployment to complete. The deployment might take about 10 minutes.
 
-#### Task 2: Deploy Azure Bastion 
+#### Task 2: Provide remote access
 
-> **Note**: Azure Bastion allows for connection to the Azure VMs without public endpoints which you deployed in the previous task of this exercise, while providing protection against brute force exploits that target operating system level credentials.
+**Note**: We always recommend the use of Bastion Host to access sensitive VMs such as the one deployed, for the most secure and robust features, but for demonstration porpuses of this lab, we will be configuring direct remote access.
 
-1. On **SEA-SVR2**, in the browser window displaying the Azure portal, open the **Azure Cloud Shell** pane by selecting the **Cloud Shell** button in the Azure portal.
-1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell**.
+1. On **SEA-SVR2**, start Microsoft Edge and browse **[whatismyipaddress](https://whatismyipaddress.com/)**. Save the ip adrress in a notepad, it will be used in a later step.
+1. In the Azure portal, click on the **Cloud Shell** icon, located directly to the right of the search textbox at the top of the page.
+1. If prompted to select either **Bash** or **PowerShell**, select **Bash**.
 
-   > **Note:** If this is the first time you're starting **Cloud Shell** and you're presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and then select **Create storage**.
+   >**Note**: If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and select **Create storage**.
 
-1. From the PowerShell session on the **Cloud Shell** pane, run the following commands to add a subnet named **AzureBastionSubnet** to the virtual network **az801l07a-hv-vnet** you created earlier in this exercise:
+1. From the **Bash** prompt, in the **Cloud Shell** pane, run the following command to create a new public ip address:
 
-   ```powershell
-   $resourceGroupName = 'AZ801-L0701-RG'
-   $vnet = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Name 'az801l07a-hv-vnet'
-   $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-    -Name 'AzureBastionSubnet' `
-    -AddressPrefix 10.0.7.0/24 `
-    -VirtualNetwork $vnet
-   $vnet | Set-AzVirtualNetwork
+   ```bash
+      az network public-ip create --name RDP --resource-group AZ801-L0701-RG
+      ```
+1. Run the following command to link the new public ip address to the network interface nic1 of the VM:
+   ```bash
+      az network nic ip-config update \
+      --name ipconfig \
+      --nic-name az801l07a-hv-vm-nic1 \
+      --resource-group AZ801-L0701-RG \
+      --public-ip-address RDP
+   ```
+1. Run the following command to create a new nsg rule, to allow remote access from **SEA-SVR2**. Replace the placeholder **WHATS-MY-IP-ADDRESS** with the ip address saved in the previous step:
+   ```bash
+      az network nsg rule create \
+      --name RDP \
+      --nsg-name NATNSG \
+      --priority 100 \
+      --resource-group AZ801-L0701-RG \
+      --access Allow \
+      --description "RDPIn" \
+      --destination-port-ranges 3389 \
+      --direction Inbound \
+      --protocol TCP \
+      --source-address-prefixes WHATS-MY-IP-ADDRESS/32
    ```
 
-1. Close the **Cloud Shell** pane.
-1. In the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Bastions** and then, on the **Bastions** page, select **+ Create**.
-1. On the **Basic** tab of the **Create a Bastion** page, specify the following settings and select **Review + create**:
 
-   | Setting | Value | 
-   | --- | --- |
-   | Subscription | the name of the Azure subscription you are using in this lab |
-   | Resource group | **AZ801-L0701-RG** |
-   | Name | **az801l07a-bastion** |
-   | Region | the same Azure region to which you deployed the resources in the previous tasks of this exercise |
-   | Tier | **Basic** |
-   | Virtual network | **az801l07a-hv-vnet** |
-   | Subnet | **AzureBastionSubnet (10.0.7.0/24)** |
-   | Public IP address | **Create new** |
-   | Public IP name | **az801l07a-hv-vnet-ip** |
-
-   > **Note**: The bastion must be created in the same Azure region as the virtual network.
-
-1. On the **Review + create** tab of the **Create a Bastion** page, select **Create**:
-
-   > **Note**: Wait for the deployment to complete before you proceed to the next task. The deployment might take about 5 minutes.
 
 #### Task 3: Deploy a nested VM in the Azure VM
 
 1. In the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Virtual machines** and then, on the **Virtual machines** page, select **az801l07a-hv-vm**.
-1. On the **az801l07a-hv-vm** page, select **Connect** and then, in the drop-down menu, select **Bastion**.
+1. On the **az801l07a-hv-vm** page, in the **overview**, note the value of the public ip address.
+1. select **Connect** and then select **Download RDP file**.
 1. When prompted, provide the following credentials, and then select **Connect**:
 
    | Setting | Value | 
    | --- | --- |
    | User Name |**Student** |
    | Password |**Pa55w.rd1234** |
-
-   > **Note**: **Edge** by default will block popups. To allow popups for **Bastion** go to **Settings** in **Edge**, select **Cookies and site permissions** on the left, **Pop-ups and redirects** under **All permissions** and finally toggle **Block (recommended)** off.
 
 1. Within the Remote Desktop session to **az801l07a-hv-vm**, in the **Server Manager** window, select **Local Server**, select the **On** link next to the **IE Enhanced Security Configuration** label. In the **IE Enhanced Security Configuration** dialog box, select both **Off** options, and then select **OK**.
 1. From the Remote Desktop session, open File Explorer and browse to the **F:** drive. Create two folders **F:\\VHDs** and **F:\\VMs**. 
