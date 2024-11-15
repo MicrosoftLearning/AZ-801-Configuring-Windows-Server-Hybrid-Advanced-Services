@@ -7,16 +7,14 @@ lab:
 
 # Lab answer key: Implementing Security Solutions in Hybrid Scenarios
 
-**Note:** An **[interactive lab simulation](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20security%20solutions%20in%20hybrid%20scenarios)** is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
-
-## Exercise 1: Creating an Azure Log Analytics workspace and an Azure Automation account
+## Exercise 1: Creating an Azure Log Analytics workspace
 
 #### Task 1: Create an Azure Log Analytics workspace 
 
 1. Connect to **SEA-SVR2**, and then, if needed, sign in as **CONTOSO\\Administrator** with the password **Pa55w.rd**.
 1. On **SEA-SVR2**, start Microsoft Edge, go to the Azure portal at `https://portal.azure.com/`, and sign in by using the credentials of a user account with the Owner role in the subscription you'll be using in this lab.
 1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Log Analytics workspaces**, and then, on the **Log Analytics workspaces** page, select **+ Create**.
-1. On the **Basics** tab of the **Create Log Analytics workspace** page, enter the following settings, select **Review + Create**, and then select **Create**:
+1. On the **Basics** tab of the **Create Log Analytics workspace** tab, enter the following settings, select **Review + Create**, and then select **Create**:
 
    | Settings | Value |
    | --- | --- |
@@ -27,40 +25,12 @@ lab:
 
    >**Note**: Wait for the deployment to complete. The deployment should take about 1 minute.
 
-#### Task 2: Create and configure an Azure Automation account
-
-1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Automation Accounts**, and then, on the **Automation Accounts** page, select **+ Create**.
-1. On the **Create an Automation Account** page, specify the following settings, and select **Review + Create**. Upon validation, select **Create**:
-
-   | Settings | Value |
-   | --- | --- |
-   | Subscription | the name of the Azure subscription you are using in this lab |
-   | Resource group | **AZ801-L0201-RG** |
-   | Name | any unique name |
-   | Region | the name of the Azure region determined based on **[Workspace mappings documentation](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings)** |
-
-   >**Note**: Make sure that you specify the Azure region based on **[Workspace mappings documentation](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings)**.
-
-   >**Note**: Wait for the deployment to complete. The deployment might take about 3 minutes.
-
-1. On the deployment page, select **Go to resource**.
-1. On the **Automation account** page, in the **Configuration Management** section, select **Inventory**.
-1. On the **Inventory** page, in the **Log Analytics workspace** drop-down list, select the Log Analytics workspace you created earlier in this task and select **Enable**.
-
-   >**Note**: Wait for the installation of the corresponding Log Analytics solution to complete. This might take about 3 minutes. 
-
-   >**Note**: This automatically installs the **Change tracking** solution as well.
-
-1. On the **Automation account** page, in the **Update Management** section, select **Update management** and select **Enable**.
-
-   >**Note**: Wait for the installation to complete. This might take about 5 minutes.
-
 ## Exercise 2: Configuring Microsoft Defender for Cloud
 
 #### Task 1: Enable Defender for Cloud and automatic agent installation
 
 1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Microsoft Defender for Cloud**.
-1. On the **Microsoft Defender for Cloud \| Getting started** page, select **Upgrade**, and then select **Install agents**.
+1. On the **Microsoft Defender for Cloud \| Getting started** page, select **Upgrade**.
 
    > **Note:** Your subscription may already have the enhanced security of Defender for Cloud enabled, in which case, continue to the next task.
 
@@ -68,29 +38,27 @@ lab:
 
 1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, on the **Microsoft Defender for Cloud | Overview** page, in the **Management** section of the vertical menu on the left, select **Environment settings**.
 1. On the **Environment settings** page, select the entry representing your Azure subscription.
-1. On the **Settings \| Defender plans** page, select the tile **Enable all Microsoft Defender for Cloud plans**.
+1. On the **Settings \| Defender plans** page, select the APIs plan to **On**, and in the **Plan selection** page, select **Microsoft Defender for APIs Plan 1**, and then select **Save**.
+1. In the **Settings | Defender plans** page, select **Save**.
 
    > **Note:** Note that you can selectively disable individual Microsoft Defender plans listed on the same page.
 
-1. Set all of the plans to **Off** except for the **Servers** and select **Save**.
-1. On the **Settings \| Defender plans** page, on the top side, select **Settings & monitoring**.
-1. On the **Settings & monitoring** page, in the list of extensions, to the right side of the **Log Analytics agent/Azure Monitor agent** entry, select the **Edit configuration** link.
-1. On the **Auto-provisioning configuration**, in the **Workspace selection** section, select the option **Custom workspace**, in the drop-down menu, select the entry representing the workspace you created in the previous exercise, and then select **Apply**.
-1. On the **Settings & monitoring** page, in the list of extensions, set **Guest Configuration agent (preview)** to **On**.
-1. On the **Settings & monitoring** page, in the list of extensions, set **Vulnerability assessment for machines** to **On**. To the right side, select the **Edit configuration** link.
-1. On the **Extension deployment configuration** page, ensure that the **Microsoft threat and vulnerability management** option is selected, and then select **Apply**.
+1. Set all of the plans to **Off** except for the **Servers** and select **Save**. Confirm when asked if you are sure you want to downgrade.
+1.	Select the **Settings & monitoring** tab, and in the list of extensions, ensure that **Guest Configuration agent (preview)** is set to **On**.
+1. On the **Settings & monitoring** tab, in the list of extensions, ensure that **Vulnerability assessment for machines** is set to **On**, and select the **Edit configuration** link.
+1. On the **Extension deployment configuration** page, ensure that the **Microsoft Defender vulnerability management** option is selected, and then select **Apply**.
 1. On the **Settings & monitoring** page, select **Continue**.   
 1. On the **Defender plan** page, select **Save** and then close the page.
 1. Browse back to the **Microsoft Defender for Cloud | Overview** page, and then, in the **Management** section of the vertical menu on the left, select **Environment settings**.
 1. On the **Environment settings** page, expand the entry representing your Azure subscription and select the entry representing the Log Analytics workspace you created in the previous exercise.
-1. On the **Settings \| Defender plans** page, select the tile **Enable all Microsoft Defender for Cloud plans**, and then select **Save**.
+1. On the **Settings \| Defender plans** page, select the tile **Enable all plans**, and then select **Save**.
 
-   > **Note:** To enable all Defender for Cloud features including threat protection capabilities, you must enable enhanced security features on the subscription containing the applicable workloads. Enabling it at the workspace level doesn't enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. In addition, the only Microsoft Defender plans available at the workspace level are Microsoft Defender for servers and Microsoft Defender for SQL servers on machines.
+   > **Note:**  To enable all Defender for Cloud features including threat protection capabilities, you must enable enhanced security features on the subscription containing the applicable workloads. Enabling it at the workspace level doesn't enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. In addition, the only Microsoft Defender plans available at the workspace level are Microsoft Defender for servers and Microsoft Defender for SQL servers on machines.
 
 1. On the **Settings \| Defender plans** page, in the vertical menu on the left side, in the **Settings** section, select **Data collection**.
 1. On the **Settings \| Data collection**, select **All Events**, and then select **Save**.
 
-   > **Note:** Selecting a data collection tier in Defender for Cloud only affects the storage of security events in your Log Analytics workspace. The Log Analytics agent will still collect and analyze the security events required for Defender for Cloud's threat protection, regardless of the level of security events you choose to store in your workspace. Choosing to store security events enables investigation, search, and auditing of those events in your workspace.
+   > **Note:**  Selecting a data collection tier in Defender for Cloud only affects the storage of security events in your Log Analytics workspace. The Log Analytics agent will still collect and analyze the security events required for Defender for Cloud's threat protection, regardless of the level of security events you choose to store in your workspace. Choosing to store security events enables investigation, search, and auditing of those events in your workspace.
 
 ## Exercise 3: Provisioning Azure VMs running Windows Server
 
@@ -99,11 +67,11 @@ lab:
 1. On **SEA-SVR2**, in the Azure portal, open the Cloud Shell pane by selecting on the toolbar icon directly next to the search text box.
 1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell**.
 
-   >**Note**: If this is the first time you are starting Cloud Shell and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and select **Create storage**.
+   >**Note**: If this is the first time you are starting Cloud Shell and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and select **Apply**.
 
 #### Task 2: Deploy an Azure VM by using an Azure Resource Manager template
 
-1. In the toolbar of the Cloud Shell pane, select the **Upload/Download files** icon, in the drop-down menu, select **Upload**, and upload the file **C:\\Labfiles\\Lab02\\L02-sub_template.json** into the Cloud Shell home directory.
+1. In the toolbar of the Cloud Shell pane, in the **Manage files** select **Upload**, and upload the file **C:\Allfiles\Labfiles\Lab02\L02-sub_template.json** into the Cloud Shell home directory. 
 1. Repeat the previous step twice to upload the **C:\\Labfiles\\Lab02\\L02-rg_template.json** and **C:\\Labfiles\\Lab02\\L02-rg_template.parameters.json** files into the Cloud Shell home directory.
 1. To create the resource group that will be hosting the lab environment, in the **PowerShell** session in the Cloud Shell pane, enter the following commands, and after entering each command, press Enter (replace the `<Azure_region>` placeholder with the name of an Azure region where you intend to deploy resources in this lab):
 
@@ -124,160 +92,92 @@ lab:
 
 1. Close Cloud Shell.
 
-## Exercise 4: Onboarding on-premises Windows Server into Microsoft Defender for Cloud and Azure Automation
+## Exercise 4: Onboarding on-premises Windows Server into Microsoft Defender for Cloud and Azure Update Manager
 
-#### Task 1: Perform manual installation of the Log Analytics agent
+#### Task 1: Install Azure Arc agents on an On-Premises Server
 
-1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, browse back to the **Microsoft Defender for Cloud \| Overview** page, and then, in the **General** section of the vertical menu on the left, select **Inventory**.
-1. On the **Microsoft Defender for Cloud \| Inventory** page, select **+ Add non-Azure servers**.
-1. On the **Onboard servers to Defender for Cloud** page, next to the entry representing the Log Analytics workspace you provisioned earlier in this lab, select **Upgrade**.
+1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, type **Arc**, then select **Azure Arc**.
+1. In the navigation pane under **Azure Arc resources**, select **Machines**.
+1. Select **+ Add/Create**, and in the dropdown, select **Add a machine**. 
+1. Select **Generate script** from the **Add a single server** section. 
+1. In the **Add a server with Azure Arc** page, under **Project details**, select the Resource group you created earlier (AZ801-L0201-RG). 
+1. Under **Server details**, select **(US) East** as the region. 
+1. Review the SQL Server and Connectivity options. Leave the default values and select **Next**. 
+1. In the **Tags** tab, review the default available tags and Select **Next**. 
+1. In the **Add a server with Azure Arc** tab, scroll down and select the **Download** button.
 
-   > **Note:** After the upgrade completes successfully, the label of the **Upgrade** button will change to **+ Add Servers**.
+   >Hint: if your browser blocks the download, allow it in the Microsoft Edge browser; select the ellipsis button (…), and then select Keep.
 
-1. Select the **+ Add Servers** button. This will automatically display the **Agents management** page, from which you can download the Log Analytics agent installers and identify the workspace ID and keys necessary to complete the agent installation.
-1. On the **Agents management** page, record the values of **Workspace ID** and **Primary key**. You will need them later in this task.
-1. On the **Agents management** page, select the **Download Windows Agent (64 bit)** link.
-1. After the download completes, select **Open file**. This will start the **Microsoft Monitoring Agent Setup** wizard.
-1. On the **Welcome to the Microsoft Monitoring Agent Setup Wizard** page of the **Microsoft Monitoring Agent Setup** wizard, select **Next**.
-1. On the **Important Notice** page of the **Microsoft Monitoring Agent Setup** wizard, select **I agree**.
-1. On the **Destination Folder** page of the **Microsoft Monitoring Agent Setup** wizard, select **Next**.
-1. On the **Agent Setup Options** page of the **Microsoft Monitoring Agent Setup** wizard, select the **Connect the agent to Azure Log Analytics (OMS)** checkbox, and then select **Next**.
-1. On the **Azure Log Analytics** page of the **Microsoft Monitoring Agent Setup** wizard, enter the values of **Workspace ID** and **Workspace Key** you recorded earlier in this task, and then select **Next**.
-1. On the **Ready to Install** page of the **Microsoft Monitoring Agent Setup** wizard, select **Install**.
-1. After the installation completes, on the **Microsoft Monitoring Agent configuration completed successfully** page, select **Finish**.
+1. Right-click the **Windows Start** button and select **Windows PowerShell (Admin)**
 
-#### Task 2: Perform unattended installation of the Log Analytics agent
+   > For *Username*, enter **Administrator** and for *Password* enter Passw0rd!, if you get a UAC prompt.
 
-1. On **SEA-SVR2**, select **Start**, and then select **Windows PowerShell (Admin)**.
-1. To extract the content of the **MMASetup-AMD64.exe** file, in the **Windows PowerShell** console, enter the following commands, and after entering each command, press Enter:
-	
-   ```powershell
-   New-Item -ItemType Directory -Path 'C:\Labfiles\L02\' -Force
-   Copy-Item -Path $env:USERPROFILE\Downloads\MMASetup-amd64.exe -Destination 'C:\Labfiles\L02\' -Force
-   Set-Location -Path C:\Labfiles\L02
-   .\MMASetup-amd64.exe /c /t:C:\Labfiles\L02
-   Remove-Item -Path .\MMASetup-amd64.exe
-   ```
+1. Type **cd C:\Users\Administrator\Downloads** or navigate to the folder where you downloaded the script.  
+1. Type `Set-ExecutionPolicy -ExecutionPolicy Unrestricted` and press **Enter**. 
+1. Enter **A** for **Yes to All** and press **Enter**.
+1. Type `.\OnboardingScript.ps1` and press **Enter**. 
+1. Enter **R** to **Run once** and press **Enter** (this may take a couple minutes).
 
-1. To copy the installation files to the target **SEA-SVR1**, in the **Windows PowerShell** console, enter the following commands, and after entering each command, press Enter:
-	
-   ```powershell
-   New-Item -ItemType Directory -Path '\\SEA-SVR1\c$\Labfiles\L02' -Force
-   Copy-Item -Path 'C:\Labfiles\L02\*' -Destination '\\SEA-SVR1\c$\Labfiles\L02' -Recurse -Force
-   ```
+   >The setup process opens a new Microsoft Edge browser tab to authenticate the Azure Arc agent. Select your admin account, wait for the message Authentication complete. Return to Windows PowerShell and wait for the installation to complete before closing the window.
 
-1. To perform the installation of the Log Analytics agent on **SEA-SVR1**, in the **Windows PowerShell** console, enter the following command and press Enter (replace the `<WorkspaceID>` and `<PrimaryKey>` placeholders with the values of **Workspace ID** and **Workspace Key** you recorded in the previous task of this exercise):
+1. Return to the Azure portal page where you downloaded the script and select **Close**.
+1. Close the **Add servers with Azure Arc** page and navigate back to the **Azure Arc Machines** page.
+1.	Select **Refresh** until the **SEA-SVR2** server name appears and the Status is **Connected** in the Arc console. 
 
-   ```powershell
-   Invoke-Command -ComputerName SEA-SVR1.contoso.com -ScriptBlock { Start-Process -FilePath C:\Labfiles\L02\setup.exe -ArgumentList '/qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID="<WorkspaceID>" OPINSIGHTS_WORKSPACE_KEY="<PrimaryKey>" AcceptEndUserLicenseAgreement=1' -Wait }
-   ```
+#### Task 2: Create a data collection rule to enable Change Tracking and Inventory on the Arc machine
 
-   > **Note:** Wait for the installation to complete. This should take about 1 minute.
+1. In the navigation pane under **Azure Arc- Machines- SEA-SVR2**, under **Operations** select **Inventory**.   
+1. On the **Change Tracking and Inventory** page, click **Enable**.
 
-#### Task 3: Enable Azure Automation solutions for Azure VMs
+   >Notice that the Log Analytics workspace you created is listed under **Enable change tracking and inventory feature with AMA**.
 
-1. On **SEA-SVR2**, switch to the Microsoft Edge window displaying the Azure portal, and browse to the Azure Automation account page you provisioned earlier in this lab. 
-1. On the **Automation account** page, in the **Configuration Management** section, select **Inventory**.
-1. On the **Inventory** page, in the toolbar, select **+ Add Azure VMs**.
-1. On the **Enable Inventory** page, in the list of VMs, ensure that the checkbox next to the **az801l02-vm0** entry is selected and select **Enable**.
+1. Wait for the deployment of the Change Tracking feature to complete. This may take up to 5 minutes so proceed to the next steps.
 
-   > **Note:** The VM has to be connected to the Log Analytics workspace associated with the Automation Account solutions in order to be listed as **ready to enable**.
 
-1. Browse back to the **Automation account** page and in the **Update Management** section, select **Update management**.
-1. On the **Update management** page, in the toolbar, select **+ Add Azure VMs**.
-1. On the **Enable Update management** page, in the list of VMs, ensure that the checkbox next to the **az801l02-vm0** entry is selected and select **Enable**.
+#### Task 3: Enable Monitoring using Insights
 
-   > **Note:** Just as with the Inventory and Change tracking solutions, the VM has to be connected to the Log Analytics workspace associated with the Automation Account solutions in order to be listed as **ready to enable**.
+1. Navigate to the **SEA-SVR2** Azure Arc machine and under **Settings**, select **Extensions**.  
 
-#### Task 4: Enable Azure Automation solutions for on-premises servers
+   >Note the addition of the ChangeTracking and Azure Monitor Agent extensions.
 
-1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, browse back to the **Automation account** page, and then, in the **Configuration Management** section, select **Inventory**.
-1. On the **Inventory** page, select the **Click to manage machines** link.
-1. On the **Manage Machines** page, select the **Enable on all available and future machines** option, and then select **Enable**.
+1. Under **Monitoring** select **Insights**, and select **Enable**.  
+1. On the **Monitoring configuration** page under **Data collection rule**, select **Create New**.
+1. In the **Create new rule** page, enter **Arc** for the **Data collection rule** name.
+1. Under **Processes and dependencies**, select **Enable processes and dependencies (map)**.
+1. Leave the name of the Azure subscription you are using in this lab.
+1. From the **Log Analytics workspaces** drop-down menu, select the Log analytic workspace that you created earlier.
+1. Select **Create**, then **Configure**.
 
-   > **Note:** This option applies to on-premises servers that have the Log Analytics agent installed and registered with the Azure Log Analytics workspace associated with the Azure Automation account hosting the Inventory, Change Tracking, and Update Management solutions.
+   >**Note**: This deployment will take a few minutes. Continue with other tasks and you can return to this later.
 
-1. Browse back to the **Automation account** page and in the **Update Management** section, select **Update management**.
-1. On the **Update management** page, select the **Click to manage machines** link.
-1. On the **Manage Machines** page, select the **Enable on all available and future machines** option, and then select **Enable**.
+#### Task 4: Enable Monitoring with Windows Updates 
 
-   > **Note:** Just as with the Inventory and Change tracking solutions, this option applies to on-premises servers that have the Log Analytics agent installed and registered with the Azure Log Analytics workspace associated with the Azure Automation account hosting the Inventory, Change Tracking, and Update Management solutions.
+   On **SEA-SVR2**, Windows Update is disabled by default. Make sure that on the **SEA-SVR2** server Windows Update is NOT disabled. You must enable it before you proceed to the next step.
 
-## Exercise 5: Verifying the hybrid capabilities of Microsoft Defender for Cloud and Azure Automation solutions
+1. Open the Services console and select the **Windows Update** service.
 
-#### Task 1: Validate threat detection capabilities for Azure VMs
+1. Right-click **Windows Update** and select **Properties** from the context menu. Set the startup type to **Automatic** and start the service. 
+1. Close the Services console.
+1. In the Azure Portal search bar, type **Azure Update Manager**.
+1. In the navigation pane, under **Resources**, select **Machines**. You should see **SEA-SVR2** Azure Arc machine listed on the **Machines** page. Select the **SEA-SVR2** machine.
+1. In the **Recommended updates** tab, under **Periodic assessment**, click **Enable now**.
+1. From the drop down menu for the **SEA-SVR2** Arc-enabled server, under **Periodic assessment**, select **Enable**, and then **Save**. 
+1. On the **Updates** page, select **Check for updates**. 
+1.	On the **Trigger assess now** window, select **OK**.
 
-1. On **SEA-SVR2**, switch to the Microsoft Edge window displaying the Azure portal. 
-1. In the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Virtual machines**.
-1. On the **Virtual machines** page, select **az801l02-vm0**.
-1. On the **az801l02-vm0** page, in the **Operations** section, select **Run command**, and then select **RunPowerShellScript**.
-1. On the **Run Command Script** page, in the **PowerShell Script** section, enter the following commands, and then select **Run** to trigger a threat detection alert:
+   > **Note:** The missing updates will appear in a few minutes. You can revisit the Azure Arc machine periodically and you should see the updates reflected shortly after.
 
-   ```powershell
-   New-Item -ItemType Directory -Path 'C:\Temp' -Force
-   Start-Process -FilePath powershell.exe -ArgumentList '-nop -exec bypass -EncodedCommand "cABvAHcAZQByAHMAaABlAGwAbAAgAC0AYwBvAG0AbQBhAG4AZAAgACIAJgAgAHsAIABpAHcAcgAgAGgAdAB0AHAAcwA6AC8ALwBkAG8AdwBuAGwAbwBhAGQALgBzAHkAcwBpAG4AdABlAHIAbgBhAGwAcwAuAGMAbwBtAC8AZgBpAGwAZQBzAC8AUwB5AHMAbQBvAG4ALgB6AGkAcAAgAC0ATwB1AHQARgBpAGwAZQAgAGMAOgBcAHQAZQBtAHAAXABzAHYAYwBoAG8AcwB0AC4AZQB4AGUAIAB9ACIA"' -Wait
-   ```
 
-1. On **SEA-SVR2**, in the Azure portal, browse to the **Microsoft Defender for Cloud \| Overview** page. 
-1. On the **Microsoft Defender for Cloud \| Overview** page, in the vertical menu on the left side, in the **General** section, select **Security alerts**.
-1. On the **Microsoft Defender for Cloud \| Security alerts** page, note the alert of high severity indicating a suspicious use of PowerShell on **az801l02-vm0**.
-1. Select the security alert, on the **Security alert** page, select **Take action**, and review the possible actions.
+#### Task 5: Verify Azure Policy compliance, change tracking, Inventory, Insights monitoring, and Azure Updates
 
-   > **Note:** To minimize the possibility of future attacks, you should consider implementing security recommendations.
+1.	Navigate to the **SEA-SVR2** Azure Arc machine, and in the navigation pane under **Monitoring**, select **Insights**.
 
-#### Task 2: Validate the threat detection capabilities for on-premises servers
+1.	Select **Analyze data**. You should be able to see the performance data.  
+1.	Select the **Map** tab and view the dependency map.  
+1.	In the navigation pane, under **Operations**, select **Inventory** to view the inventory data.   
+1.	Select **Change Tracking** to view the data that was changed.  
 
-1. On **SEA-SVR2**, switch to the **Windows PowerShell** console.
-1. To trigger a threat detection alert, in the **Windows PowerShell** console, enter the following commands, and then, after entering each command, press Enter:
-	
-   ```powershell
-   New-Item -ItemType Directory -Path 'C:\Temp' -Force
-   powershell -nop -exec bypass -EncodedCommand "cABvAHcAZQByAHMAaABlAGwAbAAgAC0AYwBvAG0AbQBhAG4AZAAgACIAJgAgAHsAIABpAHcAcgAgAGgAdAB0AHAAcwA6AC8ALwBkAG8AdwBuAGwAbwBhAGQALgBzAHkAcwBpAG4AdABlAHIAbgBhAGwAcwAuAGMAbwBtAC8AZgBpAGwAZQBzAC8AUwB5AHMAbQBvAG4ALgB6AGkAcAAgAC0ATwB1AHQARgBpAGwAZQAgAGMAOgBcAHQAZQBtAHAAXABzAHYAYwBoAG8AcwB0AC4AZQB4AGUAIAB9ACIA"
-   ```
-
-1. On **SEA-SVR2**, switch to the Microsoft Edge window displaying the Azure portal and browse back to the **Microsoft Defender for Cloud \| Security alerts** page.
-1. On the **Microsoft Defender for Cloud \| Security alerts** page, note the alert of high severity indicating a suspicious use of PowerShell on **SEA-SVR2**.
-1. Select the security alert, on the **Security alert** page, select **Take action**, and review the possible actions.
-
-   > **Note:** To minimize the possibility of future attacks, you should consider implementing security recommendations.
-
-#### Task 3: Review the features and capabilities that apply to hybrid scenarios
-
-1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, browse back to the **Microsoft Defender for Cloud \| Overview** page, and then, in the **General** section of the vertical menu on the left, select **Inventory**.
-1. On the **Inventory** page, in the list of resources, identify the entries representing the **az801l02-vm0** Azure VM as well as **SEA-SVR1.contoso.com** and **SEA-SVR2.contoso.com** on-premises servers.
-
-   > **Note:** It might take a few minutes before the entries representing the Azure and on-premises VMs appear on the **Inventory** page.
-
-   > **Note:** In case **az801l02-vm0** reports **Not installed** status in the **Monitoring agent** column, select the **az801l02-vm0** link. On the **Resource health (Preview)** page, review **Recommendations**, and then select the entry **Log Analytics agent should be installed on virtual machines**. On the **Log Analytics agent should be installed on virtual machines** page, select **Fix**. On the **Fixing resources** page, in the **Workspace ID** drop-down list, select the default workspace created by Defender for Cloud, and then select **Fix 1 resource**. 
-
-1. On the **Inventory** page, select the **az801l02-vm0** link, and then, on the **Resource health (Preview)** page, review **Recommendations**.
-1. Browse back to the **Inventory** page, select the link representing **SEA-SVR2**, and then, on the **Resource health (Preview)** page, review **Recommendations**.
-
-#### Task 4: Validate Azure Automation solutions
-
-1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, browse back to the page of the Azure Automation account you provisioned earlier in this lab, and then, in the **Configuration Management** section, select **Inventory**.
-1. On the **Inventory** page, review the **Machines** tab and verify that it includes both Azure VM and the on-premises servers you registered with the Log Analytics workspace earlier in this lab.
-
-   >**Note**: You might need to wait longer in case either or both of types of systems are not listed on the **Machines** tab.
-
-1. On the **Inventory** page, review the remaining tabs, including **Software**, **Files**, **Windows Registry**, and **Windows Services** tabs.
-
-   >**Note**: The collected data and files is configurable via the **Edit Settings** option in the toolbar of the **Inventory** page.
-
-   >**Note**: This automatically installs the **Change tracking** solution as well.
-
-1. Browse back to the page of the Azure Automation account you provisioned earlier in this lab, and then, in the **Configuration Management** section, select **Change tracking**. 
-1. Identify the numbers associated with the **Events**, **Files**, **Registry**, **Software**, and **Windows Services** entries. If any of them are greater than 0, you can find more details regarding the corresponding changes on the **Changes** and **Events** tabs at the bottom of the page.
-
-   >**Note**: In this case as well, the tracked changes are configurable via the **Edit Settings** option in the toolbar of the **Change tracking** page.
-
-1. Browse back to the page of the Azure Automation account you provisioned earlier in this lab, and then, in the **Update Management** section, select **Update management**.
-1. On the **Update management** page, review the **Machines** tab and verify that it includes both Azure VM and the on-premises servers you registered with the Log Analytics workspace earlier in this lab.
-1. Identify the compliance status for each entry on the **Machines** tab, and then browse to the **Missing updates** tab.
-
-   >**Note**: You have the option of scheduling automated deployment of missing updates for both on-premises servers and Azure VMs.
-
-## Exercise 6: Deprovisioning the Azure environment
+## Exercise 5: Deprovisioning the Azure environment 
 
 #### Task 1: Start a PowerShell session in Cloud Shell
 
