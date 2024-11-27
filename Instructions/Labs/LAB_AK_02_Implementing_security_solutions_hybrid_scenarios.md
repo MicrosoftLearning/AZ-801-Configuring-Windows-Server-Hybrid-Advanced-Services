@@ -30,7 +30,7 @@ lab:
 #### Task 1: Enable Defender for Cloud and automatic agent installation
 
 1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Microsoft Defender for Cloud**.
-1. On the **Microsoft Defender for Cloud \| Getting started** page, select **Upgrade**.
+1. On the **Microsoft Defender for Cloud \| Overview** page, select the  **Click here to upgrade >** link. In the **Getting started** page, select **Upgrade**.
 
    > **Note:** Your subscription may already have the enhanced security of Defender for Cloud enabled, in which case, continue to the next task.
 
@@ -38,7 +38,7 @@ lab:
 
 1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, on the **Microsoft Defender for Cloud | Overview** page, in the **Management** section of the vertical menu on the left, select **Environment settings**.
 1. On the **Environment settings** page, select the entry representing your Azure subscription.
-1. On the **Settings \| Defender plans** page, select the APIs plan to **On**, and in the **Plan selection** page, select **Microsoft Defender for APIs Plan 1**, and then select **Save**.
+1. On the **Settings \| Defender plans** page, select **Enable all plans**. In the **Plan selection** page, select **Microsoft Defender for APIs Plan 1**, and then select **Save**.
 1. In the **Settings | Defender plans** page, select **Save**.
 
    > **Note:** Note that you can selectively disable individual Microsoft Defender plans listed on the same page.
@@ -51,7 +51,7 @@ lab:
 1. On the **Defender plan** page, select **Save** and then close the page.
 1. Browse back to the **Microsoft Defender for Cloud | Overview** page, and then, in the **Management** section of the vertical menu on the left, select **Environment settings**.
 1. On the **Environment settings** page, expand the entry representing your Azure subscription and select the entry representing the Log Analytics workspace you created in the previous exercise.
-1. On the **Settings \| Defender plans** page, select the tile **Enable all plans**, and then select **Save**.
+1. On the **Settings \| Defender plans** page, enable the **Servers** Defender plan, and then select **Save**.
 
    > **Note:**  To enable all Defender for Cloud features including threat protection capabilities, you must enable enhanced security features on the subscription containing the applicable workloads. Enabling it at the workspace level doesn't enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. In addition, the only Microsoft Defender plans available at the workspace level are Microsoft Defender for servers and Microsoft Defender for SQL servers on machines.
 
@@ -174,6 +174,9 @@ lab:
 
 1.	Select **Analyze data**. You should be able to see the performance data.  
 1.	Select the **Map** tab and view the dependency map.  
+
+   >**Note**: If you don’t see any data, return to the **Performance** tab and refresh. Then refresh the **Map** section. You should see the data and process dependency information for **SEA-SVR2**.
+
 1.	In the navigation pane, under **Operations**, select **Inventory** to view the inventory data.   
 1.	Select **Change Tracking** to view the data that was changed.  
 
