@@ -50,7 +50,7 @@ lab:
 1. On the **Settings & monitoring** page, select **Continue**.   
 1. On the **Defender plan** page, select **Save** and then close the page.
 1. Browse back to the **Microsoft Defender for Cloud | Overview** page, and then, in the **Management** section of the vertical menu on the left, select **Environment settings**.
-1. On the **Environment settings** page, expand the entry representing your Azure subscription and select the entry representing the Log Analytics workspace you created in the previous exercise.
+1. On the **Environment settings** page, expand the entry representing your **Azure subscription** and select the entry representing the **Log Analytics workspace** you created in the previous exercise.
 1. On the **Settings \| Defender plans** page, enable the **Servers** Defender plan, and then select **Save**.
 
    > **Note:**  To enable all Defender for Cloud features including threat protection capabilities, you must enable enhanced security features on the subscription containing the applicable workloads. Enabling it at the workspace level doesn't enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. In addition, the only Microsoft Defender plans available at the workspace level are Microsoft Defender for servers and Microsoft Defender for SQL servers on machines.
