@@ -7,6 +7,8 @@ lab:
 
 # Lab answer key: Implementing Security Solutions in Hybrid Scenarios
 
+**Note:** An interactive lab simulation is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
+
 ## Exercise 1: Creating an Azure Log Analytics workspace
 
 #### Task 1: Create an Azure Log Analytics workspace 
@@ -32,7 +34,7 @@ lab:
 1. On **SEA-SVR2**, in the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Microsoft Defender for Cloud**.
 1. On the **Microsoft Defender for Cloud \| Overview** page, select the  **Click here to upgrade >** link. In the **Getting started** page, select **Upgrade**.
 
-   > **Note:** Your subscription may already have the enhanced security of Defender for Cloud enabled, in which case, continue to the next task.
+   > **Note:** Your subscription may already have the enhanced security of Defender for Cloud enabled, in which case there is no need to upgrade, and you can continue on to the next task.
 
 #### Task 2: Enable enhanced security of Defender for Cloud
 
@@ -41,11 +43,14 @@ lab:
 1. On the **Settings \| Defender plans** page, select **Enable all plans**. In the **Plan selection** page, select **Microsoft Defender for APIs Plan 1**, and then select **Save**.
 1. In the **Settings | Defender plans** page, select **Save**.
 
-   > **Note:** Note that you can selectively disable individual Microsoft Defender plans listed on the same page.
+   > **Note:**  You may encounter notifications about auto-provisioning update failures. You can safely ignore these notifications as you will only use the Servers plan in this lab. Note that you can selectively disable individual Microsoft Defender plans listed on the same page.
 
 1. Set all of the plans to **Off** except for the **Servers** and select **Save**. Confirm when asked if you are sure you want to downgrade.
-1.	Select the **Settings & monitoring** tab, and in the list of extensions, ensure that **Guest Configuration agent (preview)** is set to **On**.
-1. On the **Settings & monitoring** tab, in the list of extensions, ensure that **Vulnerability assessment for machines** is set to **On**, and select the **Edit configuration** link.
+
+   > **Note:**  When presented with the resource types selection for the Databases plan, toggle each entry to Off and then select Continue. For the purpose of this lab, you can safely ignore any notications about individual database resources failing to save.
+
+1.	Select the **Settings & monitoring** tab, and in the list of extensions, set **Guest Configuration agent (preview)** to **On**.
+1. On the **Settings & monitoring** tab, in the list of extensions, set **Vulnerability assessment for machines** to **On**, and select the **Edit configuration** link.
 1. On the **Extension deployment configuration** page, ensure that the **Microsoft Defender vulnerability management** option is selected, and then select **Apply**.
 1. On the **Settings & monitoring** page, select **Continue**.   
 1. On the **Defender plan** page, select **Save** and then close the page.
@@ -124,7 +129,7 @@ lab:
 1. Close the **Add servers with Azure Arc** page and navigate back to the **Azure Arc Machines** page.
 1.	Select **Refresh** until the **SEA-SVR2** server name appears and the Status is **Connected** in the Arc console. 
 
-#### Task 2: Create a data collection rule to enable Change Tracking and Inventory on the Arc machine
+#### Task 2: Enable Change Tracking and Inventory on the Arc machine
 
 1. In the navigation pane under **Azure Arc- Machines- SEA-SVR2**, under **Operations** select **Inventory**.   
 1. On the **Change Tracking and Inventory** page, click **Enable**.
@@ -148,7 +153,7 @@ lab:
 1. From the **Log Analytics workspaces** drop-down menu, select the Log analytic workspace that you created earlier.
 1. Select **Create**, then **Configure**.
 
-   >**Note**: This deployment will take a few minutes. Continue with other tasks and you can return to this later.
+   >**Note**: This deployment may take some time. Continue with other tasks and you can return to this later.
 
 #### Task 4: Enable Monitoring with Windows Updates 
 
@@ -159,7 +164,7 @@ lab:
 1. Right-click **Windows Update** and select **Properties** from the context menu. Set the startup type to **Automatic** and start the service. 
 1. Close the Services console.
 1. In the Azure Portal search bar, type **Azure Update Manager**.
-1. In the navigation pane, under **Resources**, select **Machines**. You should see **SEA-SVR2** Azure Arc machine listed on the **Machines** page. Select the **SEA-SVR2** machine.
+1. In the navigation pane, under **Resources**, select **Machines**. You should see **SEA-SVR2** Azure Arc-enabled server listed on the **Machines** page. Select the **SEA-SVR2** machine.
 1. In the **Recommended updates** tab, under **Periodic assessment**, click **Enable now**.
 1. From the drop down menu for the **SEA-SVR2** Arc-enabled server, under **Periodic assessment**, select **Enable**, and then **Save**. 
 1. On the **Updates** page, select **Check for updates**. 
