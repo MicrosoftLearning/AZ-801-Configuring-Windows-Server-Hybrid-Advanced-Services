@@ -28,11 +28,7 @@ Virtual machines: **AZ-801T00A-SEA-DC1**, **AZ-801T00A-SEA-SVR1**, and **AZ-801T
 > **Note**: **AZ-801T00A-SEA-DC1**, **AZ-801T00A-SEA-SVR1**, and **AZ-801T00A-SEA-SVR2** virtual machines are hosting the installation of **SEA-DC1**, **SEA-SVR1**, and **SEA-SVR2**, respectively.
 
 1. Select **SEA-SVR2**.
-1. Sign in using the following credentials:
-
-   - Username: **Administrator**
-   - Password: **Pa55w.rd**
-   - Domain: **CONTOSO**
+1. Sign in using the credentials provided by the instructor.
 
 For this lab, you'll use the available VM environment and an Azure subscription. Before you begin the lab, ensure that you have an Azure subscription and a user account with the Owner role in that subscription.
 
@@ -283,10 +279,7 @@ The main tasks for this exercise are to:
 #### Task 3: Perform migration by using Storage Migration Service
 
 1. On **SEA-ADM1**, start Microsoft Edge and connect to the local instance of Windows Admin Center at **https://SEA-ADM1.contoso.com**. 
-1. If prompted, authenticate with the following credentials:
-
-   - Username: **CONTOSO\\Administrator**
-   - Password: **Pa55w.rd**
+1. If prompted, authenticate with the credentials provided by the instructor.
 
 1. On **SEA-ADM1**, in Windows Admin Center, review the installed extensions and verify that the list includes the **Storage Migration Service** extension.
 
@@ -301,10 +294,7 @@ The main tasks for this exercise are to:
 1. In the **Storage Migration Service** pane, create a migration job named **SVR1toSVR2** with the **Source devices** set to **Windows servers and clusters**.
 1. In the **Storage Migration Service > SVR1toSVR2** pane, on the **Inventory servers** tab, review the **Check the prerequisites** pane.
 1. On the **Inventory servers** tab, in the **Enter credentials** pane, if necessary, enter the credentials of the **CONTOSO\\Administrator** user account and clear the **Migrate from failover clusters** checkbox.
-1. On the **Inventory servers** tab, in the **Add and scan devices** pane, add the **SEA-SVR1.contoso.com** server by using the following credentials:
-
-   - Username: **CONTOSO\\Administrator**
-   - Password: **Pa55w.rd**
+1. On the **Inventory servers** tab, in the **Add and scan devices** pane, add the **SEA-SVR1.contoso.com** server by using the credentials provided by the instructor.
 
    > **Note**: To perform single sign-on, you would need to set up the Kerberos constrained delegation.
 

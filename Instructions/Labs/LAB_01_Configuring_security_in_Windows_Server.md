@@ -29,11 +29,7 @@ Virtual machines: **AZ-801T00A-SEA-DC1**, **AZ-801T00A-SEA-SVR1**, and **AZ-801T
 > **Note**: **AZ-801T00A-SEA-DC1**, **AZ-801T00A-SEA-SVR1**, and **AZ-801T00A-SEA-SVR2** virtual machines are hosting the installation of **SEA-DC1**, **SEA-SVR1**, and **SEA-SVR2**.
 
 1. Select **SEA-SVR2**.
-1. Sign in using the following credentials:
-
-   - Username: **Administrator**
-   - Password: **Pa55w.rd**
-   - Domain: **CONTOSO**
+1. Sign in using the credentials provided by the instructor.
 
 For this lab, you'll use the available VM environment.
 
@@ -77,7 +73,7 @@ The main tasks for this exercise are to:
    ```
 
 1. Wait until the tool completes its run and follow the prompts to restart the operating system.
-1. Once the restart completes, sign back into **SEA-SVR2** as **CONTOSO\\Administrator**, with the password **Pa55w.rd**.
+1. Once the restart completes, sign back into **SEA-SVR2** with the credentials provided by the instructor.
 
 ### Results
 
@@ -205,7 +201,7 @@ The main tasks for this exercise are to:
 
 #### Task 3: Deploy LAPS client-side extension
 
-1. Switch to the console session to **SEA-SVR1** and then, if needed, sign in as **CONTOSO\\Administrator** with the password **Pa55w.rd**.
+1. Switch to the console session to **SEA-SVR1** and then, if needed, sign in with the credentials provided by the instructor.
 
    > **Note:** You will be prompted to change your password, as a result of running in the previous exercise the script that enables password expiration. Choose an arbitrary password and use it throughout the remainder of the lab.
 

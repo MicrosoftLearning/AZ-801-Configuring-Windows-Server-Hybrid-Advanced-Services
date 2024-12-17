@@ -13,7 +13,7 @@ lab:
 
 #### Task 1: Deploy a domain controller by using an Azure Resource Manager (ARM) template
 
-1. Connect to **SEA-SVR2**, and then, if needed, sign in as **CONTOSO\\Administrator** with the password **Pa55w.rd**.
+1. Connect to **SEA-SVR2**, and then, if needed, sign in with the credentials provided by the instructor.
 1. On **SEA-SVR2**, start Microsoft Edge, and access a customized version of the QuickStart template at **[Create a new Windows VM and create a new AD Forest, Domain and DC](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain)**. 
 1. On the **Create a new Windows VM and create a new AD Forest, Domain and DC** page, select **Deploy to Azure**. This will automatically redirect the browser to the **Create an Azure VM with a new AD Forest** page in the Azure portal.
 1. On the **Create an Azure VM with a new AD Forest** page, select **Edit template**.
@@ -309,10 +309,7 @@ lab:
 
    >**Note**: If you get **NET::ERR_CERT_DATE_INVALID** error, select **Advanced** on the Edge browser page, at the bottom of page select **Continue to sea-svr2-contoso.com (unsafe)**.
 
-1. When prompted, in the **Windows Security** dialog box, enter the following credentials, and then select **OK**:
-
-   - Username: **CONTOSO\\Administrator**
-   - Password: **Pa55w.rd**
+1. When prompted, in the **Windows Security** dialog box, enter the credentials provided by the instructor, and then select **OK**.
 
 1. Review the **New in this release** pop-up window and select **Close** in its upper-right corner.
 1. In the **All connections** pane of Windows Admin Center, in the upper-right corner, select the **Settings** icon (the cog wheel).
@@ -336,10 +333,7 @@ lab:
 1. On the **Inventory servers** tab, in the **Install required features** pane, select **Next**.
 1. On the **Inventory servers** tab, in the **Add and scan devices** pane, select **+ Add a device**.
 1. On the **Add source device**, ensure that the **Device name** option is selected, in the **Name** text box, enter **SEA-SVR1.contoso.com**, and then select **Add**.
-1. In the **Specify your credentials** pane, select the **Use another account for this connection** option , enter the following credentials, select **Use these credentials for all connections**, and then select **Continue**:
-
-   - Username: **CONTOSO\\Administrator**
-   - Password: **Pa55w.rd**
+1. In the **Specify your credentials** pane, select the **Use another account for this connection** option , enter the credentials provided by the instructor, select **Use these credentials for all connections**, and then select **Continue**.
 
    > **Note**: To perform single sign-on, you would need to set up Kerberos constrained delegation<!--Marcin can this be 'a Kerberos constrained delegation'?-->.
 
@@ -399,7 +393,7 @@ lab:
 
 #### Task 4: Validate migration outcome
 
-1. On **SEA-SVR2**, sign in as **CONTOSO\\Administrator** with the password **Pa55w.rd**.
+1. On **SEA-SVR2**, sign in with the credentials provided by the instructor.
 1. On **SEA-SVR2**, select **Start**, and then select **Windows PowerShell**.
 1. To identify the IPv4 addresses assigned to the network interface of **SEA-SVR2**, in the **Windows PowerShell** console, enter the following command, and then press Enter:
 	
