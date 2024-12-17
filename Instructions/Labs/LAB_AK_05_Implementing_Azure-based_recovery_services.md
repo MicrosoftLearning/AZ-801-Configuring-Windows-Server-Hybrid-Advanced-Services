@@ -16,7 +16,7 @@ lab:
 
 #### Task 1: Create an Azure Site Recovery vault
 
-1. Connect to **SEA-SVR2**, and if needed, sign in as **CONTOSO\\Administrator** with the password **Pa55w.rd**.
+1. Connect to **SEA-SVR2**, and if needed, sign in with the credentials provided by the instructor.
 1. On **SEA-SVR2**, start Microsoft Edge, go to the Azure portal at `https://portal.azure.com/`, and sign in by using the credentials of a user account with the Owner role in the subscription you'll be using in this lab.
 1. In the Azure portal, in the **Search resources, services, and docs** text box, on the toolbar, search for and select **Recovery Services vaults**, and on the **Recovery Services vaults** page, select **+ Create**.
 1. On the **Basics** tab of the **Create Recovery Services vault** page, specify the following settings (leave others with their default values) and select **Review + create**:

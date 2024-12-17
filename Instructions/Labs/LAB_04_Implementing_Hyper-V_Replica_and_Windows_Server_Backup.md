@@ -28,11 +28,7 @@ Virtual machines: **AZ-801T00A-SEA-DC1**, **AZ-801T00A-SEA-SVR1**, and **AZ-801T
 > **Note**: **AZ-801T00A-SEA-DC1**, **AZ-801T00A-SEA-SVR1**, and **AZ-801T00A-SEA-SVR2** virtual machines are hosting the installation of **SEA-DC1**, **SEA-SVR1**, and **SEA-SVR2**
 
 1. Select **SEA-SVR2**.
-1. Sign in using the following credentials:
-
-   - Username: **Administrator**
-   - Password: **Pa55w.rd**
-   - Domain: **CONTOSO**
+1. Sign in using the credentials provided by the instructor.
 
 For this lab, you'll use the available VM environment.
 
@@ -259,7 +255,7 @@ The main tasks for this exercise are to:
    Add-WBFileSpec -Policy $policy -FileSpec $fileSpec
    ```
 
-1. To configure a backup location on the **SEA-SVR2** using the network share you created in the previous task, on **SEA-SVR2**, use the PowerShell Remoting session to **SEA-SVR1** to run the following commands (when prompted to sign in, enter the **CONTOSO\\Administrator** username and **Pa55w.rd** password):
+1. To configure a backup location on the **SEA-SVR2** using the network share you created in the previous task, on **SEA-SVR2**, use the PowerShell Remoting session to **SEA-SVR1** to run the following commands (when prompted to sign in, enter the credentials provided by the instructor.):
 
    ```powershell
    $cred = Get-Credential

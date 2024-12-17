@@ -15,7 +15,7 @@ lab:
 
 #### Task 1: Enable Windows Defender Credential Guard using Group Policy
 
-1. Connect to **SEA-SVR2** and, if needed, sign in as **CONTOSO\\Administrator** with the password **Pa55w.rd**.
+1. Connect to **SEA-SVR2** and, if needed, sign in with the credentials provided by the instructor.
 1. In the **Type here to search** text box next to the **Start** button, enter **Group Policy Management**.
 1. In the list of results, select **Group Policy Management**.
 1. In the **Group Policy Management** console, expand **Forest: contoso.com**, expand **Domains**, expand **contoso.com**, right-click or access the **context** menu for the **IT** Organizational Unit (OU), and then select **Create a GPO in this domain, and Link it here**.
@@ -44,7 +44,7 @@ lab:
 
    > **Note**: The operating system will restart. 
 
-1. Once the restart completes, sign back into **SEA-SVR2** as **CONTOSO\\Administrator**, with the password **Pa55w.rd**.
+1. Once the restart completes, sign back into **SEA-SVR2** with the credentials provided by the instructor.
 
 ## Exercise 2: Locating problematic accounts
 
@@ -142,7 +142,7 @@ lab:
 
 #### Task 3: Deploy LAPS client-side extension
 
-1. Switch to the console session to **SEA-SVR1** and then, if needed, sign in as **CONTOSO\\Administrator**, with the password **Pa55w.rd**.
+1. Switch to the console session to **SEA-SVR1** and then, if needed, sign in with the credentials provided by the instructor.
 
    > **Note:** You will be prompted to change your password, as a result of running in the previous exercise the script that enables password expiration. Choose an arbitrary password and use it throughout the remainder of the lab.
 

@@ -15,7 +15,7 @@ lab:
 
 #### Task 1: Deploy an Azure VM by using an Azure Resource Manager QuickStart template
 
-1. Connect to **SEA-SVR2** and then, if needed, sign in as **CONTOSO\\Administrator** with the password **Pa55w.rd**.
+1. Connect to **SEA-SVR2** and then, if needed, sign in with the credentials provided by the instructor.
 1. On **SEA-SVR2**, start Microsoft Edge, go to the **[301-nested-vms-in-virtual-network Azure QuickStart template](https://github.com/az140mp/azure-quickstart-templates/tree/master/demos/nested-vms-in-virtual-network)** and select **Deploy to Azure**. (You'll find the button **Deploy to Azure** in the `README.md` file after the list of resources created by the template.) This will automatically redirect the browser to the **Hyper-V Host Virtual Machine with nested VMs** page in the Azure portal.
 1. When prompted, in the Azure portal, sign in by using the credentials of a user account with the Owner role in the subscription you'll be using in this lab.
 1. On the **Hyper-V Host Virtual Machine with nested VMs** page in the Azure portal, specify the following settings (Leave others with their default values.):

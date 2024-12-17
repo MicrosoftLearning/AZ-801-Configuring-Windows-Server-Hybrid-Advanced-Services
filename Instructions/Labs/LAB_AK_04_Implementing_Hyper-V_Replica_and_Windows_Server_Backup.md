@@ -13,7 +13,7 @@ lab:
 
 #### Task 1: Install and configure Hyper-V Replica
 
-1. Connect to **SEA-SVR2**, and then, if needed, sign in as **Contoso\\Administrator** with a password of **Pa55w.rd**.
+1. Connect to **SEA-SVR2**, and then, if needed, sign in with the credentials provided by the instructor.
 1. On **SEA-SVR2**, select **Start**, and then select **Windows PowerShell (Admin)**.
 1. To identify the status of the Windows Defender Firewall with Advanced Security **Hyper-V Replica HTTP Listener (TCP-In)** rule on **SEA-SVR2**, at the Windows PowerShell prompt, enter the following command and press Enter:
 
@@ -237,7 +237,7 @@ lab:
    Add-WBFileSpec -Policy $policy -FileSpec $fileSpec
    ```
 
-1. To configure a backup location on **SEA-SVR2** using the network share you created in the previous task, on **SEA-SVR2**, in the Windows PowerShell window hosting the PowerShell Remoting session to **SEA-SVR1**, enter the following commands, and after entering each command, press Enter (when prompted to sign in, enter the **CONTOSO\\Administrator** username and **Pa55w.rd** password):
+1. To configure a backup location on **SEA-SVR2** using the network share you created in the previous task, on **SEA-SVR2**, in the Windows PowerShell window hosting the PowerShell Remoting session to **SEA-SVR1**, enter the following commands, and after entering each command, press Enter (when prompted to sign in, enter the credentials provided by the instructor):
 
    ```powershell
    $cred = Get-Credential

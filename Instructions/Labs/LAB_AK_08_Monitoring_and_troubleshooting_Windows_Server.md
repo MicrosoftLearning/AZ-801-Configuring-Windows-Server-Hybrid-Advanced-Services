@@ -15,7 +15,7 @@ lab:
 
 #### Task 1: Create and start a data collector set
 
-1. Connect to **SEA-SVR2**, and then, if needed, sign in as **CONTOSO\\Administrator** with the password **Pa55w.rd**.
+1. Connect to **SEA-SVR2**, and then, if needed, sign in with the credentials provided by the instructor.
 1. On **SEA-SVR2**, in the **Type here to search** text box next to the **Start** button, enter **Perf**, and then, in the **Best match** list, select **Performance Monitor**.
 1. In Performance Monitor, expand the **Data Collector Sets** node in the navigation pane, and then select **User Defined**.
 1. Right-click or access the context menu for **User Defined**, select **New**, and then select **Data Collector Set**. This will launch the **Create new Data Collector Set** wizard.

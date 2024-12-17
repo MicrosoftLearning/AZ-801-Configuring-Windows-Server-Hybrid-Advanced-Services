@@ -13,7 +13,7 @@ lab:
 
 #### Task 1: Install Failover Clustering
 
-1. Connect to **SEA-SVR2**, and then, if needed, sign in as **Contoso\\Administrator** with a password of **Pa55w.rd**.
+1. Connect to **SEA-SVR2**, and then, if needed, sign in with the credentials provided by the instructor.
 1. On **SEA-SVR2**, select **Start**, and then select **Windows PowerShell (Admin)**.
 1. To install the Failover Clustering server feature including the management tools on **SEA-SVR1** and **SEA-SVR2**, at the Windows PowerShell command prompt, enter the following commands, and after entering each command, press Enter:
 
