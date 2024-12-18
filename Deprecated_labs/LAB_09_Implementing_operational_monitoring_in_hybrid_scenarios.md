@@ -30,11 +30,7 @@ Virtual machines: **AZ-801T00A-SEA-DC1** and **AZ-801T00A-SEA-SVR2** must be run
 > **Note**: **AZ-801T00A-SEA-DC1** and **AZ-801T00A-SEA-SVR2** virtual machines are hosting the installation of **SEA-DC1** and **SEA-SVR2**.
 
 1. Select **SEA-SVR2**.
-1. Sign in using the following credentials:
-
-   - Username: **Administrator**
-   - Password: **Pa55w.rd**
-   - Domain: **CONTOSO**
+1. Sign in using the credentials provided by the instructor.
 
 For this lab, you'll use the available VM environment and an Azure subscription. Before you begin the lab, ensure that you have an Azure subscription and a user account with the Owner role in that subscription.
 
