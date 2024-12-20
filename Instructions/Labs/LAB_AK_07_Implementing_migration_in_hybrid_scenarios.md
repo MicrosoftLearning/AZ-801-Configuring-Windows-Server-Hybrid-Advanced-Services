@@ -38,7 +38,7 @@ lab:
 
 #### Task 2: Provide remote access
 
-**Note**: We always recommend the use of Bastion Host to access sensitive VMs such as the one deployed, for the most secure and robust features, but for demonstration porpuses of this lab, we will be configuring direct remote access.
+**Note**: We always recommend the use of Bastion Host to access sensitive VMs such as the one deployed, for the most secure and robust features, but for demonstration purposes of this lab, we will be configuring direct remote access.
 
 1. On **SEA-SVR2**, start Microsoft Edge and browse **[whatismyipaddress](https://whatismyipaddress.com/)**. Save the ip adrress in a notepad, it will be used in a later step.
 1. In the Azure portal, click on the **Cloud Shell** icon, located directly to the right of the search textbox at the top of the page.
