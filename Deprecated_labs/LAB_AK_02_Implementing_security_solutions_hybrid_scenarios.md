@@ -103,26 +103,33 @@ lab:
 
 #### Task 2: Deploy an Azure VM by using an Azure Resource Manager template
 
-1. In the toolbar of the Cloud Shell pane, select the **Upload/Download files** icon, in the drop-down menu, select **Upload**, and upload the file **C:\\Labfiles\\Lab02\\L02-sub_template.json** into the Cloud Shell home directory.
-1. Repeat the previous step twice to upload the **C:\\Labfiles\\Lab02\\L02-rg_template.json** and **C:\\Labfiles\\Lab02\\L02-rg_template.parameters.json** files into the Cloud Shell home directory.
-1. To create the resource group that will be hosting the lab environment, in the **PowerShell** session in the Cloud Shell pane, enter the following commands, and after entering each command, press Enter (replace the `<Azure_region>` placeholder with the name of an Azure region where you intend to deploy resources in this lab):
+1. Run the following script to create a new resource group (replace the `<Azure_region>` placeholder with the name of an Azure region where you intend to deploy resources in this lab):
 
    >**Note**: You can use the **(Get-AzLocation).Location** command to list the names of available Azure regions:
 
    ```powershell 
-   $location = '<Azure_region>'
-   New-AzSubscriptionDeployment -Location $location -Name az801l2001deployment -TemplateFile ./L02-sub_template.json -rgLocation $location -rgName 'AZ801-L0202-RG'
+   New-AzResourceGroup -Name 'AZ801-L0202-RG' -Location '<Location>'
    ```
-
-1. To deploy an Azure virtual machine (VM) into the newly created resource group, enter the following command and press Enter:
-
-   ```powershell 
-   New-AzResourceGroupDeployment -Name az801l2002deployment -ResourceGroupName AZ801-L0202-RG -TemplateFile ./L02-rg_template.json -TemplateParameterFile ./L02-rg_template.parameters.json
-   ```
-
-   >**Note**: Wait for deployment to complete. This should take about 3 minutes.
 
 1. Close Cloud Shell.
+1. In the **Search resources, services, and docs text box**, on the toolbar, search for and select **Deploy a custom template**.
+1. In the **Custom deployment** page, select **Build your own template in the editor**.
+1. On the **Edit template** page, select **Load file**, upload the template file **L02-rg_template.json** and then select **Save**.
+1. On the **Custom deployment** page, specify the following settings, and leave the other settings with their default values:
+
+   |Setting|Value|
+   |---|---|
+   |Subscription|the name of the Azure subscription you are using in this lab|
+   |Resource group|**AZ801-L0202-RG**|
+   |Region|the name of the Azure region into which you can provision Azure VMs|
+   |Admin Username| Admin name of your choosing
+   |Admin Password|Select a strong password of your choosing
+
+1. Select **Review + create**, and then select **Create**.
+
+   >**Note**: The deployment might take about 3 minutes.
+
+1. Verify that the deployment completed successfully.
 
 ## Exercise 4: Onboarding on-premises Windows Server into Microsoft Defender for Cloud and Azure Automation
 
