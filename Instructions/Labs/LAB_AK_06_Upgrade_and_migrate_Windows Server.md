@@ -7,8 +7,6 @@ lab:
 
 # Lab answer key: Upgrade and migrate in Windows Server
 
-**Note:** An **[interactive lab simulation](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Upgrading%20and%20migrating%20in%20Windows%20Server)** is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
-
 ## Exercise 1: Deploying AD DS domain controllers in Azure
 
 #### Task 1: Deploy a domain controller by using an Azure Resource Manager (ARM) template
