@@ -7,8 +7,6 @@ lab:
 
 # Lab answer key: Implementing Security Solutions in Hybrid Scenarios
 
-**Note:** An interactive lab simulation is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
-
 ## Exercise 1: Creating an Azure Log Analytics workspace
 
 #### Task 1: Create an Azure Log Analytics workspace 
