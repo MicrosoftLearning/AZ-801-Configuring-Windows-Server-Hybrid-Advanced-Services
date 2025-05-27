@@ -7,8 +7,6 @@ lab:
 
 # Lab answer key: Monitoring and troubleshooting Windows Server
 
-**Note:** An **[interactive lab simulation](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Monitoring%20and%20troubleshooting%20Windows%20Server)** is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
-
 ### Exercise 1: Establishing a performance baseline
 
 > **Note**: After starting the Data Collector Set, there might be a delay of 10 minutes for the results to appear.
