@@ -10,6 +10,8 @@ lab:
 
 Contoso Pharmaceuticals is a medical research company with about 5,000 employees worldwide. They have specific needs for ensuring that medical records and data remain private. The company has a headquarters location and multiple worldwide sites. Contoso has recently deployed a Windows Server and Windows client infrastructure. You have been asked to implement improvements in the server security configuration.
 
+>**Note**: The lab simulations that were previously provided have been retired.
+
 ## Objectives
 
 After completing this lab, you will be able to:
