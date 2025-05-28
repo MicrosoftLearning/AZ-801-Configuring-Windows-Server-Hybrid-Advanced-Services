@@ -7,6 +7,8 @@ lab:
 
 # Lab answer key: Configuring security in Windows Server
 
+>**Note**: The lab simulations that were previously provided have been retired.
+
 ## Exercise 1: Configuring Windows Defender Credential Guard
 
 > **Note**: In the lab environment, Credential Guard will not be available on VMs because they don't meet the prerequisites. This, however, will not prevent you from stepping through the process of implementing it by using Group Policy and evaluating its readiness by using corresponding tools.
