@@ -79,7 +79,7 @@ lab:
    >**Note**: You can use the **(Get-AzLocation).Location** command to list the names of available Azure regions:
 
    ```powershell 
-   New-AzResourceGroup -Name 'AZ801-L0202-RG' -Location '<Location>'
+   New-AzResourceGroup -Name 'AZ801-L0202-RG' -Location '<Azure_region>'
    ```
 
 1. Close Cloud Shell.
