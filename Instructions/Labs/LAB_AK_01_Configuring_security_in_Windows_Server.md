@@ -13,7 +13,7 @@ lab:
 
 > **Note**: In the lab environment, Credential Guard will not be available on VMs because they don't meet the prerequisites. This, however, will not prevent you from stepping through the process of implementing it by using Group Policy and evaluating its readiness by using corresponding tools.
 
-#### Task 1: Enable Windows Defender Credential Guard using Group Policy
+#### Task 1: Enable Windows Defender Credential Guard using Group Policy 
 
 1. Connect to **SEA-SVR2** and, if needed, sign in with the credentials provided by the instructor.
 1. In the **Type here to search** text box next to the **Start** button, enter **Group Policy Management**.
