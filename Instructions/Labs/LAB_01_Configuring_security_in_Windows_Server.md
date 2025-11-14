@@ -187,12 +187,6 @@ The main tasks for this exercise are to:
 1. Enable the **Enable local admin password management** option.
 1. Configure the **Password Settings** option with the following settings:
 
-   - Select Platform Security Level: **Secure Boot and DMA Protection**.
-   - Credential Guard Configuration: **Enabled with UEFI lock**.
-   - Secure Launch Configuration: **Enabled**
-
-1. Close the Group Policy Management Editor window.
-
    - Password Length: **20**
    - Password Age (Days): **30**
 
