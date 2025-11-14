@@ -63,47 +63,7 @@ lab:
 
    > **Note:**  Selecting a data collection tier in Defender for Cloud only affects the storage of security events in your Log Analytics workspace. The Log Analytics agent will still collect and analyze the security events required for Defender for Cloud's threat protection, regardless of the level of security events you choose to store in your workspace. Choosing to store security events enables investigation, search, and auditing of those events in your workspace.
 
-## Exercise 3: Provisioning Azure VMs running Windows Server
-
-#### Task 1: Start Azure Cloud Shell
-
-1. On **SEA-SVR2**, in the Azure portal, open the Cloud Shell pane by selecting on the toolbar icon directly next to the search text box.
-1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell**.
-
-   >**Note**: If this is the first time you are starting Cloud Shell and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and select **Create storage**.
-
-#### Task 2: Deploy an Azure VM by using an Azure Resource Manager template
-
-1. Run the following script to create a new resource group (replace the `<Azure_region>` placeholder with the name of an Azure region where you intend to deploy resources in this lab):
-
-   >**Note**: You can use the **(Get-AzLocation).Location** command to list the names of available Azure regions:
-
-   ```powershell 
-   New-AzResourceGroup -Name 'AZ801-L0202-RG' -Location '<Azure_region>'
-   ```
-
-1. Close Cloud Shell.
-1. In the **Search resources, services, and docs text box**, on the toolbar, search for and select **Deploy a custom template**.
-1. In the **Custom deployment** page, select **Build your own template in the editor**.
-1. On the **Edit template** page, select **Load file**, upload the template file **L02-rg_template.json** and then select **Save**.
-1. On the **Custom deployment** page, specify the following settings, and leave the other settings with their default values:
-
-   |Setting|Value|
-   |---|---|
-   |Subscription|the name of the Azure subscription you are using in this lab|
-   |Resource group|**AZ801-L0202-RG**|
-   |Region|the name of the Azure region into which you can provision Azure VMs|
-   |Admin Username| Admin name of your choosing
-   |Admin Password|Select a strong password of your choosing
-
-1. Select **Review + create**, and then select **Create**.
-
-   >**Note**: The deployment might take about 3 minutes.
-
-1. Verify that the deployment completed successfully.
-
-
-## Exercise 4: Onboarding on-premises Windows Server into Microsoft Defender for Cloud and Azure Update Manager
+## Exercise 3: Onboarding on-premises Windows Server into Microsoft Defender for Cloud and Azure Update Manager
 
 #### Task 1: Install Azure Arc agents on an On-Premises Server
 
@@ -169,12 +129,14 @@ lab:
 
 1. Right-click **Windows Update** and select **Properties** from the context menu. Set the startup type to **Automatic** and start the service. 
 1. Close the Services console.
-1. In the Azure Portal search bar, type **Azure Update Manager**.
-1. In the navigation pane, under **Resources**, select **Machines**. You should see **SEA-SVR2** Azure Arc-enabled server listed on the **Machines** page. Select the **SEA-SVR2** machine.
-1. In the **Recommended updates** tab, under **Periodic assessment**, click **Enable now**.
-1. From the drop down menu for the **SEA-SVR2** Arc-enabled server, under **Periodic assessment**, select **Enable**, and then **Save**. 
-1. On the **Updates** page, select **Check for updates**. 
-1.	On the **Trigger assess now** window, select **OK**.
+1. In the Azure Portal search bar, type **Azure Update Manager** and select it.
+1. In the navigation pane, under **Manage**, select **Machines**. You should see **SEA-SVR2** Azure Arc-enabled server listed on the **Machines** page. 
+1. Select the **SEA-SVR2** machine to open its details.
+1. On the **SEA-SVR2** machine page, select the **Updates** tab.
+1. Under **Update settings**, locate **Periodic assessment** and select **Enable now**.
+1. In the **Change update settings** pane, confirm that **Periodic assessment** is set to **Enable**, and then select **Save**. 
+1. On the **Updates** page, select **Check for updates** to trigger an on-demand assessment.
+1. On the **Trigger assess now** window, select **OK**.
 
    > **Note:** The missing updates will appear in a few minutes. You can revisit the Azure Arc machine periodically and you should see the updates reflected shortly after.
 
@@ -191,7 +153,7 @@ lab:
 1.	In the navigation pane, under **Operations**, select **Inventory** to view the inventory data.   
 1.	Select **Change Tracking** to view the data that was changed.  
 
-## Exercise 5: Deprovisioning the Azure environment 
+## Exercise 4: Deprovisioning the Azure environment 
 
 #### Task 1: Start a PowerShell session in Cloud Shell
 
