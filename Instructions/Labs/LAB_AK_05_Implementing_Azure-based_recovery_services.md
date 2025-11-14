@@ -113,24 +113,8 @@ lab:
 
 1. Back on the **IP addresses** tab of the **Create virtual network** page, select **Review + create**.
 1. On the **Review + create** tab of the **Create virtual network** page, select **Create**.
-1. On **SEA-SVR2**, in the Azure portal, use the **Search resources, services, and docs** text box in the toolbar to search for and select **Storage accounts**, and on the **Storage accounts** page, select **+ Create**.
-1. On the **Basics** tab of the **Create storage account** page, specify the following settings (leave others with their default values):
 
-   |Setting|Value|
-   |---|---|
-   |Subscription|the name of the Azure subscription you are using in this lab|
-   |Resource group|**AZ801-L0502-RG**|
-   |Storage account name|any globally unique name between 3 and 24 in length consisting of letters and digits, starting with a letter|
-   |Region|the name of the Azure region into which you deployed the Recovery Services vault earlier in this lab|
-   |Performance|Standard|
-   |Redundancy|Locally redundant storage (LRS)|
-
-1. On the **Basics** tab of the **Create storage account** page, select the **Data protection** tab.
-1. On the **Data protection** tab of the **Create storage account** page, clear the **Enable soft delete for blobs** and **Enable soft delete for containers** checkboxes and select **Review + create**.
-1. On the On the **Review + create** tab of the **Create storage account** page, scroll down to the **Data protection section** and ensure that the status for **Blob soft delete** and **Container soft delete** is set as **Disabled**.
-   > **Note:** These settings must be disabled when using the storage account for Azure Site Recovery.
-
-1. On the **Review + create** tab of the **Create storage account** page, select **Create**.
+   > **Note:** Azure Site Recovery now uses managed disks by default for replicating virtual machines. A cache storage account will be automatically created by Azure Site Recovery to store replication logs and cache data. This eliminates the need to manually create a storage account for VM disk replication.
 
 #### Task 2: Prepare protection of a Hyper-V virtual machine
 
@@ -198,11 +182,11 @@ Verify that the **Hyper-V site** and **Hyper-V servers** settings are set correc
    |Subscription|the name of the Azure subscription you are using in this lab|
    |Post-failover resource group|**AZ801-L0502-RG**|
    |Post-failover deployment model|**Resource Manager**|
-   |Storage type|**Storage account**|
-   |Storage account|the name of the storage account you created in the first task of this exercise|
    |Azure network|Configure now for selected machines|
    |Virtual network|**az801l05-dr-vnet**|
    |Subnet|**subnet0 (10.5.0.0/24)**|
+
+   > **Note:** Azure Site Recovery will automatically use managed disks for replicating the virtual machine. A cache storage account will be created automatically if needed.
 
 1. On the **Virtual machine selection** tab of the **Enable replication** page, select the **SEA-CORE1** checkbox and select **Next**.
 1. On the **Replication settings** tab of the **Enable replication** page, in the **Defaults** row and **OS type** column, select **Windows** from the drop-down list and select **Next**.
