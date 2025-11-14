@@ -116,20 +116,7 @@ The main tasks for this exercise are as follows:
    |Subnet name|**subnet0**|
    |Subnet address range|**10.5.0.0/24**|
 
-1. On **SEA-SVR2**, in the Azure portal, create a storage account with the following settings (leave others with their default values):
-
-   |Setting|Value|
-   |---|---|
-   |Subscription|the name of the Azure subscription you are using in this lab|
-   |Resource group|**AZ801-L0502-RG**|
-   |Storage account name|any globally unique name between 3 and 24 in length consisting of letters and digits, starting with a letter|
-   |Region|the name of the Azure region into which you deployed the Recovery Services vault earlier in this lab|
-   |Performance|Standard|
-   |Redundancy|Locally redundant storage (LRS)|
-   |Enable soft delete for blobs|disabled|
-   |Enable soft delete for containers|disabled|
-
-   > **Note:** The soft delete functionality for blobs and containers must be disabled when using the storage account for Azure Site Recovery.
+   > **Note:** Azure Site Recovery now uses managed disks by default for replicating virtual machines. A cache storage account will be automatically created by Azure Site Recovery to store replication logs and cache data. This eliminates the need to manually create a storage account for VM disk replication.
 
 #### Task 2: Prepare protection of a Hyper-V virtual machine
 
@@ -173,10 +160,11 @@ The main tasks for this exercise are as follows:
    |Subscription|the name of the Azure subscription you are using in this lab|
    |Post-failover resource group|**AZ801-L0502-RG**|
    |Post-failover deployment model|**Resource Manager**|
-   |Storage account|the name of the storage account you created in the first task of this exercise|
    |Azure network|Configure now for selected machines|
    |Virtual network|**az801l05-dr-vnet**|
    |Subnet|**subnet0 (10.5.0.0/24)**|
+
+   > **Note:** Azure Site Recovery will automatically use managed disks for replicating the virtual machine. A cache storage account will be created automatically if needed.
 
 1. On the **Virtual machine selection** tab of the **Enable replication** blade, select the **SEA-CORE1** entry.
 1. On the **Replication settings** tab of the **Enable replication** blade, set the **Defaults** and **OS type** to **Windows**.
