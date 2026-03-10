@@ -1,7 +1,15 @@
 ---
 lab:
-    title: 'Lab: Configuring security in Windows Server'
-    module: 'Module 1: Windows Server security'
+  title: 'Lab: Configuring security in Windows Server'
+  module: 'Module 1: Windows Server security'
+  description: This exercise should take approximately **40** minutes to complete.
+    <!-- update with estimated duration -->
+  duration: 40 minutes
+  level: 300
+  islab: true
+  primarytopics:
+  - Windows
+  - Windows Server
 ---
 
 # Lab: Configuring security in Windows Server
