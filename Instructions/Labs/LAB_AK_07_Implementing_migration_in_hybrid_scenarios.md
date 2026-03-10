@@ -1,8 +1,16 @@
 ---
 lab:
-    title: 'Lab: Migrating Hyper-V VMs to Azure by using Azure Migrate'
-    type: 'Answer Key'
-    module: 'Module 7: Design for Migration'
+  title: 'Lab: Migrating Hyper-V VMs to Azure by using Azure Migrate'
+  type: Answer Key
+  module: 'Module 7: Design for Migration'
+  description: This exercise should take approximately **120** minutes to complete.
+    <!-- update with estimated duration -->
+  duration: 120 minutes
+  level: 300
+  islab: true
+  primarytopics:
+  - Azure
+  - Azure Migrate
 ---
 
 # Lab answer key: Migrating Hyper-V VMs to Azure by using Azure Migrate
