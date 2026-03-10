@@ -1,7 +1,15 @@
 ---
 lab:
-    title: 'Lab: Upgrade and migrate in Windows Server'
-    module: 'Module 6: Upgrade and migrate in Windows Server'
+  title: 'Lab: Upgrade and migrate in Windows Server'
+  module: 'Module 6: Upgrade and migrate in Windows Server'
+  description: This exercise should take approximately **60** minutes to complete.
+    <!-- update with estimated duration -->
+  duration: 60 minutes
+  level: 400
+  islab: true
+  primarytopics:
+  - Windows
+  - Windows Server
 ---
 
 # Lab: Upgrade and migrate in Windows Server
