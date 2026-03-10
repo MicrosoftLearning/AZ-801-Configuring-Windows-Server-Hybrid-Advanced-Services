@@ -1,7 +1,15 @@
 ---
 lab:
-    title: 'Lab: Implementing Hyper-V Replica and Windows Server Backup'
-    module: 'Module 4: Disaster Recovery in Windows Server'
+  title: 'Lab: Implementing Hyper-V Replica and Windows Server Backup'
+  module: 'Module 4: Disaster Recovery in Windows Server'
+  description: This exercise should take approximately **45** minutes to complete.
+    <!-- update with estimated duration -->
+  duration: 45 minutes
+  level: 400
+  islab: true
+  primarytopics:
+  - Windows
+  - Windows Server
 ---
 
 # Lab: Implementing Hyper-V Replica and Windows Server Backup
