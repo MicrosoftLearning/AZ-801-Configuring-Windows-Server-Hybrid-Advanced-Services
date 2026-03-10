@@ -1,8 +1,16 @@
 ---
 lab:
-    title: 'Lab: Implementing Azure-based recovery services'
-    type: 'Answer Key'
-    module: 'Module 5: Planning and implementing migration and recovery services in hybrid scenarios'
+  title: 'Lab: Implementing Azure-based recovery services'
+  type: Answer Key
+  module: 'Module 5: Planning and implementing migration and recovery services in
+    hybrid scenarios'
+  description: This exercise should take approximately **60** minutes to complete.
+    <!-- update with estimated duration -->
+  duration: 60 minutes
+  level: 500
+  islab: true
+  primarytopics:
+  - Azure
 ---
 
 # Lab answer key: Implementing Azure-based recovery services
