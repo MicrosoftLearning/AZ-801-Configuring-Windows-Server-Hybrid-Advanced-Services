@@ -1,7 +1,14 @@
 ---
 lab:
-    title: 'Lab: Monitoring and troubleshooting Windows Server'
-    module: 'Module 8: Monitoring, performance, and troubleshooting'
+  title: 'Lab: Monitoring and troubleshooting Windows Server'
+  module: 'Module 8: Monitoring, performance, and troubleshooting'
+  description: In this exercise, you'll use Performance Monitor on the server and create a baseline by using typical performance counters.
+  duration: 40 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Windows
+    - Windows Server
 ---
 
 # Lab: Monitoring and troubleshooting Windows Server
