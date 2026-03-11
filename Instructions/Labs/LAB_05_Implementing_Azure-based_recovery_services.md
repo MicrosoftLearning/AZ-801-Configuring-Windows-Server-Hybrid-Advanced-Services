@@ -1,7 +1,14 @@
 ---
 lab:
-    title: 'Lab: Implementing Azure-based recovery services'
-    module: 'Module 5: Planning and implementing migration and recovery services in hybrid scenarios'
+  title: 'Lab: Implementing Azure-based recovery services'
+  module: 'Module 5: Planning and implementing migration and recovery services in hybrid scenarios'
+  description: With a test Hyper-V VM and a Recovery Services vault created, you can now proceed to implement Hyper-V VM protection by using Azure Site Recovery. You will perform a test failover and review the settings of the planned and unplanned failover.
+  duration: 60 minutes
+  level: 400
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure Site Recovery
 ---
 
 # Lab: Implementing Azure-based recovery services
