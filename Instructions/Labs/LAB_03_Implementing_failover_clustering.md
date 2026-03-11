@@ -1,7 +1,11 @@
 ---
 lab:
-    title: 'Lab: Implementing failover clustering'
-    module: 'Module 3: High availability in Windows Server'
+  title: 'Lab: Implementing failover clustering'
+  module: 'Module 3: High availability in Windows Server'
+  description: In this exercise, you'll prepare for cluster installation and then create a cluster.
+  duration: 60 minutes
+  level: 300
+  islab: true
 ---
 
 # Lab: Implementing failover clustering
