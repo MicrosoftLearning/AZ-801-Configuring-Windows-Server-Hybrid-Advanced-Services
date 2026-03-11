@@ -1,7 +1,14 @@
 ---
 lab:
-    title: 'Lab: Configuring security in Windows Server'
-    module: 'Module 1: Windows Server security'
+  title: 'Lab: Configuring security in Windows Server'
+  module: 'Module 1: Windows Server security'
+  description: You decided to implement Windows Defender Credential Guard on the servers and administrative workstations to protect against Pass-the-Hash and Pass-the-Ticket credential thefts. You will use Group Policy to enable Credential Guard on your existing servers. For all new servers, you will use the Hypervisor-Protected Code Integrity (HVCI) and Windows Defender Credential Guard hardware readiness tool to enable Credential Guard before the new servers are domain-joined.
+  duration: 40 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Windows
+    - Windows Server
 ---
 
 # Lab: Configuring security in Windows Server
