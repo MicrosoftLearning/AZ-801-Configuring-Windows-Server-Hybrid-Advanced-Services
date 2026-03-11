@@ -1,8 +1,15 @@
 ---
 lab:
-    title: 'Lab: Monitoring and troubleshooting Windows Server'
-    type: 'Answer Key'
-    module: 'Module 8: Monitoring, performance, and troubleshooting'
+  title: 'Lab: Monitoring and troubleshooting Windows Server'
+  type: Answer Key
+  module: 'Module 8: Monitoring, performance, and troubleshooting'
+  description: This exercise should take approximately 40 minutes to complete. <!-- update with estimated duration --
+  duration: 40 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Windows
+    - Windows Server
 ---
 
 # Lab answer key: Monitoring and troubleshooting Windows Server
