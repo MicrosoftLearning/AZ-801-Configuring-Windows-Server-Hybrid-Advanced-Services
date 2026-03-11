@@ -1,8 +1,12 @@
 ---
 lab:
-    title: 'Lab: Implementing failover clustering'
-    type: 'Answer Key'
-    module: 'Module 3: High availability in Windows Server'
+  title: 'Lab: Implementing failover clustering'
+  type: Answer Key
+  module: 'Module 3: High availability in Windows Server'
+  description: This exercise should take approximately 60 minutes to complete. <!-- update with estimated duration --
+  duration: 60 minutes
+  level: 200
+  islab: true
 ---
 
 This exercise should take approximately **60** minutes to complete. <!-- update with estimated duration -->
