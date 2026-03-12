@@ -1,8 +1,17 @@
 ---
 lab:
-    title: 'Lab: Monitoring and troubleshooting Windows Server'
-    type: 'Answer Key'
-    module: 'Module 8: Monitoring, performance, and troubleshooting'
+  title: 'Lab: Monitoring and troubleshooting Windows Server'
+  type: Answer Key
+  module: 'Module 8: Monitoring, performance, and troubleshooting'
+  description: You establish a performance baseline by collecting and analyzing performance counters. You identify bottlenecks under load and configure centralized Windows Event Collection for troubleshooting.
+  duration: 40 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Windows Server
+    - Performance Monitoring
+    - Troubleshooting
+    - Event Logs
 ---
 
 # Lab answer key: Monitoring and troubleshooting Windows Server

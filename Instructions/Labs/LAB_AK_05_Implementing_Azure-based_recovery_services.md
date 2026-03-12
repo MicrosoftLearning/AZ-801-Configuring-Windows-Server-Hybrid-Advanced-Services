@@ -1,8 +1,18 @@
 ---
 lab:
-    title: 'Lab: Implementing Azure-based recovery services'
-    type: 'Answer Key'
-    module: 'Module 5: Planning and implementing migration and recovery services in hybrid scenarios'
+  title: 'Lab: Implementing Azure-based recovery services'
+  type: Answer Key
+  module: 'Module 5: Planning and implementing migration and recovery services in hybrid scenarios'
+  description: You create and configure a Recovery Services vault for hybrid disaster recovery. You protect Hyper-V virtual machines with Azure Site Recovery and configure Azure Backup for recovery operations.
+  duration: 60 minutes
+  level: 400
+  islab: true
+  primarytopics:
+    - Azure
+    - Disaster Recovery
+    - Azure Site Recovery
+    - Azure Backup
+    - Hybrid Infrastructure
 ---
 
 # Lab answer key: Implementing Azure-based recovery services
