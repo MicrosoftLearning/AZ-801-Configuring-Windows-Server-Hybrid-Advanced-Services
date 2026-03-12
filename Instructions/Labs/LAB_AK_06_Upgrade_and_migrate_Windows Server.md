@@ -3,13 +3,17 @@ lab:
   title: 'Lab: Upgrade and migrate in Windows Server'
   type: Answer Key
   module: Module 6 - Upgrade and migrate in Windows Server
-  description: This exercise should take approximately 60 minutes to complete. <!-- update with estimated duration --
+  description: You deploy Active Directory domain controllers in Azure by using an Azure Resource Manager template and Bastion access. You then migrate file server workloads by using Storage Migration Service and validate cutover.
   duration: 60 minutes
   level: 400
   islab: true
   primarytopics:
-    - Windows
+    - Azure
     - Windows Server
+    - Active Directory
+    - Azure Resource Manager
+    - Storage Migration Service
+    - Hybrid Migration
 ---
 
 # Lab answer key: Upgrade and migrate in Windows Server

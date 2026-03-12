@@ -2,10 +2,16 @@
 lab:
   title: 'Lab: Implementing failover clustering'
   module: 'Module 3: High availability in Windows Server'
-  description: In this exercise, you'll prepare for cluster installation and then create a cluster.
+  description: You prepare shared iSCSI storage and deploy a two-node failover cluster by using Windows Server tools and PowerShell. You configure a highly available file server role and validate failover behavior.
   duration: 60 minutes
   level: 300
   islab: true
+  primarytopics:
+    - Windows Server
+    - Failover Clustering
+    - High Availability
+    - iSCSI
+    - File Services
 ---
 
 # Lab: Implementing failover clustering

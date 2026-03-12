@@ -3,13 +3,16 @@ lab:
   title: 'Lab: Migrating Hyper-V VMs to Azure by using Azure Migrate'
   type: Answer Key
   module: 'Module 7: Design for Migration'
-  description: This exercise should take approximately 120 minutes to complete. <!-- update with estimated duration --
+  description: You prepare a Hyper-V environment for migration by deploying Azure Migrate resources and the discovery appliance. You assess on-premises virtual machines, configure replication, and perform test migration steps.
   duration: 120 minutes
   level: 300
   islab: true
   primarytopics:
     - Azure
     - Azure Migrate
+    - Hyper-V
+    - Migration
+    - Assessment
 ---
 
 # Lab answer key: Migrating Hyper-V VMs to Azure by using Azure Migrate

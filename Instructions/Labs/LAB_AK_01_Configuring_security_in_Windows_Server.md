@@ -3,13 +3,16 @@ lab:
   title: 'Lab: Configuring security in Windows Server'
   type: Answer Key
   module: 'Module 1: Windows Server security'
-  description: This exercise should take approximately 40 minutes to complete. <!-- update with estimated duration --
+  description: You configure Windows Defender Credential Guard by using Group Policy and the hardware readiness tool. You identify and remediate risky domain account settings, and deploy Local Administrator Password Solution across domain-joined servers.
   duration: 40 minutes
   level: 300
   islab: true
   primarytopics:
-    - Windows
     - Windows Server
+    - Security
+    - Active Directory
+    - LAPS
+    - Group Policy
 ---
 
 # Lab answer key: Configuring security in Windows Server

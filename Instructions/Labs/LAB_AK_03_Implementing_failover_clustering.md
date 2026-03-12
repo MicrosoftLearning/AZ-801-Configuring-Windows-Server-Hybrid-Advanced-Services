@@ -3,10 +3,16 @@ lab:
   title: 'Lab: Implementing failover clustering'
   type: Answer Key
   module: 'Module 3: High availability in Windows Server'
-  description: This exercise should take approximately 60 minutes to complete. <!-- update with estimated duration --
+  description: You prepare shared iSCSI storage and deploy a two-node failover cluster by using Windows Server tools and PowerShell. You configure a highly available file server role and validate failover behavior.
   duration: 60 minutes
-  level: 200
+  level: 300
   islab: true
+  primarytopics:
+    - Windows Server
+    - Failover Clustering
+    - High Availability
+    - iSCSI
+    - File Services
 ---
 
 This exercise should take approximately **60** minutes to complete. <!-- update with estimated duration -->

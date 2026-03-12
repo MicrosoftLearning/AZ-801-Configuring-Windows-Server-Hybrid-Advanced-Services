@@ -3,13 +3,15 @@ lab:
   title: 'Lab: Monitoring and troubleshooting Windows Server'
   type: Answer Key
   module: 'Module 8: Monitoring, performance, and troubleshooting'
-  description: This exercise should take approximately 40 minutes to complete. <!-- update with estimated duration --
+  description: You establish a performance baseline by collecting and analyzing performance counters. You identify bottlenecks under load and configure centralized Windows Event Collection for troubleshooting.
   duration: 40 minutes
   level: 300
   islab: true
   primarytopics:
-    - Windows
     - Windows Server
+    - Performance Monitoring
+    - Troubleshooting
+    - Event Logs
 ---
 
 # Lab answer key: Monitoring and troubleshooting Windows Server

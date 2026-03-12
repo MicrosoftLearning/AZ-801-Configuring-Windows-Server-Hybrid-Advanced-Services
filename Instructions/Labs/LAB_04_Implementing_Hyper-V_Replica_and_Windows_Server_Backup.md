@@ -2,13 +2,16 @@
 lab:
   title: 'Lab: Implementing Hyper-V Replica and Windows Server Backup'
   module: 'Module 4: Disaster Recovery in Windows Server'
-  description: You must evaluate Windows Server Backup for your member servers. You decided to configure Windows Server Backup of the SEA-SVR2 server and to perform a trial backup to the network share on SEA-SVR2.
+  description: You configure Hyper-V Replica between servers and validate planned and unplanned failover. You also configure Windows Server Backup and run a backup to a network target.
   duration: 45 minutes
   level: 400
   islab: true
   primarytopics:
-    - Windows
     - Windows Server
+    - Hyper-V
+    - Disaster Recovery
+    - Backup
+    - Replication
 ---
 
 # Lab: Implementing Hyper-V Replica and Windows Server Backup

@@ -2,16 +2,17 @@
 lab:
   title: 'Lab: Upgrade and migrate in Windows Server'
   module: 'Module 6: Upgrade and migrate in Windows Server'
-  description: Contoso is exploring the hybrid model for its infrastructure services that would facilitate migration of its on-premises Windows servers to Azure virtual machines (VMs). To assist with this initiative, and you were tasked with evaluating the process of deploying Active Directory Domain Services (AD DS) domain controllers in Azure VMs. Your intention is to identify differences between the manual process currently used for on-premises deployments and the deployment methods available in Azure. In addition, you want to test and document the Storage Migration Services functionality to validate its usage for migrations of on-premises file servers.
+  description: You deploy Active Directory domain controllers in Azure by using an Azure Resource Manager template and Bastion access. You then migrate file server workloads by using Storage Migration Service and validate cutover.
   duration: 60 minutes
   level: 400
   islab: true
   primarytopics:
     - Azure
-    - Azure Virtual Machines
-    - Windows
-    - Active Directory
     - Windows Server
+    - Active Directory
+    - Azure Resource Manager
+    - Storage Migration Service
+    - Hybrid Migration
 ---
 
 # Lab: Upgrade and migrate in Windows Server
