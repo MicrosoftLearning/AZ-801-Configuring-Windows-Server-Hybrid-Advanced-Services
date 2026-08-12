@@ -28,6 +28,18 @@ This exercise should take approximately **120** minutes to complete. <!-- update
 1. Connect to **SEA-SVR2** and then, if needed, sign in with the credentials provided by the instructor.
 1. On **SEA-SVR2**, start Microsoft Edge, go to the **[301-nested-vms-in-virtual-network Azure QuickStart template](https://github.com/az140mp/azure-quickstart-templates/tree/master/demos/nested-vms-in-virtual-network)** and select **Deploy to Azure**. (You'll find the button **Deploy to Azure** in the `README.md` file after the list of resources created by the template.) This will automatically redirect the browser to the **Hyper-V Host Virtual Machine with nested VMs** page in the Azure portal.
 1. When prompted, in the Azure portal, sign in by using the credentials of a user account with the Owner role in the subscription you'll be using in this lab.
+1. On the **Hyper-V Host Virtual Machine with nested VMs** page, select **Edit template**.
+1. In the template editor, locate the **HostVirtualMachineSize** parameter and replace its **defaultValue** and **allowedValues** with the following values, then select **Save**:
+
+    ```json
+    "defaultValue": "Standard_D4s_v5",
+    "allowedValues": [
+       "Standard_D4s_v5",
+       "Standard_D4s_v6",
+       "Standard_D4s_v7"
+    ]
+    ```
+
 1. On the **Hyper-V Host Virtual Machine with nested VMs** page in the Azure portal, specify the following settings (Leave others with their default values.):
 
    | Setting | Value | 
@@ -39,8 +51,12 @@ This exercise should take approximately **120** minutes to complete. <!-- update
    | Host Network Interface1Name | **az801l07a-hv-vm-nic1** |
    | Host Network Interface2Name | **az801l07a-hv-vm-nic2** |
    | Host Virtual Machine Name | **az801l07a-hv-vm** |
+   | Host Virtual Machine Size | **Standard_D4s_v5** |
    | Host Admin Username | **Student** |
    | Host Admin Password | **Pa55w.rd1234** |
+
+   > [!NOTE]
+   > Keep the D4s capacity required by the nested Hyper-V host. Use **Standard_D4s_v5** first. If the deployment fails because the size is unavailable or Azure lacks capacity, delete **AZ801-L0701-RG**, repeat the deployment, and select **Standard_D4s_v6**. If that deployment fails for the same reason, delete the resource group and retry with **Standard_D4s_v7**.
 
 1. On the **Hyper-V Host Virtual Machine with nested VMs** page, select **Review + create** and then select **Create**.
 
@@ -415,7 +431,11 @@ This exercise should take approximately **120** minutes to complete. <!-- update
    | Subnet | **subnet0** |
    | Availability options | **No infrastructure redundancy required** |
 
-1. On the **Compute** tab of the **Replicate** page, ensure that the **Standard_D2s_v3** is selected in the **Azure VM Size** drop-down list. In the **OS Type** drop-down list, select **Windows** and then select **Next**.  
+1. On the **Compute** tab of the **Replicate** page, ensure that **Standard_D2s_v5** is selected in the **Azure VM Size** drop-down list. In the **OS Type** drop-down list, select **Windows** and then select **Next**.
+
+   > [!NOTE]
+   > Use **Standard_D2s_v5** first. If the size is unavailable or Azure lacks capacity in the target region, use **Standard_D2s_v6**. If that size is also unavailable, use **Standard_D2s_v7**.
+
 1. On the **Disks** tab of the **Replicate** page, accept the default settings and select **Next**.
 1. On the **Tags** tab of the **Replicate** page, accept the default settings and select **Next**.
 1. On the **Review + Start replication** tab of the **Replicate** page, select **Replicate**.  

@@ -68,6 +68,18 @@ The main tasks for this exercise are as follows:
 
 1. On **SEA-SVR2**, start Microsoft Edge, browse to the [301-nested-vms-in-virtual-network Azure QuickStart template](https://github.com/az140mp/azure-quickstart-templates/tree/master/demos/nested-vms-in-virtual-network) and select **Deploy to Azure**. (You find the button **Deploy to Azure** in the `README.md` file after the list of resources created by the template.)
 1. When prompted, in the Azure portal, sign in by using the credentials of a user account with the Owner role in the subscription you'll be using in this lab.
+1. On the **Hyper-V Host Virtual Machine with nested VMs** page, select **Edit template**.
+1. In the template editor, locate the **HostVirtualMachineSize** parameter and replace its **defaultValue** and **allowedValues** with the following values, then select **Save**:
+
+    ```json
+    "defaultValue": "Standard_D4s_v5",
+    "allowedValues": [
+       "Standard_D4s_v5",
+       "Standard_D4s_v6",
+       "Standard_D4s_v7"
+    ]
+    ```
+
 1. On the **Hyper-V Host Virtual Machine with nested VMs** page in the Azure portal, perform a deployment with the following settings (leave others with their default values):
 
    | Setting | Value | 
@@ -79,8 +91,12 @@ The main tasks for this exercise are as follows:
    | Host Network Interface1Name | **az801l07a-hv-vm-nic1** |
    | Host Network Interface2Name | **az801l07a-hv-vm-nic2** |
    | Host Virtual Machine Name | **az801l07a-hv-vm** |
+   | Host Virtual Machine Size | **Standard_D4s_v5** |
    | Host Admin Username | **Student** |
    | Host Admin Password | **Pa55w.rd1234** |
+
+   > [!NOTE]
+   > Keep the D4s capacity required by the nested Hyper-V host. Use **Standard_D4s_v5** first. If the deployment fails because the size is unavailable or Azure lacks capacity, delete **AZ801-L0701-RG**, repeat the deployment, and select **Standard_D4s_v6**. If that deployment fails for the same reason, delete the resource group and retry with **Standard_D4s_v7**.
 
    > **Note**: Wait for the deployment to complete. The deployment might take about 10 minutes.
 
@@ -388,7 +404,11 @@ The main tasks for this exercise are as follows:
    | Virtual Network | **az801l07a-migration-vnet** |
    | Subnet | **subnet0** |
 
-1. On the **Compute** tab of the **Replicate** page, ensure that the **Standard_D2s_v3** is selected in the **Azure VM Size** drop-down list. In the **OS Type** drop-down list, select **Windows**.
+1. On the **Compute** tab of the **Replicate** page, ensure that **Standard_D2s_v5** is selected in the **Azure VM Size** drop-down list. In the **OS Type** drop-down list, select **Windows**.
+
+   > [!NOTE]
+   > Use **Standard_D2s_v5** first. If the size is unavailable or Azure lacks capacity in the target region, use **Standard_D2s_v6**. If that size is also unavailable, use **Standard_D2s_v7**.
+
 1. To monitor the status of replication, back on the **Azure Migrate | Servers, databases and web apps** page, select **Refresh** and then, in the **Migration and modernization** section, select the **Replicating servers** entry. On the **Migration and modernization | Replicating machines** page, examine the **Status** column in the list of the replicating machines. 
 1. Wait until the status changes to **Protected**. This might take an additional 15 minutes.
 

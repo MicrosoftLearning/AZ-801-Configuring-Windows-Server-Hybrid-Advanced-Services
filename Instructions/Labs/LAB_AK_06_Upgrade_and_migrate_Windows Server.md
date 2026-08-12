@@ -68,7 +68,7 @@ This exercise should take approximately **60** minutes to complete. <!-- update 
    | Admin Username | **Student** |
    | Admin Password | **Pa55w.rd1234** |
    | Domain name | **contoso.com** |
-   | Vm Size | **Standard_D2s_v3** |
+   | Vm Size | **Standard_D2s_v5** |
    | _artifacts Location | **`https://raw.githubusercontent.com/az140mp/azure-quickstart-templates/master/application-workloads/active-directory/active-directory-new-domain/`** |
    | Virtual Machine Name | **az801l06a-dc1** |
    | Virtual Network Name | **az801l06a-vnet** |
@@ -78,6 +78,9 @@ This exercise should take approximately **60** minutes to complete. <!-- update 
    | Subnet Name | **adSubnet** |
    | Subnet Range | **10.6.0.0/24** |
    | Availability Set Name | **adAvailabilitySet** |
+
+   > [!NOTE]
+   > Use **Standard_D2s_v5** first. If the deployment fails because the size is unavailable or Azure lacks capacity, delete **AZ801-L0601-RG**, repeat the deployment, and select **Standard_D2s_v6**. If that deployment fails for the same reason, delete the resource group and retry with **Standard_D2s_v7**.
 
 1. On the **Create an Azure VM with a new AD Forest** page, select **Review + create**, and then select **Create**.
 
@@ -142,11 +145,14 @@ This exercise should take approximately **60** minutes to complete. <!-- update 
    | Availability set | **adAvailabilitySet** |
    | Image | **Windows Server 2022 Datacenter: Azure Edition - Gen2** |
    | Run with Azure Spot discount | **No** |
-   | Size | **Standard D2s v3** |
+   | Size | **Standard D2s v5** |
    | Username | **Student** |
    | Password | **Pa55w.rd1234** |
    | Public inbound ports | **None** |
    | Would you like to use an existing Windows Server license? | **No** |
+
+   > [!NOTE]
+   > Use **Standard D2s v5** first. If the size is unavailable or Azure lacks capacity in the selected region, use **Standard D2s v6**. If that size is also unavailable, use **Standard D2s v7**.
 
 1. Select **Next: Disks >**, and then, on the **Disks** tab of the **Create a virtual machine** blade, specify the following settings (leave others with their default values):
 

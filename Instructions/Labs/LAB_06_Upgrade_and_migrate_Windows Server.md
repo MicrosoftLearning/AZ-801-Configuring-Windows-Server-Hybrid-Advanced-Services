@@ -99,7 +99,7 @@ The main tasks for this exercise are to:
    | Admin Username | **Student** |
    | Admin Password | **Pa55w.rd1234** |
    | Domain name | **contoso.com** |
-   | Vm Size | **Standard_DS2_v2** |
+   | Vm Size | **Standard_D2s_v5** |
    | Virtual Machine Name | **az801l06a-dc1** |
    | Virtual Network Name | **az801l06a-vnet** |
    | Virtual Network Address Range | **10.6.0.0/16** |
@@ -108,6 +108,9 @@ The main tasks for this exercise are to:
    | Subnet Name | **adSubnet** |
    | Subnet Range | **10.6.0.0/24** |
    | Availability Set Name | **adAvailabilitySet** |
+
+   > [!NOTE]
+   > Use **Standard_D2s_v5** first. If the deployment fails because the size is unavailable or Azure lacks capacity, delete **AZ801-L0601-RG**, repeat the deployment, and select **Standard_D2s_v6**. If that deployment fails for the same reason, delete the resource group and retry with **Standard_D2s_v7**.
 
    > **Note**: Wait for the deployment to complete before you proceed to the next task. This might take about 15 minutes. 
 
@@ -160,7 +163,7 @@ The main tasks for this exercise are to:
    | Availability set | **adAvailabilitySet** |
    | Image | **Windows Server 2022 Datacenter: Azure Edition - Gen2** |
    | Azure Spot instance | **No** |
-   | Size | **Standard D2s v3** |
+   | Size | **Standard D2s v5** |
    | Username | **Student** |
    | Password | **Pa55w.rd1234** |
    | Public inbound ports | **None** |
@@ -177,6 +180,9 @@ The main tasks for this exercise are to:
    | Place this virtual machine behind an existing load balancing solution? | disabled |
    | Boot diagnostics | **Enable with managed storage account (recommended)** |
    | Patch orchestration options | **Manual updates** |  
+
+   > [!NOTE]
+   > Use **Standard D2s v5** first. If the size is unavailable or Azure lacks capacity in the selected region, use **Standard D2s v6**. If that size is also unavailable, use **Standard D2s v7**.
 
    > **Note**: Wait for the deployment to complete. The deployment might take about 3 minutes.
 
