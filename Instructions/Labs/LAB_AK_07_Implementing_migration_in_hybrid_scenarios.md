@@ -26,10 +26,10 @@ This exercise should take approximately **120** minutes to complete. <!-- update
 #### Task 1: Deploy an Azure VM by using an Azure Resource Manager QuickStart template
 
 1. Connect to **SEA-SVR2** and then, if needed, sign in with the credentials provided by the instructor.
-1. On **SEA-SVR2**, start Microsoft Edge, go to the **[301-nested-vms-in-virtual-network Azure QuickStart template](https://github.com/az140mp/azure-quickstart-templates/tree/master/demos/nested-vms-in-virtual-network)** and select **Deploy to Azure**. (You'll find the button **Deploy to Azure** in the `README.md` file after the list of resources created by the template.) This will automatically redirect the browser to the **Hyper-V Host Virtual Machine with nested VMs** page in the Azure portal.
+1. On **SEA-SVR2**, start Microsoft Edge, go to the **[301-nested-vms-in-virtual-network Azure QuickStart template](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/nested-vms-in-virtual-network)** and select **Deploy to Azure**. (You'll find the button **Deploy to Azure** in the `README.md` file after the list of resources created by the template.) This will automatically redirect the browser to the **Hyper-V Host Virtual Machine with nested VMs** page in the Azure portal.
 1. When prompted, in the Azure portal, sign in by using the credentials of a user account with the Owner role in the subscription you'll be using in this lab.
 1. On the **Hyper-V Host Virtual Machine with nested VMs** page, select **Edit template**.
-1. In the template editor, locate the **HostVirtualMachineSize** parameter and replace its **defaultValue** and **allowedValues** with the following values, then select **Save**:
+1. In the template editor, locate the **HostVirtualMachineSize** parameter and replace its **defaultValue** and **allowedValues** with the following values:
 
     ```json
     "defaultValue": "Standard_D4s_v5",
@@ -39,6 +39,8 @@ This exercise should take approximately **120** minutes to complete. <!-- update
        "Standard_D4s_v7"
     ]
     ```
+
+1. Locate the **storageProfile** section and replace the **imageReference** **sku** value with **2022-datacenter-g2**, then select **Save**.
 
 1. On the **Hyper-V Host Virtual Machine with nested VMs** page in the Azure portal, specify the following settings (Leave others with their default values.):
 
@@ -54,9 +56,10 @@ This exercise should take approximately **120** minutes to complete. <!-- update
    | Host Virtual Machine Size | **Standard_D4s_v5** |
    | Host Admin Username | **Student** |
    | Host Admin Password | **Pa55w.rd1234** |
+   | _artifacts Location | **`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/demos/nested-vms-in-virtual-network/`** |
 
    > [!NOTE]
-   > Keep the D4s capacity required by the nested Hyper-V host. Use **Standard_D4s_v5** first. If the deployment fails because the size is unavailable or Azure lacks capacity, delete **AZ801-L0701-RG**, repeat the deployment, and select **Standard_D4s_v6**. If that deployment fails for the same reason, delete the resource group and retry with **Standard_D4s_v7**.
+   > Keep the D4s capacity required by the nested Hyper-V host. Use **Standard_D4s_v5** first. If the deployment fails because the size is unavailable or Azure lacks capacity, select **Standard_D4s_v6** and redeploy to the same resource group. If necessary, retry with **Standard_D4s_v7**. If a retry fails because an existing or partially deployed resource causes a conflict, delete **AZ801-L0701-RG**. Restart Task 1 from the 301-nested-vms-in-virtual-network QuickStart template page, select **Deploy to Azure**, repeat the VM size and image SKU edits, verify **_artifacts Location**, recreate **AZ801-L0701-RG**, and deploy again with the selected VM size.
 
 1. On the **Hyper-V Host Virtual Machine with nested VMs** page, select **Review + create** and then select **Create**.
 
