@@ -15,13 +15,7 @@
       "value": "Standard_D2s_v5"
     },
     "_artifactsLocation": {
-      "value": "[deployment().properties.templateLink.uri]"
-    },
-    "_artifactsLocationSasToken": {
-      "value": null
-    },
-    "location": {
-      "value": "[resourceGroup().location]"
+      "value": "https://raw.githubusercontent.com/MicrosoftLearning/AZ-801-Configuring-Windows-Server-Hybrid-Advanced-Services/master/Allfiles/Labfiles/Lab06/"
     },
     "virtualMachineName": {
       "value": "az801l06a-dc1"
