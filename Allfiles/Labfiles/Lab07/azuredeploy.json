@@ -8,7 +8,7 @@
   "parameters": {
     "_artifactsLocation": {
       "type": "string",
-      "defaultValue": "https://raw.githubusercontent.com/MicrosoftLearning/AZ-801-Configuring-Windows-Server-Hybrid-Advanced-Services/master/Allfiles/Labfiles/Lab07/",
+      "defaultValue": "https://raw.githubusercontent.com/Rob-Barefoot/AZ-801-Configuring-Windows-Server-Hybrid-Advanced-Services/vm-version-updates/Allfiles/Labfiles/Lab07/",
       "metadata": {
         "description": "The base URI where artifacts required by this template are located including a trailing '/'"
       }
@@ -22,7 +22,7 @@
     },
     "extensionForceUpdateTag": {
       "type": "string",
-      "defaultValue": "1.0",
+      "defaultValue": "1.1",
       "metadata": {
         "description": "A value that forces the custom script extension to rerun during an incremental deployment."
       }
@@ -43,14 +43,14 @@
     },
     "virtualNetworkName": {
       "type": "string",
-      "defaultValue": "VirtualNetwork",
+      "defaultValue": "az801l07a-hv-vnet",
       "metadata": {
         "description": "Hyper-V Host and Guest VMs Virtual Network"
       }
     },
     "virtualNetworkAddressPrefix": {
       "type": "string",
-      "defaultValue": "10.0.0.0/22",
+      "defaultValue": "10.0.0.0/21",
       "metadata": {
         "description": "Virtual Network Address Space"
       }
@@ -113,21 +113,21 @@
     },
     "HostNetworkInterface1Name": {
       "type": "string",
-      "defaultValue": "HVHOSTNIC1",
+      "defaultValue": "az801l07a-hv-vm-nic1",
       "metadata": {
         "description": "Hyper-V Host Network Interface 1 Name, attached to NAT Subnet"
       }
     },
     "HostNetworkInterface2Name": {
       "type": "string",
-      "defaultValue": "HVHOSTNIC2",
+      "defaultValue": "az801l07a-hv-vm-nic2",
       "metadata": {
         "description": "Hyper-V Host Network Interface 2 Name, attached to Hyper-V LAN Subnet"
       }
     },
     "HostVirtualMachineName": {
       "type": "string",
-      "defaultValue": "HVHOST",
+      "defaultValue": "az801l07a-hv-vm",
       "maxLength": 15,
       "metadata": {
         "description": "Name of Hyper-V Host Virtual Machine, Maximum of 15 characters, use letters and numbers only."
@@ -147,6 +147,7 @@
     },
     "HostAdminUsername": {
       "type": "string",
+      "defaultValue": "Student",
       "metadata": {
         "description": "Admin Username for the Host Virtual Machine"
       }
@@ -374,7 +375,7 @@
           "fileUris": [
             "[variables('HVHostSetupScriptUri')]"
           ],
-          "commandToExecute": "[format('powershell -ExecutionPolicy Unrestricted -File .\\Lab07\\hvhostsetup.ps1 -NIC1IPAddress {0} -NIC2IPAddress {1} -GhostedSubnetPrefix {2} -VirtualNetworkPrefix {3}', reference(resourceId('Microsoft.Resources/deployments', 'createNic1'), '2020-10-01').outputs.assignedIp.value, reference(resourceId('Microsoft.Resources/deployments', 'createNic2'), '2020-10-01').outputs.assignedIp.value, parameters('ghostedSubnetPrefix'), parameters('virtualNetworkAddressPrefix'))]"
+          "commandToExecute": "[format('powershell -ExecutionPolicy Unrestricted -Command \"& (Get-ChildItem -Path . -Filter hvhostsetup.ps1 -Recurse | Select-Object -First 1 -ExpandProperty FullName) -NIC1IPAddress {0} -NIC2IPAddress {1} -GhostedSubnetPrefix {2} -VirtualNetworkPrefix {3}\"', reference(resourceId('Microsoft.Resources/deployments', 'createNic1'), '2020-10-01').outputs.assignedIp.value, reference(resourceId('Microsoft.Resources/deployments', 'createNic2'), '2020-10-01').outputs.assignedIp.value, parameters('ghostedSubnetPrefix'), parameters('virtualNetworkAddressPrefix'))]"
         }
       },
       "dependsOn": [
