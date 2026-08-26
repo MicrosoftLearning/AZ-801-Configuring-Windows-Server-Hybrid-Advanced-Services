@@ -100,7 +100,7 @@ The main tasks for this exercise are to:
    | Admin Password | **Pa55w.rd1234** |
    | Domain name | **contoso.com** |
    | Vm Size | **Standard_D2s_v5** |
-   | _artifacts Location | **`https://raw.githubusercontent.com/MicrosoftLearning/AZ-801-Configuring-Windows-Server-Hybrid-Advanced-Services/master/Allfiles/Labfiles/Lab06/`** |
+   | _artifacts Location | **`https://raw.githubusercontent.com/Rob-Barefoot/AZ-801-Configuring-Windows-Server-Hybrid-Advanced-Services/vm-version-updates/Allfiles/Labfiles/Lab06/`** |
    | Virtual Machine Name | **az801l06a-dc1** |
    | Virtual Network Name | **az801l06a-vnet** |
    | Virtual Network Address Range | **10.6.0.0/16** |
@@ -154,12 +154,18 @@ The main tasks for this exercise are to:
 
 1. On **SEA-SVR2**, in the Microsoft Edge window displaying the Azure portal, create a virtual machine with the following settings (leave others with their default values):
 
+   > [!NOTE]
+   > If the **Create a virtual machine** page displays the preview experience, select **Click here to access the previous experience** in the banner. The preview experience doesn't currently include the availability set options required for this task.
+
+   ![Azure portal banner with a link to access the previous Create VM experience.](media/lab06-create-vm-previous-experience.png)
+
    | Setting | Value |
    | --- | --- |
    | Subscription | the name of the Azure subscription you are using in this lab |
    | Resource group | select the existing resource group **AZ801-L0601-RG** |
    | Virtual machine name | **az801l06a-dc2** |
    | Region | select the same Azure region into which you deployed the first virtual machine earlier in this exercise |
+   | Security type | **Standard** |
    | Availability options | **Availability set** |
    | Availability set | **adAvailabilitySet** |
    | Image | **Windows Server 2022 Datacenter: Azure Edition - Gen2** |
@@ -181,6 +187,9 @@ The main tasks for this exercise are to:
    | Place this virtual machine behind an existing load balancing solution? | disabled |
    | Boot diagnostics | **Enable with managed storage account (recommended)** |
    | Patch orchestration options | **Manual updates** |  
+
+   > [!NOTE]
+   > Select the image first, set **Security type** to **Standard**, and then return to **Availability options** and select **Availability set**. The portal defaults supported Generation 2 images to Trusted Launch, which hides the availability set option.
 
    > [!NOTE]
    > Use **Standard D2s v5** first. If the size is unavailable or Azure lacks capacity in the selected region, use **Standard D2s v6**. If that size is also unavailable, use **Standard D2s v7**.
@@ -212,12 +221,13 @@ The main tasks for this exercise are to:
 
    > **Note**: Wait for the installation to complete. This might take about 3 minutes.
 
-1. To configure the data disk, at the Windows PowerShell prompt, run the following commands:
+1. To configure the data disk, at the Windows PowerShell prompt, paste the following command, and then press Enter:
 
    ```powershell
-   Get-Disk | Where PartitionStyle -eq 'RAW' |  Initialize-Disk -PartitionStyle MBR
-   New-Partition -DiskNumber 2 -UseMaximumSize -AssignDriveLetter
-   Format-Volume -DriveLetter F -FileSystem NTFS
+      Get-Disk | Where-Object PartitionStyle -eq 'RAW' |
+         Initialize-Disk -PartitionStyle GPT -PassThru |
+         New-Partition -UseMaximumSize -DriveLetter F |
+         Format-Volume -FileSystem NTFS -Confirm:$false
    ```
 
 1. Within the Remote Desktop session to **az801l06a-dc2**, switch to the **Server Manager** window.

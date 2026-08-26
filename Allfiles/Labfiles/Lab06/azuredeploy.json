@@ -45,7 +45,7 @@
     },
     "_artifactsLocation": {
       "type": "string",
-      "defaultValue": "https://raw.githubusercontent.com/MicrosoftLearning/AZ-801-Configuring-Windows-Server-Hybrid-Advanced-Services/master/Allfiles/Labfiles/Lab06/",
+      "defaultValue": "https://raw.githubusercontent.com/Rob-Barefoot/AZ-801-Configuring-Windows-Server-Hybrid-Advanced-Services/vm-version-updates/Allfiles/Labfiles/Lab06/",
       "metadata": {
         "description": "The location of resources, such as templates and DSC modules, that the template depends on"
       }
@@ -151,7 +151,7 @@
     },
     "availabilitySetName": {
       "type": "string",
-      "defaultValue": "adAvailabiltySet",
+      "defaultValue": "adAvailabilitySet",
       "metadata": {
         "description": "Availability set name."
       }
