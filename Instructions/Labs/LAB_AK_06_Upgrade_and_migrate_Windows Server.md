@@ -69,7 +69,7 @@ This exercise should take approximately **60** minutes to complete. <!-- update 
    | Admin Password | **Pa55w.rd1234** |
    | Domain name | **contoso.com** |
    | Vm Size | **Standard_D2s_v5** |
-   | _artifacts Location | **`https://raw.githubusercontent.com/Rob-Barefoot/AZ-801-Configuring-Windows-Server-Hybrid-Advanced-Services/vm-version-updates/Allfiles/Labfiles/Lab06/`** |
+   | _artifacts Location | **`https://raw.githubusercontent.com/MicrosoftLearning/AZ-801-Configuring-Windows-Server-Hybrid-Advanced-Services/master/Allfiles/Labfiles/Lab06/`** |
    | Virtual Machine Name | **az801l06a-dc1** |
    | Virtual Network Name | **az801l06a-vnet** |
    | Virtual Network Address Range | **10.6.0.0/16** |

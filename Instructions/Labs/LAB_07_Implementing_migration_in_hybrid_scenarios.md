@@ -84,7 +84,7 @@ The main tasks for this exercise are as follows:
    | Host Virtual Machine Size | **Standard_D4s_v5** |
    | Host Admin Username | **Student** |
    | Host Admin Password | **Pa55w.rd1234** |
-   | _artifacts Location | **`https://raw.githubusercontent.com/Rob-Barefoot/AZ-801-Configuring-Windows-Server-Hybrid-Advanced-Services/vm-version-updates/Allfiles/Labfiles/Lab07/`** |
+   | _artifacts Location | **`https://raw.githubusercontent.com/MicrosoftLearning/AZ-801-Configuring-Windows-Server-Hybrid-Advanced-Services/master/Allfiles/Labfiles/Lab07/`** |
 
    > [!NOTE]
    > Keep the D4s capacity required by the nested Hyper-V host. Use **Standard_D4s_v5** first. If the deployment fails because the size is unavailable or Azure lacks capacity, select **Standard_D4s_v6** and redeploy to the same resource group. If necessary, retry with **Standard_D4s_v7**. If a retry fails because an existing or partially deployed resource causes a conflict, delete **AZ801-L0701-RG**. Restart Task 1 from **Deploy a custom template**, reload **C:\Labfiles\Lab07\azuredeploy.json**, verify **_artifacts Location**, recreate **AZ801-L0701-RG**, and deploy again with the selected VM size.
