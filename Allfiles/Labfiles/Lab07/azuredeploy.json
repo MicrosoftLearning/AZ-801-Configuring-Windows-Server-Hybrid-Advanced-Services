@@ -8,7 +8,7 @@
   "parameters": {
     "_artifactsLocation": {
       "type": "string",
-      "defaultValue": "https://raw.githubusercontent.com/Rob-Barefoot/AZ-801-Configuring-Windows-Server-Hybrid-Advanced-Services/vm-version-updates/Allfiles/Labfiles/Lab07/",
+      "defaultValue": "https://raw.githubusercontent.com/MicrosoftLearning/AZ-801-Configuring-Windows-Server-Hybrid-Advanced-Services/master/Allfiles/Labfiles/Lab07/",
       "metadata": {
         "description": "The base URI where artifacts required by this template are located including a trailing '/'"
       }
