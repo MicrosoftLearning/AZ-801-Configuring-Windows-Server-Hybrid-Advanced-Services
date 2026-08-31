@@ -60,15 +60,17 @@ For this lab, you'll use the available VM environment and an Azure subscription.
 
 The main tasks for this exercise are as follows:
 
-1. Deploy an Azure VM by using an Azure Resource Manager QuickStart template.
+1. Deploy an Azure VM by using an Azure Resource Manager template.
 1. Deploy Azure Bastion.
 1. Deploy a nested VM in the Azure VM.
 
-#### Task 1: Deploy an Azure VM by using an Azure Resource Manager QuickStart template
+#### Task 1: Deploy an Azure VM by using an Azure Resource Manager template
 
-1. On **SEA-SVR2**, start Microsoft Edge, browse to the [301-nested-vms-in-virtual-network Azure QuickStart template](https://github.com/az140mp/azure-quickstart-templates/tree/master/demos/nested-vms-in-virtual-network) and select **Deploy to Azure**. (You find the button **Deploy to Azure** in the `README.md` file after the list of resources created by the template.)
-1. When prompted, in the Azure portal, sign in by using the credentials of a user account with the Owner role in the subscription you'll be using in this lab.
-1. On the **Hyper-V Host Virtual Machine with nested VMs** page in the Azure portal, perform a deployment with the following settings (leave others with their default values):
+1. On **SEA-SVR2**, start Microsoft Edge, go to the Azure portal at `https://portal.azure.com/`, and sign in by using the credentials of a user account with the Owner role in the subscription you'll be using in this lab.
+1. In the Azure portal search box, enter **Deploy a custom template**, and then select **Deploy a custom template** from the results.
+1. On the **Custom deployment** page, select **Build your own template in the editor**.
+1. On the **Edit template** page, select **Load file**, load **C:\Labfiles\Lab07\azuredeploy.json**, and then select **Save**.
+1. On the **Custom deployment** page, perform a deployment with the following settings (leave others with their default values):
 
    | Setting | Value | 
    | --- | --- |
@@ -79,8 +81,13 @@ The main tasks for this exercise are as follows:
    | Host Network Interface1Name | **az801l07a-hv-vm-nic1** |
    | Host Network Interface2Name | **az801l07a-hv-vm-nic2** |
    | Host Virtual Machine Name | **az801l07a-hv-vm** |
+   | Host Virtual Machine Size | **Standard_D4s_v5** |
    | Host Admin Username | **Student** |
    | Host Admin Password | **Pa55w.rd1234** |
+   | _artifacts Location | **`https://raw.githubusercontent.com/MicrosoftLearning/AZ-801-Configuring-Windows-Server-Hybrid-Advanced-Services/master/Allfiles/Labfiles/Lab07/`** |
+
+   > [!NOTE]
+   > Keep the D4s capacity required by the nested Hyper-V host. Use **Standard_D4s_v5** first. If the deployment fails because the size is unavailable or Azure lacks capacity, select **Standard_D4s_v6** and redeploy to the same resource group. If necessary, retry with **Standard_D4s_v7**. If a retry fails because an existing or partially deployed resource causes a conflict, delete **AZ801-L0701-RG**. Restart Task 1 from **Deploy a custom template**, reload **C:\Labfiles\Lab07\azuredeploy.json**, verify **_artifacts Location**, recreate **AZ801-L0701-RG**, and deploy again with the selected VM size.
 
    > **Note**: Wait for the deployment to complete. The deployment might take about 10 minutes.
 
@@ -338,47 +345,59 @@ The main tasks for this exercise are as follows:
 
 #### Task 1: Prepare for migration of Hyper-V VMs
 
-1. Within the Remote Desktop session to **az801l07a-hv-vm**, in the browser window displaying the Azure portal, browse back to the **Azure Migrate | Servers, databases and web apps** page. 
-1. On the **Azure Migrate | Servers, databases and web apps** page, in the **Migration and modernization** section, select the **Discover** link. 
-1. On the **Discover** page, create resources by specifying the following settings (leave others with their default values):
+1. Within the Remote Desktop session to **az801l07a-hv-vm**, in the browser window displaying the Azure portal, browse back to the **Azure Migrate | az801l07a-migrate-project** page.
+1. Under **Execute** on the left menu, select **Migrations**, and then select **Start execution**.
+1. On the **Specify intent** page, specify the following settings:
 
    | Setting | Value | 
    | --- | --- |
-   | Are your machines virtualized? | **Yes, with Hyper-V** |
+   | What do you want to migrate? | **Servers or virtual machines (VMs)** |
+   | Where do you want to migrate to? | **Azure VM** |
+   | How will you select workloads? | **From replication provider (Hyper-V)** |
+
+   > [!NOTE]
+   > This provider registration is separate from the Azure Migrate appliance registration that you completed in Exercise 3. You must install the replication provider on **az801l07a-hv-vm**, which is the Hyper-V host, before Azure Migrate can replicate its virtual machines.
+
+1. A message indicates that no Hyper-V hosts are registered with the project. In that message, select the link to set up the replication provider.
+1. On the provider setup page, specify the following settings, and then select **Create resources**:
+
+   | Setting | Value |
+   | --- | --- |
    | Target region | the name of the Azure region you are using in this lab | 
    | Confirm the target region for migration | selected |
 
    >**Note**: This step automatically triggers the provisioning of an Azure Site Recovery vault.
 
-1. On the **Discover** page, in step **1. Prepare Hyper-V host servers**, select the first **Download** link (not the **Download** button), in order to download the Hyper-V replication provider software installer.
+1. In **Prepare Hyper-V host servers**, select the **Download the Hyper-V replication provider** link to download the `AzureSiteRecoveryProvider.exe` software installer.
+
+   ![The Prepare Hyper-V host servers section with arrows identifying the replication provider link and registration key Download button.](media/lab07-download-provider-setup.png)
 
    > **Note:** If you receive a browser notification that says **AzureSiteRecoveryProvider.exe can't be downloaded securely**, display the context-sensitive menu of the **Download** link and then, in the menu, select **Copy link**. Open another tab in the same browser window, paste the link you copied, and then press Enter.
 
-1. Use the downloaded file to install the **Azure Site Recovery Provider** with the default settings.
-1. During the installation, switch to the Azure portal and then, on the **Discover machines** page, in step 1 of the procedure for preparing on-premises Hyper-V hosts, select the **Download** button in order to download the vault registration key and use it to register the **Azure Site Recovery Provider**.
-1. Refresh the browser window displaying the **Discover** page. 
-1. On the **Azure Migrate | Servers, databases and web apps** page, in the **Migration and modernization** section, select the **Discover** link. 
-1. On the **Discover** page, finalize registration.
+1. In the same section, select the blue **Download** button to download the `.VaultCredentials` registration key file. You need both downloaded files to register the Hyper-V host.
+1. Run `AzureSiteRecoveryProvider.exe` and install the **Azure Site Recovery Provider**. When installation completes, select **Register**, not **Finish**. This starts the **Microsoft Azure Site Recovery Registration Wizard**.
+1. In the registration wizard, use the downloaded `.VaultCredentials` file to register the Hyper-V host. Select **Finish** only after the registration wizard completes.
+1. Return to the provider setup page in the Azure portal, and then select **Finalize registration**.
 
    >**Note**: It might take up to 15 minutes for the discovery of virtual machines to complete.
 
 #### Task 2: Configure replication of Hyper-V VMs
 
-1. Once you receive the confirmation that the registration was finalized, browse back to the **Azure Migrate | Servers, databases and web apps** page, in the **Migration and modernization** section, select the **Replicate** link. 
+1. Once you receive confirmation that registration is finalized, browse back to the **Azure Migrate | az801l07a-migrate-project** page.
+1. Under **Execute** on the left menu, select **Migrations**, and then select **Start execution**.
+1. On the **Specify intent** page, specify the following settings, and then select **Continue**:
 
-   >**Note**: You might have to refresh the browser page displaying the **Azure Migrate | Servers, databases and web apps** page.
-
-1. On the **Replicate** page, in the **Are your machines virtualized?** drop-down list, select **Yes, with Hyper-V**.
-1. On the **Virtual machines** tab of the **Replicate** page, specify the following settings (leave others with their default values):
-
-   | Setting | Value | 
+   | Setting | Value |
    | --- | --- |
-   | Import migration settings from an Azure Migrate assessment | **Yes, apply migration settings from an Azure Migrate assessment** |
-   | Select group | **az801l07a-assessment-group** |
-   | Select assessment | **az801l07a-assessment** |
-   | Virtual machines | **az801l07a-vm1** |
+   | What do you want to migrate? | **Servers or virtual machines (VMs)** |
+   | Where do you want to migrate to? | **Azure VM** |
+   | How will you select workloads? | **From an assessment** |
+   | Assessment | **az801l07a-assessment** |
+   | Discovery method | **az801l07a-vma1** |
 
-1. On the **Target settings** tab of the **Replicate** page, specify the following settings (leave others with their default values):
+1. On the **Workloads** page, select the checkbox next to **az801l07a-vm1**, and then select **Next**.
+
+1. On the **Target settings** page, specify the following settings (leave others with their default values):
 
    | Setting | Value | 
    | --- | --- |
@@ -387,17 +406,28 @@ The main tasks for this exercise are as follows:
    | Replication Storage Account | the name of the storage account you created earlier in this lab | 
    | Virtual Network | **az801l07a-migration-vnet** |
    | Subnet | **subnet0** |
+   | Secure Boot | **Disabled** |
 
-1. On the **Compute** tab of the **Replicate** page, ensure that the **Standard_D2s_v3** is selected in the **Azure VM Size** drop-down list. In the **OS Type** drop-down list, select **Windows**.
-1. To monitor the status of replication, back on the **Azure Migrate | Servers, databases and web apps** page, select **Refresh** and then, in the **Migration and modernization** section, select the **Replicating servers** entry. On the **Migration and modernization | Replicating machines** page, examine the **Status** column in the list of the replicating machines. 
-1. Wait until the status changes to **Protected**. This might take an additional 15 minutes.
+1. On the **Compute** tab of the **Execute migration** page, ensure that **Standard_D2s_v5** is selected in the **Azure VM Size** drop-down list. In the **OS Type** drop-down list, select **Windows**, and then select **Next**.
 
-   >**Note**: You will need to refresh the **Migration and modernization | Replicating machines** to update the **Status** information.
+   > [!NOTE]
+   > Use **Standard_D2s_v5** first. If the size is unavailable or Azure lacks capacity in the target region, use **Standard_D2s_v6**. If that size is also unavailable, use **Standard_D2s_v7**.
+
+1. On the **Disks** tab of the **Execute migration** page, accept the default settings, and then select **Next**.
+1. On the **Tags** tab of the **Execute migration** page, accept the default settings, and then select **Next**.
+1. On the **Review + Start execution** tab of the **Execute migration** page, review the settings, and then select **Execute migration**.
+1. To monitor the initial replication, return to **Execute** > **Migrations**, and then select **View by workloads** if that view isn't already displayed.
+1. Locate **az801l07a-vm1** and review its **Execution stage** and **Execution status**. During initial replication, the execution stage is **Preparation**.
+1. Select **az801l07a-vm1** in the **Workload** column and verify that **Migration status** is **Healthy**. Review any issues listed on this page before continuing.
+1. Wait until the execution stage changes to **Testing**. This indicates that initial replication is complete and delta replication is in progress. This might take an additional 15 minutes.
+
+   >**Note**: Refresh the **Migrations** page periodically to update the execution stage and status.
 
 #### Task 3: Perform migration of Hyper-V VMs
 
-1. In the Azure portal, on the **Migration and modernization | Replicating machines** page, select the entry representing the **az801l07a-vm1** virtual machine.
-1. From the **az801l07a-vm1** page, initiate **Test migration** using the **az801l07a-test-vnet** virtual network as the target.
+1. On the **Execute** > **Migrations** page, select **az801l07a-vm1** in the **Workload** column.
+1. On the **az801l07a-vm1** page, select **Test migration**.
+1. On the **Test migration** page, select **az801l07a-test-vnet** as the target virtual network, and then select **Test migration**.
 
    >**Note**: Wait for the test migration to complete. This might take about 5 minutes.
 
@@ -405,14 +435,13 @@ The main tasks for this exercise are as follows:
 
    > **Note:** Initially, the virtual machine will have the name consisting of the **asr-** prefix and randomly generated suffix, but will be renamed eventually to **az801l07a-vm1-test**.
 
-1. In the Azure portal, browse back to the **Migration and modernization | Replicating machines** page, select **Refresh**, and then verify that the **az801l07a-vm1** virtual machine is listed with the **Cleanup test failover pending** status.
-1. On the **Migration and modernization | Replicating machines** page, go to the **az801l07a-vm1** replicating machines page, and then trigger the **Clean up test migration** action, specifying **Testing is complete. Delete test virtual machine**.
-1. Once the test failover cleanup job completes, refresh the browser page displaying the **az801l07a-vm1** replicating machines page and note that the **Migrate** icon in the toolbar automatically becomes available.
-1. On the **az801l07a-vm1** replicating machines page, trigger the **Migrate** action. 
-1. On the **Migrate** page, ensure that the **Shutdown machines before migration to minimize data loss?** option is selected.
-1. To monitor the status of migration, browse back to the **Azure Migrate | Servers, databases and web apps** page. In the **Migration and modernization** section, select the **Replicating servers** entry and then, on the **Migration and modernization | Replicating machines** page, examine the **Status** column in the list of the replicating machines. Verify that the status displays the **Planned failover finished** status.
+1. Return to **Execute** > **Migrations**, and then select **az801l07a-vm1** in the **Workload** column.
+1. On the **az801l07a-vm1** page, select **Clean up test migration** from the menu bar. Specify **Testing is complete. Delete test virtual machine**.
+1. After the test migration cleanup completes, select **Migrate** from the menu bar on the **az801l07a-vm1** page.
+1. On the **Migrate** page, select **Yes** for **Shut down virtual machines and perform a planned migration with no data loss**, and then select **Migrate**.
+1. To monitor the migration, return to **Execute** > **Migrations** and review the **Execution stage** and **Execution status** for **az801l07a-vm1**. The workload is tracked in the **Completion** stage after migration.
 
-   >**Note**: Migration is supposed to be a non-reversible action. If you want to see the completed information, browse back to the **Azure Migrate | Servers, databases and web apps** page, refresh the page, and then verify that the **Migrated Servers** entry in the **Migration and modernization** section has the value of **1**.
+   >**Note**: Select **az801l07a-vm1** in the **Workload** column to review **Migration status** and any reported issues.
 
 #### Task 4: Remove Azure resources deployed in the lab
 
@@ -423,12 +452,24 @@ The main tasks for this exercise are as follows:
    Get-AzResourceGroup -Name 'AZ801-L070*'
    ```
 
-   > **Note**: Verify that the output contains only the resource group you created in this lab. This group will be deleted in this task.
+   > **Note**: Verify that the output contains only the resource groups you created in this lab. These groups will be deleted in this task.
 
-1. From the **Cloud Shell** pane, run the following to delete the resource group you created in this lab:
+1. Run the following command to display the resource locks created during the migration:
+
+   ```powershell
+   Get-AzResourceLock -ResourceGroupName 'AZ801-L0703-RG'
+   ```
+
+1. Run the following command to remove the locks created by Azure Site Recovery:
+
+   ```powershell
+   Get-AzResourceLock -ResourceGroupName 'AZ801-L0703-RG' | Where-Object Notes -like '*Azure Site Recovery*' | Remove-AzResourceLock -Force
+   ```
+
+1. From the **Cloud Shell** pane, run the following to delete the resource groups you created in this lab:
 
    ```powershell
    Get-AzResourceGroup -Name 'AZ801-L070*' | Remove-AzResourceGroup -Force -AsJob
    ```
 
-   > **Note:** The command executes asynchronously (as determined by the *-AsJob* parameter), so while you will be able to run another PowerShell command immediately after within the same PowerShell session, it will take a few minutes before the resource groups are actually removed.
+   > **Note:** The `-Force` parameter suppresses confirmation prompts but doesn't override resource locks. The command executes asynchronously (as determined by the `-AsJob` parameter), so while you will be able to run another PowerShell command immediately after within the same PowerShell session, it will take a few minutes before the resource groups are actually removed.

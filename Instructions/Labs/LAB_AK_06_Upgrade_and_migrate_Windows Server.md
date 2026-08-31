@@ -25,40 +25,40 @@ This exercise should take approximately **60** minutes to complete. <!-- update 
 #### Task 1: Deploy a domain controller by using an Azure Resource Manager (ARM) template
 
 1. Connect to **SEA-SVR2**, and then, if needed, sign in with the credentials provided by the instructor.
-1. On **SEA-SVR2**, start Microsoft Edge, and access a customized version of the QuickStart template at **[Create a new Windows VM and create a new AD Forest, Domain and DC](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain)**. 
-1. On the **Create a new Windows VM and create a new AD Forest, Domain and DC** page, select **Deploy to Azure**. This will automatically redirect the browser to the **Create an Azure VM with a new AD Forest** page in the Azure portal.
-1. On the **Create an Azure VM with a new AD Forest** page, select **Edit template**.
-1. On the **Edit template** page, browse to the **storageProfile** section (starting with the line **195**) and verify that the **sku** (on line **199**) is set to **2022-Datacenter**, that the **version** (on line **200**) is set to **latest** and that **dataDisks** **caching** (on line **213**) is set to **None**.
+1. On **SEA-SVR2**, start Microsoft Edge, go to the Azure portal at `https://portal.azure.com/`, and sign in by using the credentials of a user account with the Owner role in the subscription you'll be using in this lab.
+1. In the Azure portal search box, enter **Deploy a custom template**, and then select **Deploy a custom template** from the results.
+1. On the **Custom deployment** page, select **Build your own template in the editor**.
+1. On the **Edit template** page, select **Load file**, load **C:\Labfiles\Lab06\azuredeploy.json**, and then review the template.
+1. Browse to the **storageProfile** section and verify that the image **sku** is set to **2022-datacenter-g2**, **version** is set to **latest**, and **dataDisks** **caching** is set to **None**.
 
    > **Note**: Caching on the disks hosting AD DS database and log files should be set to **None**.
 
-1. On the **Edit template** page, browse to the **extension** section (starting with the line **233**) and note that the template uses PowerShell Desired State Configuration to run the **CreateADPDC.ps1** script within the deployed Azure virtual machine (VM).
+1. On the **Edit template** page, browse to the **extension** section and note that the template uses PowerShell Desired State Configuration to run the **CreateADPDC.ps1** script within the deployed Azure virtual machine (VM).
 
    > **Note**: To review the script, you can use the following steps:
 
-   1. On **SEA-SVR2**, open another tab in the Microsoft Edge window, and again access the customized version of QuickStart template at **[Create a new Windows VM and create a new AD Forest, Domain and DC](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain)**.
-   1. On the **Create a new Windows VM and create a new AD Forest, Domain and DC** page, in the listing of the repository content, select the **DSC** folder, and then select **CreateADPDC.ps1** file.
-   1. On the **azure-quickstart-templates/application-workloads/active-directory/active-directory-new-domain/DSC/CreateADPDC.ps1** page, review the content of the script and note that it installs a number of server roles, including Active Directory Domain Services and DNS, placing the NTDS database and logs, as well as the SYSOVL share on drive **F**. 
+   1. On **SEA-SVR2**, open another tab in the Microsoft Edge window, and go to the [CreateADPDC.ps1 file](https://github.com/MicrosoftLearning/AZ-801-Configuring-Windows-Server-Hybrid-Advanced-Services/blob/master/Allfiles/Labfiles/Lab06/DSC/CreateADPDC.ps1).
+   1. Review the script and note that it installs a number of server roles, including Active Directory Domain Services and DNS, placing the NTDS database and logs, as well as the SYSVOL share on drive **F**.
    1. Close the Microsoft Edge tab and switch back to the one displaying the **Edit template** page in the Azure portal.
 
-1. On the **Edit template** page, browse to the section that provisions an availability set (starting with the line **110**) and note that the template creates an availability set and deploys the VM into it (as indicated by the **dependsOn** element on line **181**).
+1. On the **Edit template** page, browse to the section that provisions an availability set and note that the template creates an availability set and deploys the VM into it.
 
    > **Note**: Later in this exercise, you will deploy another Azure VM into the same availability set and configure it as an additional domain controller in the same domain. The use of an availability set provides additional resiliency.
 
-1. Browse to the section that provisions the network interface of the Azure VM (starting with the line **110**) and note that the private IP address allocation method is set to **Static** (on line **164**).
+1. Browse to the section that provisions the network interface of the Azure VM and note that the private IP address allocation method is set to **Static**.
 
    > **Note**: Using the static assignment is common when deploying domain controllers, but it is essential for servers that host the DNS server role.
 
-1. Browse to the section that deploys a nested template(starting with line **266**) and note that the template updates the DNS server address within the virtual network hosting the Azure VM operating as a domain controller with the DNS server role installed.
+1. Browse to the section that deploys a nested template and note that the template updates the DNS server address within the virtual network hosting the Azure VM operating as a domain controller with the DNS server role installed.
 
    > **Note**: Configuring the custom DNS server virtual network setting that points to the Azure VM running the domain controller with the DNS server role ensures that any Azure VM subsequently deployed into the same virtual network will automatically use that DNS server for name resolution, effectively providing the domain join functionality.
 
-1. On the **Edit template** page, select **Discard**.
-1. Back on the **Create an Azure VM with a new AD Forest** page, select **Edit parameters**.
-1. On the **Edit parameters** page, select **Load file**, in the **File Upload** dialog box, browse to the **C:\\Labfiles\\Lab06** folder, select the **L06-rg_template.parameters.json** file, and then select **Open**.
 1. On the **Edit template** page, select **Save**.
-1. Back on the **Create an Azure VM with a new AD Forest** page, below the **Resource group** drop-down list, select **Create new**, in the **Name** text box, enter **AZ801-L0601-RG**, and then select **OK**.
-1. On the **Create an Azure VM with a new AD Forest** page, if needed, adjust the deployment settings so they have the following values (leave others with their default values):
+1. Back on the **Custom deployment** page, select **Edit parameters**.
+1. On the **Edit parameters** page, select **Load file**, in the **File Upload** dialog box, browse to the **C:\\Labfiles\\Lab06** folder, select the **L06-rg_template.parameters.json** file, and then select **Open**.
+1. On the **Edit parameters** page, select **Save**.
+1. Back on the **Custom deployment** page, below the **Resource group** drop-down list, select **Create new**, in the **Name** text box, enter **AZ801-L0601-RG**, and then select **OK**.
+1. On the **Custom deployment** page, if needed, adjust the deployment settings so they have the following values (leave others with their default values):
 
    | Setting | Value | 
    | --- | --- |
@@ -68,8 +68,8 @@ This exercise should take approximately **60** minutes to complete. <!-- update 
    | Admin Username | **Student** |
    | Admin Password | **Pa55w.rd1234** |
    | Domain name | **contoso.com** |
-   | Vm Size | **Standard_D2s_v3** |
-   | _artifacts Location | **`https://raw.githubusercontent.com/az140mp/azure-quickstart-templates/master/application-workloads/active-directory/active-directory-new-domain/`** |
+   | Vm Size | **Standard_D2s_v5** |
+   | _artifacts Location | **`https://raw.githubusercontent.com/MicrosoftLearning/AZ-801-Configuring-Windows-Server-Hybrid-Advanced-Services/master/Allfiles/Labfiles/Lab06/`** |
    | Virtual Machine Name | **az801l06a-dc1** |
    | Virtual Network Name | **az801l06a-vnet** |
    | Virtual Network Address Range | **10.6.0.0/16** |
@@ -79,7 +79,10 @@ This exercise should take approximately **60** minutes to complete. <!-- update 
    | Subnet Range | **10.6.0.0/24** |
    | Availability Set Name | **adAvailabilitySet** |
 
-1. On the **Create an Azure VM with a new AD Forest** page, select **Review + create**, and then select **Create**.
+   > [!NOTE]
+   > Use **Standard_D2s_v5** first. If the deployment fails because the size is unavailable or Azure lacks capacity, select **Standard_D2s_v6** and redeploy to the same resource group. If necessary, retry with **Standard_D2s_v7**. If a retry fails because an existing or partially deployed resource causes a conflict, delete **AZ801-L0601-RG**. Restart Task 1 from **Deploy a custom template**, reload **C:\Labfiles\Lab06\azuredeploy.json** and the parameter file, recreate **AZ801-L0601-RG**, and deploy again with the selected VM size.
+
+1. On the **Custom deployment** page, select **Review + create**, and then select **Create**.
 
    > **Note**: Wait for the deployment to complete before you proceed to the next task. This might take about 15 minutes. 
 
@@ -132,21 +135,33 @@ This exercise should take approximately **60** minutes to complete. <!-- update 
 1. On the **Virtual machines** page, select **+ Create**, and then, in the drop-down menu, select **Azure virtual machine**.
 1. On the **Basics** tab of the **Create a virtual machine** blade, specify the following settings (leave others with their default values):
 
+   > [!NOTE]
+   > If the **Create a virtual machine** page displays the preview experience, select **Click here to access the previous experience** in the banner. The preview experience doesn't currently include the availability set options required for this task.
+
+   ![Preview Create VM experience banner showing the link to return to the previous experience.](media/lab06-create-vm-previous-experience.png)
+
    | Setting | Value |
    | --- | --- |
    | Subscription | the name of the Azure subscription you are using in this lab |
    | Resource group | select the existing resource group **AZ801-L0601-RG** |
    | Virtual machine name | **az801l06a-dc2** |
    | Region | select the same Azure region into which you deployed the first virtual machine earlier in this exercise |
+   | Security type | **Standard** |
    | Availability options | **Availability set** |
    | Availability set | **adAvailabilitySet** |
    | Image | **Windows Server 2022 Datacenter: Azure Edition - Gen2** |
    | Run with Azure Spot discount | **No** |
-   | Size | **Standard D2s v3** |
+   | Size | **Standard D2s v5** |
    | Username | **Student** |
    | Password | **Pa55w.rd1234** |
    | Public inbound ports | **None** |
    | Would you like to use an existing Windows Server license? | **No** |
+
+   > [!NOTE]
+   > Select the image first, set **Security type** to **Standard**, and then return to **Availability options** and select **Availability set**. The portal defaults supported Generation 2 images to Trusted Launch, which hides the availability set option.
+
+   > [!NOTE]
+   > Use **Standard D2s v5** first. If the size is unavailable or Azure lacks capacity in the selected region, use **Standard D2s v6**. If that size is also unavailable, use **Standard D2s v7**.
 
 1. Select **Next: Disks >**, and then, on the **Disks** tab of the **Create a virtual machine** blade, specify the following settings (leave others with their default values):
 
@@ -224,12 +239,13 @@ This exercise should take approximately **60** minutes to complete. <!-- update 
 
    > **Note**: Wait for the installation to complete. This might take about 3 minutes.
 
-1. To configure the data disk, at the Windows PowerShell prompt, enter the following commands, and after entering each command, press Enter:
+1. To configure the data disk, at the Windows PowerShell prompt, paste the following command, and then press Enter:
 
    ```powershell
-   Get-Disk | Where PartitionStyle -eq 'RAW' |  Initialize-Disk -PartitionStyle MBR
-   New-Partition -DiskNumber 2 -UseMaximumSize -AssignDriveLetter
-   Format-Volume -DriveLetter F -FileSystem NTFS
+      Get-Disk | Where-Object PartitionStyle -eq 'RAW' |
+         Initialize-Disk -PartitionStyle GPT -PassThru |
+         New-Partition -UseMaximumSize -DriveLetter F |
+         Format-Volume -FileSystem NTFS -Confirm:$false
    ```
 
 1. Within the Remote Desktop session to **az801l06a-dc2**, switch to the **Server Manager** window.
