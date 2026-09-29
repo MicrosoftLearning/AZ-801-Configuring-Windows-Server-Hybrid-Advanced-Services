@@ -1,3 +1,5 @@
+**This course will be retired on 2026-9-30. Once course is retired, all GitHub repos will be removed. Thank you!**
+
 # AZ-801T00: Configuring Windows Server Hybrid Advanced Services
 
 - **[Download Latest Student Handbook and AllFiles Content](../../releases/latest)**
